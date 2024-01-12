@@ -36,23 +36,23 @@ export const ServiceCard = styled.div`
 
 export const OfferCard = styled.div`
   min-height: 200px;
-  width: 300px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
   border-radius: 10px;
   margin: 10px;
   background-color: white;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-  h3 {
-    margin-bottom: 20px;
-    margin-top: 20px;
+  div {
+    padding: 10px;
   }
 `
+
+
 
 export const OfferContainer = styled.div`
 `
@@ -81,4 +81,21 @@ export const OffersContainer = styled.div`
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: white;
+`
+
+export const CardContainer = styled.div`
+  width: 80%;
+  display: flex;
+  min-height: 400px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`
+
+export const Img = styled.img`
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `

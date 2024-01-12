@@ -30,6 +30,10 @@ export const Overlay = styled.div`
   @media (max-width: 900px) {
     top: 150px;
   }
+
+  h6 {
+    color: lightblue;
+  }
 `;
 
 export const QuoteBtn = styled.button`

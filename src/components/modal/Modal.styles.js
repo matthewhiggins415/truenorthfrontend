@@ -75,6 +75,7 @@ export const SubmitBtn = styled.button`
   border-radius: 15px;
 
   &:hover {
-    background-color: #ececec;
+    background-color: black;
+    color: white;
   }
 `
