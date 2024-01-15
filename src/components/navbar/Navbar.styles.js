@@ -10,12 +10,12 @@ export const NavbarContainer = styled.nav`
   padding: 25px;
   margin: 0 auto;
 
-  @media (max-width: 420px) {
-    /* Styles for screens up to 576px wide */
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 0px;
-    padding-right: 0px;
+  @media only screen and (max-width: 400px) {
+    flex-direction: column;
+
+    h3 {
+      margin-bottom: 15px;
+    }
   }
 `
 
@@ -23,7 +23,7 @@ export const AvailabilityContainer = styled.div`
   display: flex;
   align-items: center;
 
-  h3 {
+  p {
     margin-left: 10px;
   }
 `

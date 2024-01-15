@@ -8,7 +8,7 @@ const Navbar = () => {
       <h3>FireSafe Chimney Sweeping & Repairs</h3>
       <AvailabilityContainer>
         <CiClock2 size={30} />
-        <h3>Monday-Friday 8am-6pm</h3>
+        <p>Monday-Friday 8am-6pm</p>
       </AvailabilityContainer>
     </NavbarContainer>
   )
