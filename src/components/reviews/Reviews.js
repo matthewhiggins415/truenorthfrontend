@@ -19,7 +19,7 @@ const Reviews = () => {
               <FaStar size={25} />
             </StarContainer>
             <P>"{review.content}"</P>
-            <h3>-{review.name}</h3>
+            <h3>~ {review.name}</h3>
           </Review>
         ))}
       </ReviewContainer>

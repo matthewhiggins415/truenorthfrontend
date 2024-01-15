@@ -22,6 +22,11 @@ export const ReviewContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   margin-top: 50px;
+
+  h3 {
+    font-size: 18px;
+    letter-spacing: 1.2px;
+  }
 `
 
 export const Review  = styled.div`
