@@ -22,10 +22,15 @@ export const ReviewContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   margin-top: 50px;
+  flex-wrap: wrap;
 
   h3 {
     font-size: 18px;
     letter-spacing: 1.2px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    margin-top: 5px;
   }
 `
 
@@ -36,6 +41,10 @@ export const Review  = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 400px) {
+    margin-top: 25px;
+  } 
 `
 
 export const Img = styled.img`

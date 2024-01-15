@@ -7,6 +7,10 @@ export const HeroContainer = styled.div`
   align-items: center;
   margin: 0px;
   border: 1px solid black;
+
+  @media only screen and (max-width: 400px) {
+    height: 80vh;
+  }
 `
 
 export const Overlay = styled.div`
@@ -29,6 +33,15 @@ export const Overlay = styled.div`
 
   @media (max-width: 900px) {
     top: 150px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    top: 100px;
+    height: 70%;
+
+    h6 {
+      display: none;
+    }
   }
 
   h6 {

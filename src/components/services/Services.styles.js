@@ -65,6 +65,7 @@ export const OfferTopContainer = styled.div`
   padding-top: 40px;
   padding-bottom: 10px;
   border-bottom: none;
+  text-align: center;
 
   h2 {
     padding-bottom: 7px;
