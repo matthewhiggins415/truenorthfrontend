@@ -4,7 +4,7 @@ import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputC
 const ontraport_API_ID = process.env.REACT_APP_API_ID;
 const ontraport_API_KEY = process.env.REACT_APP_API_KEY;
 
-const Modal = ({ modalOpen, setModalOpen }) => {
+const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const [formData, setFormData] = useState({
     firstName: '', 
     lastName: '',
@@ -14,7 +14,8 @@ const Modal = ({ modalOpen, setModalOpen }) => {
     roofType: '', 
     address: '',
     city: '',
-    zip: ''
+    zip: '',
+    leadSource: 'firesafechimneycare.com'
   })
 
   const clearForm = () => {
@@ -55,6 +56,12 @@ const Modal = ({ modalOpen, setModalOpen }) => {
     const payload = formData
     const res = await axios.post(ontraportUrl, payload, headers)
     console.log(res)
+    
+    if (res.status === 200) {
+      notify('thank you for your info')
+      setModalOpen(!modalOpen)
+      clearForm()
+    }
   }
 
   return (

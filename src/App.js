@@ -1,5 +1,7 @@
+import React from 'react';
 import Landing from "./screens/landing/Landing";
-require('./App.css')
+import './App.css'; // Moved the CSS import to the top
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
