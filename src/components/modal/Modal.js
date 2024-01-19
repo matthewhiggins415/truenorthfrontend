@@ -59,8 +59,9 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     
     if (res.status === 200) {
       notify('thank you for your info')
-      setModalOpen(!modalOpen)
-      clearForm()
+      handleCloseModal()
+    } else {
+      notify('something went wrong', 'danger')
     }
   }
 
