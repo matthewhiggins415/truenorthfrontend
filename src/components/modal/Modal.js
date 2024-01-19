@@ -50,8 +50,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     const ontraportUrl = 'https://api.ontraport.com/1/objects'
     const headers = {
       'Content-Type': 'application/json',
-      'Api-Key': ontraport_API_ID,
-      'Api-Appid': ontraport_API_KEY
+      'Api-Key': ontraport_API_KEY,
+      'Api-Appid': ontraport_API_ID
     }
     const payload = formData
     const res = await axios.post(ontraportUrl, payload, headers)
