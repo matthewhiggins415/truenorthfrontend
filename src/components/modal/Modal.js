@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select } from './Modal.styles';
+const ontraport_API_ID = process.env.REACT_APP_API_ID;
+const ontraport_API_KEY = process.env.REACT_APP_API_KEY;
 
 const Modal = ({ modalOpen, setModalOpen }) => {
   const [formData, setFormData] = useState({
@@ -25,7 +27,8 @@ const Modal = ({ modalOpen, setModalOpen }) => {
       roofType: '', 
       address: '',
       city: '',
-      zip: ''
+      zip: '',
+      leadSource: 'firesafechimneycare.com'
     })
   }
 
@@ -46,8 +49,8 @@ const Modal = ({ modalOpen, setModalOpen }) => {
     const ontraportUrl = 'https://api.ontraport.com/1/objects'
     const headers = {
       'Content-Type': 'application/json',
-      'Api-Key': '***',
-      'Api-Appid': '***'
+      'Api-Key': ontraport_API_ID,
+      'Api-Appid': ontraport_API_KEY
     }
     const payload = formData
     const res = await axios.post(ontraportUrl, payload, headers)
