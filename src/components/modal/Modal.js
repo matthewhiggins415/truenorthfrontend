@@ -6,6 +6,7 @@ const ontraport_API_KEY = process.env.REACT_APP_API_KEY;
 
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const [formData, setFormData] = useState({
+    objectID: 0,
     firstName: '', 
     lastName: '',
     email: '',
@@ -20,6 +21,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
   const clearForm = () => {
     setFormData({
+      objectID: 0,
       firstName: '', 
       lastName: '',
       email: '',
@@ -47,14 +49,17 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const ontraportUrl = 'https://api.ontraport.com/1/objects'
+    const ontraportUrl = 'https://api.ontraport.com/1/objects';
+
     const headers = {
       'Content-Type': 'application/json',
       'Api-Key': ontraport_API_KEY,
       'Api-Appid': ontraport_API_ID
-    }
+    };
+
     const payload = formData
     const res = await axios.post(ontraportUrl, payload, headers)
+
     console.log(res)
     
     if (res.status === 200) {
