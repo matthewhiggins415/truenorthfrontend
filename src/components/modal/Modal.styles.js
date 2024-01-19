@@ -19,15 +19,6 @@ export const FormContainer = styled.div`
   height: 100%;
 `
 
-export const CloseBtn = styled.button`
-  position: relative;
-  top: -250px;
-  left: 450px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-`
-
 export const Form = styled.form`
   width: 400px;
   min-height: 480px;
@@ -40,6 +31,12 @@ export const Form = styled.form`
   background-color: white;
   border-radius: 15px;
   color: black;
+
+  h2 {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid lightblue;
+  }
 `
 
 export const InputContainer = styled.div`
@@ -47,6 +44,7 @@ export const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 `
 
 export const Input = styled.input`
@@ -54,6 +52,8 @@ export const Input = styled.input`
   border-radius: 15px;
   border: 1px solid black;
   width: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
 `
 
 export const Select = styled.select`
@@ -65,6 +65,7 @@ export const Select = styled.select`
 `
 
 export const SubmitBtn = styled.button`
+  width: 80%;
   border: 1px solid black;
   padding: 10px 50px;
   text-align: center;
@@ -77,5 +78,23 @@ export const SubmitBtn = styled.button`
   &:hover {
     background-color: black;
     color: white;
+  }
+`
+
+export const CloseBtn = styled.button`
+  width: 80%;
+  border: 1px solid black;
+  padding: 10px 50px;
+  text-align: center;
+  background-color: white;
+  transition: 150ms;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 15px;
+
+  &:hover {
+    background-color: red;
+    color: white;
+    border: 1px solid red;
   }
 `
