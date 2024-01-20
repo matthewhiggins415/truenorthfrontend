@@ -37,7 +37,7 @@ export const Overlay = styled.div`
   @media only screen and (max-width: 400px) {
     width: 100%;
     height: auto;
-    top: 150px;
+    top: 200px;
     align-items: center;
     justify-content: center;
 

@@ -21,6 +21,7 @@ export const NavbarContainer = styled.nav`
 
     h3 {
       margin-bottom: 15px;
+      text-align: center;
     }
   }
 `
