@@ -13,7 +13,7 @@ const Hero = ({ modalOpen, setModalOpen }) => {
         <h6>We are the best at chimneys!</h6>
         <h2>Chimney Services of San Diego</h2>
         <QuoteBtn onClick={handleModalOpen}>request a quote</QuoteBtn>
-        <h2>1-800-123-4567</h2>
+        <h2>1-805-637-9609</h2>
       </Overlay>
     </HeroContainer>
   )
