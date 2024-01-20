@@ -13,6 +13,9 @@ export const ReviewSectionContainer = styled.div`
     padding-bottom: 7px;
     border-bottom: 3px solid lightblue;
     margin-bottom: 10px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
   }
 `
 
@@ -41,6 +44,10 @@ export const Review  = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h3 {
+    font-family: 'Mulish', sans-serif;
+  }
 
   @media only screen and (max-width: 400px) {
     margin-top: 25px;

@@ -31,6 +31,13 @@ export const ServiceCard = styled.div`
   h3 {
     margin-bottom: 10px;
     margin-top: 10px;
+    letter-spacing: 1px;
+    font-size: 22px;
+  }
+
+  p {
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
   }
 `
 
@@ -50,6 +57,17 @@ export const OfferCard = styled.div`
   div {
     padding: 10px;
   }
+
+  p {
+    font-family: 'Mulish', sans-serif;
+    margin-top: 10px;
+    font-size: 18px;
+  } 
+
+  h3 {
+    letter-spacing: 1px;
+    font-size: 22px;
+  }
 `
 
 
@@ -63,7 +81,6 @@ export const OfferTopContainer = styled.div`
   justify-content: space-around;
   flex-direction: column;
   padding-top: 40px;
-  padding-bottom: 10px;
   border-bottom: none;
   text-align: center;
 
@@ -71,6 +88,9 @@ export const OfferTopContainer = styled.div`
     padding-bottom: 7px;
     border-bottom: 3px solid lightblue;
     margin-bottom: 10px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
   }
 `
 
@@ -79,7 +99,7 @@ export const OffersContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 40px;
   background-color: white;
 `

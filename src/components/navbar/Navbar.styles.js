@@ -10,6 +10,12 @@ export const NavbarContainer = styled.nav`
   padding: 25px;
   margin: 0 auto;
 
+  h3 {
+    font-family: 'Mulish', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
   @media only screen and (max-width: 400px) {
     flex-direction: column;
 

@@ -29,7 +29,6 @@ const Services = () => {
       <OfferContainer>
         <OfferTopContainer>
           <h2>What we offer</h2>
-          <h3>Reliable chimney services of the greater San Diego area </h3>
         </OfferTopContainer>
         <OffersContainer>
           <CardContainer>
@@ -37,7 +36,7 @@ const Services = () => {
             <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQksHGWXNolyQNf7-grLwsIhW1A6QsDPLpy9A&usqp=CAU"/>
             <div>
               <h3>Chimney Cleaning</h3>
-              <p>Immersive cleanings to ensure safety and chimney health</p>
+              <p>Immersive cleanings to ensure chimney health</p>
             </div>
           </OfferCard>
           <OfferCard>
@@ -71,7 +70,7 @@ const Services = () => {
           <OfferCard>
             <Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofAq-Q-7oRv4XF0vM97eyLlQL8HL81vahcleVNqpyCk2VoklsAvqj6T0UwjMVvH85TEc&usqp=CAU" />
             <div>
-              <h3>Wood Grate Installation</h3>
+              <h3>Grate Installation</h3>
               <p>Quick and reliable wood grate installations</p>
             </div>
           </OfferCard>
