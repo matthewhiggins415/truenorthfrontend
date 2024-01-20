@@ -54,6 +54,7 @@ export const Input = styled.input`
   width: 200px;
   padding-left: 10px;
   padding-right: 10px;
+  color: black;
 `
 
 export const Select = styled.select`
@@ -62,6 +63,7 @@ export const Select = styled.select`
   border: 1px solid black;
   width: 200px;
   padding: 10px;
+  color: black;
 `
 
 export const SubmitBtn = styled.button`
@@ -74,6 +76,7 @@ export const SubmitBtn = styled.button`
   cursor: pointer;
   margin-top: 20px;
   border-radius: 15px;
+  color: black;
 
   &:hover {
     background-color: black;
@@ -91,6 +94,7 @@ export const CloseBtn = styled.button`
   cursor: pointer;
   margin-top: 10px;
   border-radius: 15px;
+  color: black;
 
   &:hover {
     background-color: red;
