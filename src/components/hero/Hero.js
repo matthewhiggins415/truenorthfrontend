@@ -1,6 +1,5 @@
 import React from 'react';
-import { HeroContainer, Img, Overlay, QuoteBtn } from './Hero.styles';
-import home1 from '../../images/home1.jpg';
+import { HeroContainer, Overlay, QuoteBtn } from './Hero.styles';
 
 const Hero = ({ modalOpen, setModalOpen }) => {
   

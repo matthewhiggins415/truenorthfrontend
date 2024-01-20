@@ -8,9 +8,8 @@ export const HeroContainer = styled.div`
   margin: 0px;
   border: 1px solid black;
   background-image: url('https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=600');
-  background-size: cover; /* You can adjust this based on your preferences */
-  background-position: center; /* You can adjust this based on your preferences */
-  /* Add any other styles you need */
+  background-size: cover; 
+  background-position: center; 
 
   @media only screen and (max-width: 400px) {
     height: 80vh;
