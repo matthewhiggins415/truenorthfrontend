@@ -10,7 +10,6 @@ const Hero = ({ modalOpen, setModalOpen }) => {
 
   return (
     <HeroContainer>
-      <Img src={home1} />
       <Overlay>
         <h6>We are the best at chimneys!</h6>
         <h2>Chimney Services of San Diego</h2>

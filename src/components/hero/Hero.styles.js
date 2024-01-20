@@ -7,6 +7,10 @@ export const HeroContainer = styled.div`
   align-items: center;
   margin: 0px;
   border: 1px solid black;
+  background-image: url('https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=600');
+  background-size: cover; /* You can adjust this based on your preferences */
+  background-position: center; /* You can adjust this based on your preferences */
+  /* Add any other styles you need */
 
   @media only screen and (max-width: 400px) {
     height: 80vh;
@@ -24,16 +28,12 @@ export const Overlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 280px;
+  top: 150px;
   left: 0;
   width: 100%;
   height: 50%;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1; 
-
-  @media (max-width: 900px) {
-    top: 150px;
-  }
 
   @media only screen and (max-width: 400px) {
     width: 100%;
@@ -76,15 +76,4 @@ export const QuoteBtn = styled.button`
     color: black;
   }
 
-`
-
-export const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-
-  @media (max-width: 700px) {
-    object-fit: cover;
-    min-height: 500px;
-  }
 `
