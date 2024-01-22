@@ -49,26 +49,33 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const ontraportUrl = 'https://api.ontraport.com/1/objects';
 
+    const ontraportUrl = 'https://api.ontraport.com/1/objects';
+    const payload = formData;
     const headers = {
       'Content-Type': 'application/json',
       'Api-Key': ontraport_API_KEY,
       'Api-Appid': ontraport_API_ID
     };
 
-    const payload = formData
-    const res = await axios.post(ontraportUrl, payload, headers)
+    const makeRequest = async () => {
+      try {
+        const res = await axios.post(ontraportUrl, payload, headers)
+        console.log(res)
 
-    console.log(res)
-    
-    if (res.status === 200) {
-      notify('thank you for your info');
-      handleCloseModal();
-    } else {
-      notify('something went wrong', 'danger');
-      handleCloseModal();
+        if (res.status === 200) {
+          notify('thank you for your info');
+          handleCloseModal();
+        }
+
+      } catch(error) {
+        console.log(error)
+        notify('something went wrong', 'danger');
+        handleCloseModal();
+      }
     }
+
+    makeRequest();
   }
 
   return (
