@@ -49,9 +49,11 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     e.preventDefault();
 
     const ontraportUrl = 'https://api.ontraport.com/1/Contacts';
-    const payload = formData;
+    const payload = new URLSearchParams(formData);
+    const formDataString = payload.toString();
+
     const headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
       'Api-Key': `${process.env.REACT_APP_ONTRAPORT_API_KEY}`,
       'Api-Appid': `${process.env.REACT_APP_ONTRAPORT_API_ID}`
     };
@@ -60,7 +62,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
       try {
         const res = await axios.post(
           ontraportUrl, 
-          payload, 
+          formDataString, 
           {
             withCredentials: true,
             headers: headers 
