@@ -51,14 +51,22 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     const ontraportUrl = 'https://api.ontraport.com/1/Contacts';
     const payload = formData;
     const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Api-Key': `${process.env.REACT_APP_ONTRAPORT_API_KEY}`,
       'Api-Appid': `${process.env.REACT_APP_ONTRAPORT_API_ID}`
     };
 
     const makeRequest = async () => {
       try {
-        const res = await axios.post(ontraportUrl, payload, {headers: headers})
+        const res = await axios.post(
+          ontraportUrl, 
+          payload, 
+          {
+            withCredentials: true,
+            headers: headers 
+          }
+        );
+        
         console.log(res)
 
         if (res.status === 200) {
