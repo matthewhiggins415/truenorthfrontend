@@ -10,7 +10,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     firstname: '', 
     lastname: '',
     email: '',
-    cell_phone: '',
+    home_phone: '',
     chimneys: 0,
     roofType: '', 
     address: '',
@@ -25,7 +25,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
       firstname: '', 
       lastname: '',
       email: '',
-      cell_phone: '',
+      home_phone: '',
       chimneys: 0,
       roofType: '', 
       address: '',
@@ -115,7 +115,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Phone:</label>
             <Input 
-              name="cell_phone" 
+              name="home_phone" 
               type="tel" 
               value={formData.phone} 
               placeholder='phone number' 
