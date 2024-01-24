@@ -48,7 +48,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = `${process.env.API_URL}/contactFormSubmit`;
+    const url = `https://firesafebackend-3afcb49789a6.herokuapp.com/contactFormSubmit`;
     const payload = formData;
 
     const makeRequest = async () => {
