@@ -50,7 +50,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const ontraportUrl = 'https://api.ontraport.com/1/objects';
+    const ontraportUrl = 'https://api.ontraport.com/1/Contacts';
     const payload = formData;
     const headers = {
       'Content-Type': 'application/json',
