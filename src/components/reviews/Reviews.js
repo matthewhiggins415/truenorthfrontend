@@ -9,7 +9,7 @@ const Reviews = () => {
       <h2>From Our Customers</h2>
       <ReviewContainer>
         {reviews.map((review) => (
-          <Review review={review} id={review._id}>
+          <Review review={review} key={review._id}>
             <Img src={review.img}/>
             <StarContainer>
               <FaStar size={25} />

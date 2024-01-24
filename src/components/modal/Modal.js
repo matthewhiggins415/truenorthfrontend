@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select } from './Modal.styles';
-const ontraport_API_ID = process.env.REACT_APP_API_ID;
-const ontraport_API_KEY = process.env.REACT_APP_API_KEY;
+const ontraport_API_ID = process.env.REACT_APP_ONTRAPORT_API_ID;
+const ontraport_API_KEY = process.env.REACT_APP_ONTRAPORT_API_KEY;
 
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const [formData, setFormData] = useState({
@@ -54,14 +54,12 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     const payload = formData;
     const headers = {
       'Content-Type': 'application/json',
-      'Api-Key': `${process.env.REACT_APP_API_KEY}`,
-      'Api-Appid': `${process.env.REACT_APP_API_ID}`
+      'Api-Key': `${process.env.REACT_APP_ONTRAPORT_API_KEY}`,
+      'Api-Appid': `${process.env.REACT_APP_ONTRAPORT_API_ID}`
     };
 
     const makeRequest = async () => {
       try {
-        console.log("payload:", payload);
-        console.log("headers: ", headers);
         const res = await axios.post(ontraportUrl, payload, {headers: headers})
         console.log(res)
 
@@ -138,7 +136,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               required/>
           </InputContainer>
           <InputContainer>
-            <label for="roofType">Roof Type:</label>
+            <label htmlFor="roofType">Roof Type:</label>
             <Select name="roofType" id="roofType" value={formData.roofType} onChange={onChange} required>
               <option value="shingle">Shingle</option>
               <option value="tile">Tile</option>
