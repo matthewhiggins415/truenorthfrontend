@@ -5,31 +5,31 @@ import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputC
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const [formData, setFormData] = useState({
     objectID: 0,
-    firstName: '', 
-    lastName: '',
+    firstname: '', 
+    lastname: '',
     email: '',
-    phone: '',
+    office_phone: '',
     chimneys: 0,
     roofType: '', 
     address: '',
     city: '',
     zip: '',
-    leadSource: 'firesafechimneycare.com'
+    website: 'firesafechimneycare.com'
   })
 
   const clearForm = () => {
     setFormData({
       objectID: 0,
-      firstName: '', 
-      lastName: '',
+      firstname: '', 
+      lastname: '',
       email: '',
-      phone: '',
+      office_phone: '',
       chimneys: 0,
       roofType: '', 
       address: '',
       city: '',
       zip: '',
-      leadSource: 'firesafechimneycare.com'
+      website: 'firesafechimneycare.com'
     })
   }
 
@@ -48,27 +48,12 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const ontraportUrl = 'https://api.ontraport.com/1/Contacts';
-    const payload = new URLSearchParams(formData);
-    const formDataString = payload.toString();
-
-    const headers = {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Api-Key': `${process.env.REACT_APP_ONTRAPORT_API_KEY}`,
-      'Api-Appid': `${process.env.REACT_APP_ONTRAPORT_API_ID}`
-    };
+    const url = 'http://localhost:5000/contactFormSubmit';
+    const payload = formData;
 
     const makeRequest = async () => {
       try {
-        const res = await axios.post(
-          ontraportUrl, 
-          formDataString, 
-          {
-            withCredentials: true,
-            headers: headers 
-          }
-        );
-        
+        const res = await axios.post(url, payload);
         console.log(res)
 
         if (res.status === 200) {
@@ -94,7 +79,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>First Name:</label>
             <Input 
-              name="firstName" 
+              name="firstname" 
               type="text" 
               value={formData.firstName} 
               placeholder='first name' 
@@ -105,7 +90,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Last Name:</label>
             <Input 
-              name="lastName" 
+              name="lastname" 
               type="text" 
               value={formData.lastName} 
               placeholder='last name' 
@@ -126,7 +111,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Phone:</label>
             <Input 
-              name="phone" 
+              name="office_phone" 
               type="tel" 
               value={formData.phone} 
               placeholder='phone number' 
