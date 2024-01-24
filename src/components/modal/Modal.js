@@ -8,7 +8,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     firstname: '', 
     lastname: '',
     email: '',
-    office_phone: '',
+    cell_phone: '',
     chimneys: 0,
     roofType: '', 
     address: '',
@@ -23,7 +23,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
       firstname: '', 
       lastname: '',
       email: '',
-      office_phone: '',
+      cell_phone: '',
       chimneys: 0,
       roofType: '', 
       address: '',
@@ -48,7 +48,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = 'http://localhost:5000/contactFormSubmit';
+    const url = `${process.env.API_URL}/contactFormSubmit`;
     const payload = formData;
 
     const makeRequest = async () => {
@@ -111,7 +111,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Phone:</label>
             <Input 
-              name="office_phone" 
+              name="cell_phone" 
               type="tel" 
               value={formData.phone} 
               placeholder='phone number' 
