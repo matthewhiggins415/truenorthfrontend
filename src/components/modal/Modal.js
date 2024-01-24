@@ -62,7 +62,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
       try {
         console.log("payload:", payload);
         console.log("headers: ", headers);
-        const res = await axios.post(ontraportUrl, payload, headers)
+        const res = await axios.post(ontraportUrl, payload, {headers: headers})
         console.log(res)
 
         if (res.status === 200) {
