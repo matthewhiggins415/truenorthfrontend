@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select } from './Modal.styles';
-const ontraport_API_ID = process.env.REACT_APP_ONTRAPORT_API_ID;
-const ontraport_API_KEY = process.env.REACT_APP_ONTRAPORT_API_KEY;
 
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const [formData, setFormData] = useState({
