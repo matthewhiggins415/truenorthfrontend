@@ -86,8 +86,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>First Name:</label>
             <Input 
-              type="text" 
               name="firstName" 
+              type="text" 
               value={formData.firstName} 
               placeholder='first name' 
               onChange={onChange}
@@ -97,8 +97,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Last Name:</label>
             <Input 
-              type="text" 
               name="lastName" 
+              type="text" 
               value={formData.lastName} 
               placeholder='last name' 
               onChange={onChange}
@@ -108,8 +108,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Email:</label>
             <Input 
-              type="email"
               name="email" 
+              type="email"
               value={formData.email} 
               placeholder='email' 
               onChange={onChange}
@@ -118,8 +118,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Phone:</label>
             <Input 
-              type="tel" 
               name="phone" 
+              type="tel" 
               value={formData.phone} 
               placeholder='phone number' 
               onChange={onChange}
@@ -128,16 +128,16 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Chimneys:</label>
             <Input 
-              type="number" 
               name="chimneys" 
+              type="number" 
               value={formData.chimneys} 
               placeholder='number of chimneys' 
               onChange={onChange}
               required/>
           </InputContainer>
           <InputContainer>
-            <label for="roofs">Roof Type:</label>
-            <Select name="roofs" id="roofs" value={formData.roofType} onChange={onChange} required>
+            <label for="roofType">Roof Type:</label>
+            <Select name="roofType" id="roofType" value={formData.roofType} onChange={onChange} required>
               <option value="shingle">Shingle</option>
               <option value="tile">Tile</option>
               <option value="flat">Flat</option>
@@ -147,8 +147,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Address</label>
             <Input 
-              type="text"
               name="address" 
+              type="text"
               value={formData.address} 
               placeholder='home address' 
               onChange={onChange}
@@ -157,8 +157,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>City</label>
             <Input 
-              type="text"
               name="city"
+              type="text"
               value={formData.city}
               placeholder='city' 
               onChange={onChange}
@@ -167,8 +167,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <InputContainer>
             <label>Zip</label>
             <Input 
-              type="text"
               name="zip" 
+              type="text"
               value={formData.zip} 
               placeholder='zip code' 
               onChange={onChange}
