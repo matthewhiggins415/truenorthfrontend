@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select } from './Modal.styles';
+import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select, LoadingContainer } from './Modal.styles';
+import BounceLoader from "react-spinners/BounceLoader";
 
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
-  const [notLoading, setNotLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     objectID: 0,
     firstname: '', 
@@ -52,14 +53,15 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     const url = `https://firesafebackend-3afcb49789a6.herokuapp.com/contactFormSubmit`;
     const payload = formData;
 
+    setLoading(true);
+
     const makeRequest = async () => {
       try {
         const res = await axios.post(url, payload);
-        
-        setNotLoading(false);
 
         if (res.status === 200) {
           notify('thank you for your info');
+          setLoading(false);
           handleCloseModal();
         }
 
@@ -75,8 +77,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
   return (
     <ModalContainer modalOpen={modalOpen}>
-      <FormContainer>
-        {notLoading ? ( <Form onSubmit={handleSubmit}>
+      <FormContainer loading={loading}>
+        <Form onSubmit={handleSubmit} loading={loading}>
           <h2>We will follow up with you shortly</h2>
           <InputContainer>
             <label>First Name:</label>
@@ -171,7 +173,11 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           </InputContainer>
           <SubmitBtn type="submit">Submit</SubmitBtn>
           <CloseBtn onClick={handleCloseModal}>Close</CloseBtn>
-        </Form> ) : (<div> Loading... </div>)}
+        </Form>
+        <LoadingContainer loading={loading}>
+          <h2>Loading</h2>
+          <BounceLoader color="#36d7b7" />
+        </LoadingContainer>
       </FormContainer>
     </ModalContainer>
   )

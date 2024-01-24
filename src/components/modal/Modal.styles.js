@@ -20,9 +20,9 @@ export const FormContainer = styled.div`
 `
 
 export const Form = styled.form`
+  display: ${(props) => (props.loading ? "none" : "flex")};
   width: 400px;
   min-height: 480px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -101,4 +101,19 @@ export const CloseBtn = styled.button`
     color: white;
     border: 1px solid red;
   }
+`
+
+export const LoadingContainer = styled.div`
+  padding: 100px 200px;
+  background-color: white;
+  color: black;
+  border-radius: 40px;
+  display: ${(props) => (props.loading ? "flex" : "none")};
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
 `
