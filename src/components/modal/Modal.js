@@ -52,6 +52,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     const payload = formData;
     const headers = {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin' : '*', 
       'Api-Key': `${process.env.REACT_APP_ONTRAPORT_API_KEY}`,
       'Api-Appid': `${process.env.REACT_APP_ONTRAPORT_API_ID}`
     };
