@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select } from './Modal.styles';
 
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
+  const [notLoading, setNotLoading] = useState(true);
   const [formData, setFormData] = useState({
     objectID: 0,
     firstname: '', 
@@ -54,7 +55,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     const makeRequest = async () => {
       try {
         const res = await axios.post(url, payload);
-        console.log(res)
+        
+        setNotLoading(false);
 
         if (res.status === 200) {
           notify('thank you for your info');
@@ -74,7 +76,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
   return (
     <ModalContainer modalOpen={modalOpen}>
       <FormContainer>
-        <Form onSubmit={handleSubmit}>
+        {notLoading ? ( <Form onSubmit={handleSubmit}>
           <h2>We will follow up with you shortly</h2>
           <InputContainer>
             <label>First Name:</label>
@@ -169,7 +171,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           </InputContainer>
           <SubmitBtn type="submit">Submit</SubmitBtn>
           <CloseBtn onClick={handleCloseModal}>Close</CloseBtn>
-        </Form>
+        </Form> ) : (<div> Loading... </div>)}
       </FormContainer>
     </ModalContainer>
   )
