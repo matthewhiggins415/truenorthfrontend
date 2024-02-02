@@ -117,7 +117,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
             <Input 
               name="home_phone" 
               type="tel" 
-              value={formData.phone} 
+              value={formData.home_phone} 
               placeholder='phone number' 
               onChange={onChange}
               required/>
