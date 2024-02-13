@@ -13,6 +13,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     cell_phone: '',
     chimneys: 0,
     roofType: '', 
+    homeType: '',
+    chimneyType: '',
     address: '',
     city: '',
     zip: '',
@@ -28,6 +30,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
       cell_phone: '',
       chimneys: 0,
       roofType: '', 
+      homeType: '',
+      chimneyType: '',
       address: '',
       city: '',
       zip: '',
@@ -43,8 +47,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
   }
 
   const handleCloseModal = () => {
-    setModalOpen(!modalOpen)
     clearForm()
+    setModalOpen(!modalOpen)
   }
 
   const handleSubmit = async (e) => {
@@ -52,6 +56,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
     const url = `https://firesafebackend-3afcb49789a6.herokuapp.com/contactFormSubmit`;
     const payload = formData;
+    console.log('payload:', payload)
 
     setLoading(true);
 
@@ -85,7 +90,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
             <Input 
               name="firstname" 
               type="text" 
-              value={formData.firstName} 
+              value={formData.firstname} 
               placeholder='first name' 
               onChange={onChange}
               required
@@ -96,7 +101,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
             <Input 
               name="lastname" 
               type="text" 
-              value={formData.lastName} 
+              value={formData.lastname} 
               placeholder='last name' 
               onChange={onChange}
               required
@@ -138,7 +143,23 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               <option value="shingle">Shingle</option>
               <option value="tile">Tile</option>
               <option value="flat">Flat</option>
-              <option value="shake">Shake</option>
+              <option value="other">Other</option>
+            </Select>
+          </InputContainer>
+          <InputContainer>
+            <label htmlFor="homeType">Home Type:</label>
+            <Select name="homeType" id="homeType" value={formData.homeType} onChange={onChange} required>
+              <option value="onestory">One Story</option>
+              <option value="twostory">Two Story</option>
+              <option value="other">Other</option>
+            </Select>
+          </InputContainer>
+          <InputContainer>
+            <label htmlFor="chimneyType">Chimney Type:</label>
+            <Select name="chimneyType" id="chimneyType" value={formData.chimneyType} onChange={onChange} required>
+              <option value="masonry">Masonry</option>
+              <option value="prefab">Prefab</option>
+              <option value="other">Other</option>
             </Select>
           </InputContainer>
           <InputContainer>

@@ -34,3 +34,16 @@ export const AvailabilityContainer = styled.div`
     margin-left: 10px;
   }
 `
+
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`
+
+export const Img = styled.img`
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  margin-right: 20px;
+`
