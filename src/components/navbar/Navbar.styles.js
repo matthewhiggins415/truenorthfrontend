@@ -39,6 +39,10 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `
 
 export const Img = styled.img`
