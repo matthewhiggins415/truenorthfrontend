@@ -59,8 +59,13 @@ const AdminBlog = ({ user, notify }) => {
             <h4>meta keywords:</h4>
             <p>{blog.metaKeywords}</p>
           </div>
+          <div>
+            <h4>Background Image Address:</h4>
+            <p>{blog.img}</p>
+          </div>
         </MetaContainer>
         <Blog 
+          img={blog.img}
           title={blog.title}
           author={blog.author}
           isPublished={blog.isPublished}

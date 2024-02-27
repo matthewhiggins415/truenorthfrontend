@@ -6,6 +6,7 @@ import { createBlog } from '../../../api/blog';
 const CreateBlog = ({ user, notify }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    img: '',
     title: '', 
     metaDescription: '',
     metaKeywords: '',
@@ -105,6 +106,16 @@ const CreateBlog = ({ user, notify }) => {
           />
         </SectionContainer>
         <SectionContainer>
+          <h3>Background Image</h3>
+          <Label>Ex: Copy image address by right clicking on image</Label>
+          <Input 
+            name="img" 
+            type="text" 
+            value={formData.img} 
+            placeholder='Section One Header' 
+            onChange={onChange}
+            required
+          />
           <h3>Section 1</h3>
           <Label>Ex: Introduction</Label>
           <Input 

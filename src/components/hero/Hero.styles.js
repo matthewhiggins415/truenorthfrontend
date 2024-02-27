@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -75,4 +76,22 @@ export const QuoteBtn = styled.button`
     color: black;
   }
 
+`
+
+export const HeroNavContainer = styled.div`
+  background: black;
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+`
+
+export const HeroNavLink = styled(Link)`
+  margin-right: 30px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
 `

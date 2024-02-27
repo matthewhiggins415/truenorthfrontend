@@ -36,7 +36,7 @@ const Navbar = ({ user, notify, setUser }) => {
   console.log(user)
   return (
     <NavbarContainer>
-      <LogoContainer>
+      <LogoContainer to="/">
         <Img src={logo}/>
         <h3>FireSafe Chimney Sweeping & Repairs</h3>
       </LogoContainer>

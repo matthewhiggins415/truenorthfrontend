@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavbarContainer = styled.nav`
   width: auto;
@@ -35,10 +36,14 @@ export const AvailabilityContainer = styled.div`
   }
 `
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+
 
   @media only screen and (max-width: 500px) {
     flex-direction: column;

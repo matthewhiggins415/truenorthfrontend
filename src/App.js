@@ -19,6 +19,8 @@ import AdminBlogs from './screens/screens/adminblogs/AdminBlogs';
 import AdminBlog from './screens/screens/adminblog/AdminBlog';
 import CreateBlog from './screens/screens/createblog/CreateBlog';
 import AdminEditBlog from './screens/screens/admineditblog/AdminEditBlog';
+import PublicBlogs from './screens/screens/publicblogs/PublicBlogs';
+import PublicBlog from './screens/screens/publicblog/PublicBlog';
 
 // Components
 import Navbar from './components/navbar/Navbar';
@@ -53,6 +55,8 @@ const App = () => {
         <Route path='/adminblog/:id' element={<AdminBlog user={user} notify={notify}/>} />
         <Route path='/adminnewblog' element={<CreateBlog user={user} notify={notify}/>} />
         <Route path='/adminblogedit/:id' element={<AdminEditBlog user={user} notify={notify}/>} />
+        <Route path='/blogs' element={<PublicBlogs />} />
+        <Route path='/blogs/:id' element={<PublicBlog />} />
       </Routes>
     </Router>
   );

@@ -30,6 +30,16 @@ export const getBlogs = (user) => {
   })
 }
 
+// get all published blogs
+export const getAllPublicBlogs = () => {
+  return axios.get(apiUrl + '/ourblogs')
+}
+
+// get a single published blog
+export const getAPublicBlog = (id) => {
+  return axios.get(apiUrl + `/ourblogs/${id}`)
+}
+
 // update a blog
 export const updateBlog = (data, user, id) => {
   return axios.put(apiUrl + `/updateblog/${id}`, {

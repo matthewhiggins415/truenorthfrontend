@@ -7,6 +7,7 @@ import { EditBlogScreen } from './AdminEditBlog.styles';
 
 const AdminEditBlog = ({ user, notify }) => {
   const [formData, setFormData] = useState({
+    img: '',
     author: '',
     isPublished: false,
     title: '', 
@@ -37,6 +38,7 @@ const AdminEditBlog = ({ user, notify }) => {
       console.log(res)
 
       setFormData({
+        img: res.data.blog.img,
         author: res.data.blog.author,
         isPublished: res.data.blog.isPublished, 
         title: res.data.blog.title, 
@@ -77,6 +79,7 @@ const AdminEditBlog = ({ user, notify }) => {
       console.log(res)
     
       setFormData({
+        img: res.data.newBlog.img,
         author: res.data.newBlog.author,
         isPublished: res.data.newBlog.isPublished, 
         title: res.data.newBlog.title, 
@@ -186,6 +189,16 @@ const AdminEditBlog = ({ user, notify }) => {
           />
         </SectionContainer>
         <SectionContainer>
+          <h3>Background Image</h3>
+          <Label>Copy & paste image address by right clicking an image</Label>
+          <Input 
+            name="img" 
+            type="text" 
+            value={formData.img} 
+            placeholder='Image Address' 
+            onChange={onChange}
+            required
+          />
           <h3>Section 1</h3>
           <Label>Ex: Introduction</Label>
           <Input 
