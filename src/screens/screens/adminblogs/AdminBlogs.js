@@ -9,7 +9,7 @@ const AdminBlogs = ({ user, notify }) => {
         <button>Create Blog</button>
       </div>
       <div>
-        <p>list of blogs</p>
+        <p>list of bloogs</p>
       </div>
     </AdminBlogScreenContainer>
   )
