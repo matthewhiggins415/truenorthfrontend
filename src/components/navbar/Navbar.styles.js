@@ -51,3 +51,42 @@ export const Img = styled.img`
   object-fit: cover;
   margin-right: 20px;
 `
+
+export const AdminNavBarSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const AdminBtn = styled.button`
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  transition: 150ms ease-in-out;
+  margin-left: 15px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+  }
+
+`
+
+export const LogoutBtn = styled.button`
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  transition: 150ms ease-in-out;
+  margin-left: 15px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+  }
+
+`

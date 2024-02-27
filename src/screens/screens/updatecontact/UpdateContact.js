@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { ModalContainer, FormContainer, Form, CloseBtn, Input, SubmitBtn, InputContainer, Select, LoadingContainer } from './Modal.styles';
+import React, { useState, useEffect } from 'react';
+import { UpdateContactContainer, BackBtn } from './UpdateContact.styles';
+import { getContact } from '../../../api/contact';
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FormContainer, Form, InputContainer, Input, Select, SubmitBtn, LoadingContainer  } from '../../../components/modal/Modal.styles';
 import BounceLoader from "react-spinners/BounceLoader";
-import { createContact } from '../../api/contact';
+import { updateAContact } from '../../../api/contact';
 
-const Modal = ({ modalOpen, setModalOpen, notify }) => {
+const UpdateContact = ({ user, notify }) => {
+  const navigate = useNavigate();
+  const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    objectID: 0,
     firstname: '', 
     lastname: '',
     email: '',
@@ -19,26 +23,35 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     address: '',
     city: '',
     zip: '',
-    website: 'firesafechimneycare.com'
+    notes: ''
   })
 
-  const clearForm = () => {
-    setFormData({
-      objectID: 0,
-      firstname: '', 
-      lastname: '',
-      email: '',
-      cell_phone: '',
-      chimneys: 0,
-      roofType: '', 
-      homeType: '',
-      chimneyType: '',
-      address: '',
-      city: '',
-      zip: '',
-      website: 'firesafechimneycare.com'
-    })
-  }
+  useEffect(() => {
+    if (Object.keys(user).length === 0 || user.isAdmin === false) {
+      navigate("/");
+    }
+
+    const retrieveContact = async () => {
+      const res = await getContact(user, id)
+
+      setFormData({
+        firstname: res.data.contact.firstname, 
+        lastname: res.data.contact.lastname,
+        email: res.data.contact.email,
+        cell_phone: res.data.contact.cell_phone,
+        chimneys: res.data.contact.chimneys,
+        roofType: res.data.contact.roofType, 
+        homeType: res.data.contact.homeType,
+        chimneyType: res.data.contact.chimneyType,
+        address: res.data.contact.address,
+        city: res.data.contact.city,
+        zip: res.data.contact.zip,
+        notes: res.data.contact.notes
+      })
+    }
+
+    retrieveContact()
+  }, [])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -47,76 +60,45 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     }))
   }
 
-  const handleCloseModal = () => {
-    clearForm()
-    setModalOpen(!modalOpen)
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const url = `https://firesafebackend-3afcb49789a6.herokuapp.com/contactFormSubmit`;
-    const payload = formData;
-    console.log('payload:', payload)
+    try {
+      const res = await updateAContact(formData, user, id)
+      console.log(res)
 
-    setLoading(true);
+      setFormData({
+        firstname: res.data.newContact.firstname, 
+        lastname: res.data.newContact.lastname,
+        email: res.data.newContact.email,
+        cell_phone: res.data.newContact.cell_phone,
+        chimneys: res.data.newContact.chimneys,
+        roofType: res.data.newContact.roofType, 
+        homeType: res.data.newContact.homeType,
+        chimneyType: res.data.newContact.chimneyType,
+        address: res.data.newContact.address,
+        city: res.data.newContact.city,
+        zip: res.data.newContact.zip,
+        notes: res.data.newContact.notes
+      })
 
-    const makeRequest = async () => {
-      try {
-        const res = await axios.post(url, payload);
-
-        if (res.status === 200) {
-          notify('thank you for your info');
-          setLoading(false);
-          handleCloseModal();
-        }
-
-      } catch(error) {
-        console.log(error)
-        notify('something went wrong', 'danger');
-        handleCloseModal();
-      }
+      notify('contact updated')
+    } catch(error) {
+      console.log(error);
+      notify('something went wrong', 'danger')
     }
+  }
 
-    const createContactRequest = async () => {
-      let payloadData = {
-        firstname: formData.firstname, 
-        lastname: formData.lastname,
-        email: formData.email,
-        cell_phone: formData.cell_phone,
-        chimneys: formData.chimneys,
-        roofType: formData.roofType, 
-        homeType: formData.homeType,
-        chimneyType: formData.chimneyType,
-        address: formData.address,
-        city: formData.city,
-        zip: formData.zip,
-      }
-
-      try {
-        const res = createContact(payloadData)
-        console.log(res)
-        if (res.status === 201) {
-          notify('thank you for your info');
-          setLoading(false);
-          handleCloseModal();
-        }
-      } catch(error) {
-        console.log(error)
-        notify('something went wrong', 'danger');
-        handleCloseModal();
-      }
-    }
-
-    makeRequest();
-    createContactRequest();
+  const handleBack = () => {
+    navigate(`/contact/${id}`)
   }
 
   return (
-    <ModalContainer modalOpen={modalOpen}>
-      <FormContainer loading={loading}>
+    <UpdateContactContainer>
+        <BackBtn onClick={handleBack}>back</BackBtn>
+        <FormContainer loading={loading}>
         <Form onSubmit={handleSubmit} loading={loading}>
-          <h2>We will follow up with you shortly</h2>
+          <h2>Update Existing Contact</h2>
           <InputContainer>
             <label>First Name:</label>
             <Input 
@@ -125,7 +107,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.firstname} 
               placeholder='first name' 
               onChange={onChange}
-              required
+              
             />
           </InputContainer>
           <InputContainer>
@@ -136,7 +118,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.lastname} 
               placeholder='last name' 
               onChange={onChange}
-              required
+              
             />
           </InputContainer>
           <InputContainer>
@@ -147,7 +129,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.email} 
               placeholder='email' 
               onChange={onChange}
-              required/>
+              />
           </InputContainer>
           <InputContainer>
             <label>Phone:</label>
@@ -157,7 +139,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.cell_phone} 
               placeholder='phone number' 
               onChange={onChange}
-              required/>
+              />
           </InputContainer>
           <InputContainer>
             <label>Chimneys:</label>
@@ -167,11 +149,11 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.chimneys} 
               placeholder='number of chimneys' 
               onChange={onChange}
-              required/>
+              />
           </InputContainer>
           <InputContainer>
             <label htmlFor="roofType">Roof Type:</label>
-            <Select name="roofType" id="roofType" value={formData.roofType} onChange={onChange} required>
+            <Select name="roofType" id="roofType" value={formData.roofType} onChange={onChange} >
               <option value="shingle">Shingle</option>
               <option value="tile">Tile</option>
               <option value="flat">Flat</option>
@@ -180,7 +162,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           </InputContainer>
           <InputContainer>
             <label htmlFor="homeType">Home Type:</label>
-            <Select name="homeType" id="homeType" value={formData.homeType} onChange={onChange} required>
+            <Select name="homeType" id="homeType" value={formData.homeType} onChange={onChange} >
               <option value="onestory">One Story</option>
               <option value="twostory">Two Story</option>
               <option value="other">Other</option>
@@ -188,7 +170,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           </InputContainer>
           <InputContainer>
             <label htmlFor="chimneyType">Chimney Type:</label>
-            <Select name="chimneyType" id="chimneyType" value={formData.chimneyType} onChange={onChange} required>
+            <Select name="chimneyType" id="chimneyType" value={formData.chimneyType} onChange={onChange} >
               <option value="masonry">Masonry</option>
               <option value="prefab">Prefab</option>
               <option value="other">Other</option>
@@ -202,7 +184,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.address} 
               placeholder='home address' 
               onChange={onChange}
-              required/>
+              />
           </InputContainer>
           <InputContainer>
             <label>City</label>
@@ -212,7 +194,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.city}
               placeholder='city' 
               onChange={onChange}
-              required/>
+              />
           </InputContainer>
           <InputContainer>
             <label>Zip</label>
@@ -222,18 +204,26 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               value={formData.zip} 
               placeholder='zip code' 
               onChange={onChange}
-              required/>
+              />
+          </InputContainer>
+          <InputContainer>
+            <textarea 
+              name="notes" 
+              type="textarea"
+              value={formData.notes} 
+              placeholder='notes' 
+              onChange={onChange}
+            ></textarea>
           </InputContainer>
           <SubmitBtn type="submit">Submit</SubmitBtn>
-          <CloseBtn onClick={handleCloseModal}>Close</CloseBtn>
         </Form>
         <LoadingContainer loading={loading}>
           <h2>Loading</h2>
           <BounceLoader color="#36d7b7" />
         </LoadingContainer>
       </FormContainer>
-    </ModalContainer>
+    </UpdateContactContainer>
   )
 }
 
-export default Modal
+export default UpdateContact
