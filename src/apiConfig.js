@@ -1,7 +1,7 @@
 let apiUrl
 
 const apiUrls = {
-  production: 'https://firesafechimneycare.com',
+  production: 'https://firesafebackend-3afcb49789a6.herokuapp.com',
   development: 'http://localhost:5000'
 }
 
