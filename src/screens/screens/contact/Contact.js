@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { getContact } from '../../../api/contact';
+import { getContact, destroyContact } from '../../../api/contact';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer } from './Contact.styles';
@@ -32,12 +32,27 @@ const Contact = ({ user, notify }) => {
     navigate(`/updatecontact/${id}`)
   }
 
+  const handleDeleteContact = async () => {
+    try {
+      let res = await destroyContact(user, id)
+      console.log(res)
+      if (res.status === 204) {
+        notify('contact deleted')
+        navigate('/contacts')
+      }
+    } catch(error) {
+      notify('something went wrong', 'danger')
+      console.log(error)
+    }
+
+  }
+
   return (
     <ContactPageContainer>
       <BtnContainer>
         <Btn onClick={handleBack}>back</Btn>
         <Btn onClick={handleEdit}>edit</Btn>
-        <Btn>delete</Btn>
+        <Btn onClick={handleDeleteContact}>delete</Btn>
       </BtnContainer>
       <div>
         <ContactSectionContainer>

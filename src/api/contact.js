@@ -8,12 +8,12 @@ export const createContact = (data) => {
 
 // get all contacts
 export const getContacts = (user) => {
-    return axios.get(apiUrl + '/contacts', {
-      headers: {
-        Authorization: `Bearer ${user.token}`
-      }
-    })
-  }
+  return axios.get(apiUrl + '/contacts', {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
 
 // get a single contact
 export const getContact = (user, id) => {
@@ -29,6 +29,16 @@ export const updateAContact = (data, user, id) => {
   return axios.put(apiUrl + `/updatecontact/${id}`, {
     contact: data
   }, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+  
+
+// delete a single contact
+export const destroyContact = (user, id) => {
+  return axios.delete(apiUrl + `/contacts/${id}`, {
     headers: {
       Authorization: `Bearer ${user.token}`
     }

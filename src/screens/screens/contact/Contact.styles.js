@@ -7,6 +7,7 @@ export const ContactPageContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   padding: 20px;
+  border-top: 2px solid lightblue;
 `
 
 export const ContactSectionContainer = styled.div`

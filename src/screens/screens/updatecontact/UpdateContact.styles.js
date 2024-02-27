@@ -4,6 +4,7 @@ export const UpdateContactContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   padding: 20px;
+  border-top: 2px solid lightblue;
 `;
 
 export const BackBtn = styled.button`

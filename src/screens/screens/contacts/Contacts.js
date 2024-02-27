@@ -23,7 +23,6 @@ const Contacts = ({ user, setUser, notify }) => {
   }, []);
 
   const handleNew = () => {
-    console.log('handlenew')
     navigate('/newcontact');
   }
 
@@ -41,7 +40,7 @@ const Contacts = ({ user, setUser, notify }) => {
         </ContactsHeader>
         <div>
           {contacts.map((contact, index) => (
-            <IndividualContact>
+            <IndividualContact key={contact._id}>
               <p>{index + 1}.</p>
               <p>{contact.firstname + ' ' + contact.lastname}</p>
               <p>{contact.email}</p>

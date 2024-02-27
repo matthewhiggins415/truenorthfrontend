@@ -16,6 +16,9 @@ import NewContact from './screens/screens/newcontact/NewContact';
 import Contact from './screens/screens/contact/Contact';
 import UpdateContact from './screens/screens/updatecontact/UpdateContact';
 import AdminBlogs from './screens/screens/adminblogs/AdminBlogs';
+import AdminBlog from './screens/screens/adminblog/AdminBlog';
+import CreateBlog from './screens/screens/createblog/CreateBlog';
+import AdminEditBlog from './screens/screens/admineditblog/AdminEditBlog';
 
 // Components
 import Navbar from './components/navbar/Navbar';
@@ -47,6 +50,9 @@ const App = () => {
         <Route path='/contact/:id' element={<Contact user={user} notify={notify}/>} />
         <Route path='/updatecontact/:id' element={<UpdateContact user={user} notify={notify}/>} />
         <Route path='/adminblogs' element={<AdminBlogs user={user} notify={notify}/>} />
+        <Route path='/adminblog/:id' element={<AdminBlog user={user} notify={notify}/>} />
+        <Route path='/adminnewblog' element={<CreateBlog user={user} notify={notify}/>} />
+        <Route path='/adminblogedit/:id' element={<AdminEditBlog user={user} notify={notify}/>} />
       </Routes>
     </Router>
   );

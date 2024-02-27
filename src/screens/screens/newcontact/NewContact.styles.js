@@ -6,6 +6,7 @@ export const NewContactContainer = styled.div`
   min-height: 100vh;
   background-color: #fefefe;
   padding: 20px;
+  border-top: 2px solid lightblue;
 `
 export const BackBtn = styled.button`
   padding: 5px 10px;
