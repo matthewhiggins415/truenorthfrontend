@@ -4,8 +4,6 @@ import { LuClock4 } from "react-icons/lu";
 import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
 
-
-
 const Services = () => {
   return (
     <Container>
