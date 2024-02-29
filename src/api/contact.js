@@ -44,4 +44,12 @@ export const destroyContact = (user, id) => {
     }
   })
 }
-  
+
+
+// search for contact
+export const searchContacts = (input, searchType) => {
+  return axios.post(apiUrl + `/contacts/search`, {
+    searchValue: input, 
+    searchType: searchType
+  })
+}

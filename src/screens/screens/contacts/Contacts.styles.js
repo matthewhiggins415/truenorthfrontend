@@ -65,3 +65,19 @@ export const ContactBtn = styled.button`
   font-size: 20px;
   text-align: center;
 `
+
+export const SearchInput = styled.input`
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  margin-right: 10px;
+`
+
+export const Select = styled.select`
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  margin-right: 10px;
+`
