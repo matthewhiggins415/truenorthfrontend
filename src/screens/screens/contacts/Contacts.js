@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select } from './Contacts.styles';
+import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select, EmailBtn } from './Contacts.styles';
 import { getContacts, searchContacts } from '../../../api/contact';
+import { CgDetailsMore } from "react-icons/cg";
 
 const Contacts = ({ user, setUser, notify }) => {
+  const [allSelected, setAllSelected] = useState(false)
+  const [selectedContacts, setSelectedContacts] = useState([])
   const[contacts, setContacts] = useState([]);
   const[search, setSearch] = useState('');
   const[searchType, setSearchType] = useState('zip')
   const navigate = useNavigate();
 
-  console.log("searchType: ", searchType)
+  console.log("selectedContacts: ", selectedContacts);
 
   useEffect(() => {
-    console.log(user)
     if (Object.keys(user).length === 0 || user.isAdmin === false) {
       navigate("/");
     }
@@ -26,10 +28,6 @@ const Contacts = ({ user, setUser, notify }) => {
   }, []);
 
   const handleSearch = async ( input, searchType ) => {
-    console.log("input: ", input)
-    console.log("searchType: ", searchType)
-
-
     if (search.length > 0) {
       try {
         let response = await searchContacts(input, searchType)
@@ -39,7 +37,7 @@ const Contacts = ({ user, setUser, notify }) => {
           setContacts(response.data.contacts)
         }
       } catch(error) {
-        console.log(error)
+        notify('something went wrong', 'danger')
       }
     } else {
       setSearch("");
@@ -59,15 +57,37 @@ const Contacts = ({ user, setUser, notify }) => {
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
-    console.log("search")
     
     try {
       const res = await handleSearch(search, searchType);
-      console.log(res)
       setContacts(res.data.contacts)
     } catch(error) {
-      console.log(error)
+      notify('something went wrong', 'danger')
     }
+  }
+
+  const handleSelect = (contact) => {
+    const id = contact._id
+    const exists = selectedContacts.some(contact => contact._id === id);
+
+    if (exists) {
+      setSelectedContacts(prevArray => prevArray.filter(contact => contact._id !== id));
+    } else {
+      setSelectedContacts(prevState => [
+        ...prevState, 
+        contact
+      ])
+    }
+  }
+
+  const handleSelectAll = () => {
+    setAllSelected(!allSelected)
+    setSelectedContacts(contacts)
+  }
+
+  const handleDeselectAll = () => {
+    setAllSelected(!allSelected)
+    setSelectedContacts([])
   }
 
   return (
@@ -98,17 +118,33 @@ const Contacts = ({ user, setUser, notify }) => {
             />
             <Btn type="submit">search</Btn>
           </form>
+          {  allSelected ?  
+            <Btn onClick={handleDeselectAll}>Unselect All</Btn> : 
+            <Btn onClick={handleSelectAll}>Select All</Btn>
+          }
           <Btn onClick={handleNew}>New Contact</Btn>
         </ContactsHeader>
+        { selectedContacts.length > 0 ? 
+          <div>
+            <EmailBtn>email all</EmailBtn>
+          </div> 
+          : <></>
+        }
         <div>
           {contacts?.map((contact, index) => (
-            <IndividualContact key={contact._id}>
+            <IndividualContact 
+              isSelected={selectedContacts.some((c) => c._id === contact._id)}
+              onClick={() => handleSelect(contact)} 
+              key={contact._id}
+            >
               <p>{index + 1}.</p>
               <p>{contact.firstname + ' ' + contact.lastname}</p>
               <p>{contact.email}</p>
               <p>{contact.cell_phone}</p>
               <p>{contact.address}</p>
-              <ContactBtn onClick={() => handleNavigate(contact._id)}>...</ContactBtn>
+              <ContactBtn onClick={() => handleNavigate(contact._id)}>
+                <CgDetailsMore />
+              </ContactBtn>
             </IndividualContact>
           ))}
         </div>

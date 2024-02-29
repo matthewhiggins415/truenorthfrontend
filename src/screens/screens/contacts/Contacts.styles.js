@@ -38,7 +38,10 @@ export const Btn = styled.button`
   }
 `
 
-export const IndividualContact = styled.div`
+export const IndividualContact = styled.button`
+  border: ${({ isSelected }) => isSelected ? '2px solid red' : 'none'};
+  width: 100%;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,10 +50,10 @@ export const IndividualContact = styled.div`
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   transition: 150ms ease-in-out;
+  cursor: pointer;
 
   &:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 `
 
@@ -64,6 +67,15 @@ export const ContactBtn = styled.button`
   background-color: white;
   font-size: 20px;
   text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
 `
 
 export const SearchInput = styled.input`
@@ -80,4 +92,13 @@ export const Select = styled.select`
   border: 1px solid black;
   outline: none;
   margin-right: 10px;
+`
+
+export const EmailBtn = styled.button`
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  cursor: pointer;
 `
