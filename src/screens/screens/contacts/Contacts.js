@@ -126,7 +126,7 @@ const Contacts = ({ user, setUser, notify }) => {
         </ContactsHeader>
         { selectedContacts.length > 0 ? 
           <div>
-            <EmailBtn>email all</EmailBtn>
+            <EmailBtn>Email</EmailBtn>
           </div> 
           : <></>
         }
