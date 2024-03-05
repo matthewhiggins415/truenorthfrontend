@@ -11,7 +11,7 @@ export const ServiceContainer = styled.div`
   justify-content: space-around;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #ececec;
+  background-color: black;
 `
 
 export const ServiceCard = styled.div`

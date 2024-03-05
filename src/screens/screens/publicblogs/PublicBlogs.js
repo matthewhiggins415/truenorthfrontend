@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getAllPublicBlogs } from '../../../api/blog';
-import { BlogCard, BlogsPageContainer } from './PublicBlogs.styles'
+import { BlogCard, BlogsPageContainer, BackBtn } from './PublicBlogs.styles';
+import { useNavigate } from "react-router-dom";
 
 const PublicBlogs = () => {
-  const [blogs, setBlogs] = useState([])
+  const [blogs, setBlogs] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const retrieveBlogs = async () => {
@@ -14,10 +17,15 @@ const PublicBlogs = () => {
 
     retrieveBlogs()
   }, [])
+
+  const handleBack = () => {
+    navigate('/')
+  }
    
   return (
     <BlogsPageContainer>
       <h1>Recent Blogs</h1>
+      <BackBtn onClick={handleBack}>Back</BackBtn>
       {blogs?.map((blog) => (
         <BlogCard to={`/blogs/${blog._id}`} key={blog._id}>
           <img src={blog.img}/>

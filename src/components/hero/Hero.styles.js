@@ -8,11 +8,11 @@ export const HeroContainer = styled.div`
   align-items: center;
   margin: 0px;
   border: 1px solid black;
-  background-image: url('https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=600');
+  background-image: url('https://fullservicechimney.com/wp-content/uploads/2020/01/chimney.jpg');
   background-size: cover; 
   background-position: center; 
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     height: 80vh;
   }
 `
@@ -28,17 +28,19 @@ export const Overlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 150px;
+  top: 250px;
   left: 0;
   width: 100%;
-  height: 50%;
+  height: auto;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1; 
+  padding-top: 15px;
+  padding-bottom: 15px;
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     width: 100%;
     height: auto;
-    top: 200px;
+    top: 380px;
     align-items: center;
     justify-content: center;
 
@@ -52,7 +54,8 @@ export const Overlay = styled.div`
   }
 
   h6 {
-    color: lightblue;
+    color: black;
+    background-color: transparent;
   }
 `;
 
@@ -75,16 +78,26 @@ export const QuoteBtn = styled.button`
     background-color: white;
     color: black;
   }
-
 `
 
 export const HeroNavContainer = styled.div`
-  background: black;
+  background-color: black;
   color: white;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: end;
+  font-family: "DM Sans", sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `
 
 export const HeroNavLink = styled(Link)`
@@ -94,4 +107,75 @@ export const HeroNavLink = styled(Link)`
   cursor: pointer;
   padding: 10px;
   font-size: 20px;
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 0px;
+  }
+`
+
+export const ServicesBtn = styled.button`
+  margin-right: 30px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  border: none;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 0px;
+  }
+`
+
+export const ServiceDropDown = styled.div`
+  display: ${(props) => (props.showDropDown ? "flex" : "none")};
+  position: absolute;
+  right: 110px;
+  top: 170px;
+  background-color: white;
+  color: black;
+  width: 250px;
+  height: auto;
+  z-index: 20;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  @media only screen and (max-width: 600px) {
+    top: 300px;
+  }
+`
+
+export const ServiceLink = styled(Link)`
+  padding-left: 10px;
+  padding-top: 20px;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 150ms ease-in-out;
+  padding: 20px;
+  padding-left: 20px;
+  display: flex;
+  
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+
+  &:first-child {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-top: 20px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-bottom: 20px;
+  }
 `

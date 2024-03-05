@@ -21,11 +21,17 @@ import CreateBlog from './screens/screens/createblog/CreateBlog';
 import AdminEditBlog from './screens/screens/admineditblog/AdminEditBlog';
 import PublicBlogs from './screens/screens/publicblogs/PublicBlogs';
 import PublicBlog from './screens/screens/publicblog/PublicBlog';
+import AdminAnalytics from './screens/screens/adminanalytics/AdminAnalytics';
+import AdminServices from './screens/screens/adminservices/AdminServices';
+import AdminCreateService from './screens/screens/admincreateservice/AdminCreateService';
+import AdminEditService from './screens/screens/admineditservice/AdminEditService';
+import PublicService from './screens/screens/publicservice/PublicService'
 
 // Components
 import Navbar from './components/navbar/Navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/footer/Footer'
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -57,7 +63,13 @@ const App = () => {
         <Route path='/adminblogedit/:id' element={<AdminEditBlog user={user} notify={notify}/>} />
         <Route path='/blogs' element={<PublicBlogs />} />
         <Route path='/blogs/:id' element={<PublicBlog />} />
+        <Route path='/analytics' element={<AdminAnalytics />} />
+        <Route path='/admin/services' element={<AdminServices />} />
+        <Route path='/admin/create-service' element={<AdminCreateService user={user} notify={notify} />} />
+        <Route path='/admin/services/:id' element={<AdminEditService user={user} notify={notify} />} />
+        <Route path='/services/:id' element={<PublicService />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

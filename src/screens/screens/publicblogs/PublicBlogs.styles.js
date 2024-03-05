@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 export const BlogsPageContainer = styled.div`
   width: 100%;
   border-top: 2px solid lightblue;
@@ -30,4 +29,9 @@ export const BlogCard = styled(Link)`
     width: 100%;
     border-radius: 10px;
   }
+`
+
+export const BackBtn = styled.button`
+  padding: 10px 20px;
+  width: 100px;
 `

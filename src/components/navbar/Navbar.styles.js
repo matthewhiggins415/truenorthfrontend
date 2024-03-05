@@ -17,7 +17,7 @@ export const NavbarContainer = styled.nav`
     font-weight: 600;
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
 
     h3 {
@@ -64,12 +64,11 @@ export const AdminNavBarSection = styled.div`
 `
 
 export const AdminBtn = styled.button`
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 10px;
+  width: 200px;
+  padding: 15px;
   background-color: white;
   transition: 150ms ease-in-out;
-  margin-left: 15px;
+  border: none;
 
   &:hover {
     cursor: pointer;
@@ -77,15 +76,20 @@ export const AdminBtn = styled.button`
     color: white;
   }
 
+  &:first-child {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
 `
 
 export const LogoutBtn = styled.button`
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 10px;
+  width: 100%;
+  padding: 15px;
   background-color: white;
   transition: 150ms ease-in-out;
-  margin-left: 15px;
+  border: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 
   &:hover {
     cursor: pointer;
@@ -93,5 +97,37 @@ export const LogoutBtn = styled.button`
     color: white;
     border: 1px solid red;
   }
+`
 
+export const DropDownMenu = styled.div`
+  display: ${(props) => (props.showMenu ? "flex" : "none")};
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 25px;
+  background-color: white;
+  z-index: 15;
+  border: none;
+  border-radius: 15px;
+`
+
+export const CallUsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  font-family: "Libre Franklin", sans-serif;
+`
+
+export const CallContainer = styled.div`
+  display: flex;
+  font-size: 25px;
+
+  a {
+    color: blue;
+    text-decoration: none;
+    margin-left: 5px;
+  }
 `
