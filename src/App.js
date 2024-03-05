@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css'; // Moved the CSS import to the top
+import ReactGA from 'react-ga4';
 
 // React Router
 import {
@@ -45,6 +46,10 @@ const App = () => {
       toast.success(`${message}`);
     }
   }
+
+  const gtagID = process.env.REACT_APP_GTAG_TRACKING_ID
+  ReactGA.initialize(gtagID)
+  ReactGA.send({ hitType: 'pageview', page: '/' })
 
   return (
     <Router>

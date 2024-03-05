@@ -1,7 +1,7 @@
 let apiUrl
 
 const apiUrls = {
-  production: 'https://firesafebackend-3afcb49789a6.herokuapp.com',
+  production: process.env.REACT_APP_API_URL,
   development: 'http://localhost:5000'
 }
 
