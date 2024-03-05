@@ -40,6 +40,10 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 0 auto;
 
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
+
 `
 
 export const H2 = styled.h2`
