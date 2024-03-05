@@ -20,6 +20,20 @@ export const ContactsHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  form {
+    @media only screen and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      color: black;
+    }
+  }
 `
 
 export const Btn = styled.button`
@@ -54,6 +68,13 @@ export const IndividualContact = styled.button`
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    height: auto;
+    flex-direction: column;
+    align-items: start;
+    color: black;
   }
 `
 

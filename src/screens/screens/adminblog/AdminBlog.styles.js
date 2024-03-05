@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const AdminBlogScreenContainer = styled.div`
   width: 100%;
-  min-width: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   border-top: 2px solid lightblue;
@@ -39,6 +39,10 @@ export const BlogPostContainer = styled.div`
   width: 400px;
   justify-content: space-evenly;
   margin: 20px auto;
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
 `
 
 export const MetaContainer = styled.div`

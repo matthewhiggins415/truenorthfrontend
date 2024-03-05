@@ -23,6 +23,11 @@ export const BlogContainer = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   margin-top: 10px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: start;
+  }
 `
 
 export const Btn = styled.button`

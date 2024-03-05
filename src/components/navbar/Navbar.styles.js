@@ -110,6 +110,11 @@ export const DropDownMenu = styled.div`
   z-index: 15;
   border: none;
   border-radius: 15px;
+
+  @media only screen and (max-width: 600px) {
+    top: 200px;
+    right: 100px;
+  }
 `
 
 export const CallUsContainer = styled.div`
