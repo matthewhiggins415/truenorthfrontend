@@ -40,7 +40,7 @@ export const Form = styled.form`
 
   @media only screen and (max-width: 600px) {
     width: 300px;
-    margin-top: 40px;
+    margin-top: 80px;
   }
 `
 
