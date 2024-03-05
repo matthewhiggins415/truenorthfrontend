@@ -19,4 +19,9 @@ export const BackBtn = styled.button`
     background-color: black;
     color: white;
   }
+
+  @media only screen and (max-width: 600px) {
+    color: black;
+  }
+
 `

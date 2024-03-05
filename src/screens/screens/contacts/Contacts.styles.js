@@ -97,6 +97,10 @@ export const ContactBtn = styled.button`
     background-color: black;
     color: white;
   }
+
+  @media only screen and (max-width: 600px) {
+    color: black;
+  }
 `
 
 export const SearchInput = styled.input`
@@ -113,6 +117,10 @@ export const Select = styled.select`
   border: 1px solid black;
   outline: none;
   margin-right: 10px;
+
+  @media only screen and (max-width: 600px) {
+    color: black;
+  }
 `
 
 export const EmailBtn = styled.button`

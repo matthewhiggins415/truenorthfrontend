@@ -143,7 +143,7 @@ const Contacts = ({ user, setUser, notify }) => {
               <p>{contact.cell_phone}</p>
               <p>{contact.address}</p>
               <ContactBtn onClick={() => handleNavigate(contact._id)}>
-                <CgDetailsMore />
+                <CgDetailsMore style={{ color: 'black' }}/>
               </ContactBtn>
             </IndividualContact>
           ))}

@@ -28,6 +28,11 @@ export const BtnContainer = styled.div`
   justify-content: space-between;
   margin: 10px;
   margin-bottom: 15px;
+
+  @media only screen and (max-width: 600px) {
+    width: 250px;
+    color: black;
+  }
 `
 
 export const ContactInfoContainer = styled.div`
