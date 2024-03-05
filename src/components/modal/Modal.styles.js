@@ -37,6 +37,11 @@ export const Form = styled.form`
     padding-bottom: 5px;
     border-bottom: 2px solid lightblue;
   }
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+    margin-top: 40px;
+  }
 `
 
 export const InputContainer = styled.div`
