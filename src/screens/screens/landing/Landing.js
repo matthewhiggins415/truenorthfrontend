@@ -4,7 +4,6 @@ import Services from '../../../components/services/Services';
 import Modal from '../../../components/modal/Modal';
 import Reviews from '../../../components/reviews/Reviews';
 import { Helmet } from 'react-helmet';
-import { createVisitor } from '../../../api/visitor';
 import { getAllServices } from '../../../api/services';
 
 const Landing = ({ user, notify }) => {
@@ -19,19 +18,6 @@ const Landing = ({ user, notify }) => {
     }
 
     getServices()
-  }, [])
-
-  useEffect(() => {
-    const logVisitor = async () => {
-      try {        
-        const res = await createVisitor();
-        console.log(res)
-      } catch(err) {
-        console.log(err)
-      }
-    }
-
-    logVisitor();
   }, [])
 
   return (

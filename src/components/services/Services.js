@@ -31,7 +31,7 @@ const Services = ({ services }) => {
         <OffersContainer>
           <CardContainer>
           {services.map((service) => (
-            <OfferCard>
+            <OfferCard key={service._id}>
               <Img src={service.img}/>
               <div>
                 <h3>{service.name}</h3>
