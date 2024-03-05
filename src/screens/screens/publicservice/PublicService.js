@@ -29,6 +29,7 @@ const PublicService = () => {
       <ServiceContainer>
         <BackBtn onClick={handleBack}>Back</BackBtn>
         <Container>
+          <h1>{service.name}</h1>
           <Img src={service.img}/>
           <H2>{service.title}</H2>
           <Line></Line>

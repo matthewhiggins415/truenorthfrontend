@@ -12,7 +12,7 @@ export const BlogsPageContainer = styled.div`
 `
 export const BlogCard = styled(Link)`
   width: 250px;
-  height: 300px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,14 +24,34 @@ export const BlogCard = styled(Link)`
   padding: 15px; 
   border-radius: 15px;
   margin: 20px;
+  font-family: 'Mulish', sans-serif;
 
   img {
     width: 100%;
     border-radius: 10px;
   }
+
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 `
 
 export const BackBtn = styled.button`
-  padding: 10px 20px;
+  padding: 10px;
   width: 100px;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+  transition: 150ms ease-in-out;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  justify-content: flex-start;
+
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
 `

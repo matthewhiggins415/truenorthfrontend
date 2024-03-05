@@ -32,6 +32,7 @@ export const BackBtn = styled.button`
 export const Img = styled.img`
   border-radius: 15px;
   margin-bottom: 20px;
+  margin-top: 20px;
 `
 
 export const Container = styled.div`
@@ -44,10 +45,15 @@ export const Container = styled.div`
     width: 300px;
   }
 
+  h1 {
+    font-family: 'Mulish', sans-serif;
+  }
+
 `
 
 export const H2 = styled.h2`
   margin-bottom: 20px;
+  font-family: 'Mulish', sans-serif;
 `
 
 export const Line = styled.div`
@@ -58,4 +64,10 @@ export const Line = styled.div`
 
 export const P = styled.p`
   margin-bottom: 20px;
+  font-family: 'Mulish', sans-serif;
+
+  &:last-child {
+    margin-bottom: 50px;
+  }
+
 `

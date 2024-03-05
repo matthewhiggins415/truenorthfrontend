@@ -24,7 +24,6 @@ const PublicBlogs = () => {
    
   return (
     <BlogsPageContainer>
-      <h1>Recent Blogs</h1>
       <BackBtn onClick={handleBack}>Back</BackBtn>
       {blogs?.map((blog) => (
         <BlogCard to={`/blogs/${blog._id}`} key={blog._id}>
