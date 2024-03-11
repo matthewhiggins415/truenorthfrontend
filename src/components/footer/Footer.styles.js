@@ -48,10 +48,9 @@ export const FooterInfo = styled.div`
   align-items: left;
   min-height: 200px;
   min-width: 200px;
-  justify-content: space-between;
 
   @media only screen and (max-width: 600px) {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   p {
@@ -75,6 +74,13 @@ export const FooterInfo = styled.div`
 export const FooterServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
+
+  a {
+    font-family: 'Mulish', sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+  }
 `
 
 export const FooterServiceLink = styled(Link)`

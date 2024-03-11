@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css'; // Moved the CSS import to the top
 import ReactGA from 'react-ga4';
+import { getCompany } from './api/company';
 
 // React Router
 import {
@@ -26,7 +27,9 @@ import AdminAnalytics from './screens/screens/adminanalytics/AdminAnalytics';
 import AdminServices from './screens/screens/adminservices/AdminServices';
 import AdminCreateService from './screens/screens/admincreateservice/AdminCreateService';
 import AdminEditService from './screens/screens/admineditservice/AdminEditService';
-import PublicService from './screens/screens/publicservice/PublicService'
+import PublicService from './screens/screens/publicservice/PublicService';
+import AdminCompany from './screens/screens/admincompany/AdminCompany';
+import AdminEditCompany from './screens/screens/admineditcompany/AdminEditCompany';
 
 // Components
 import Navbar from './components/navbar/Navbar';
@@ -36,6 +39,7 @@ import Footer from './components/footer/Footer'
 
 const App = () => {
   const [user, setUser] = useState({});
+  const [company, setCompany] = useState({});
 
   const notify = (message, type) => {
     if (type === "warning") {
@@ -47,13 +51,22 @@ const App = () => {
     }
   }
 
+  useEffect(() => {
+    const getCompanyInfo = async () => {
+      const res = await getCompany();
+      setCompany(res.data.company[0]);
+    }
+
+    getCompanyInfo();
+  }, [])
+
   const gtagID = process.env.REACT_APP_GTAG_TRACKING_ID
   ReactGA.initialize(gtagID)
   ReactGA.send({ hitType: 'pageview', page: '/' })
 
   return (
     <Router>
-      <Navbar user={user} setUser={setUser} notify={notify}/>
+      <Navbar user={user} setUser={setUser} notify={notify} company={company}/>
       <ToastContainer theme="light" position="top-left" autoClose={1200}/>
       <Routes>
         <Route path='/' element={<Landing user={user} notify={notify}/>} />
@@ -73,8 +86,10 @@ const App = () => {
         <Route path='/admin/create-service' element={<AdminCreateService user={user} notify={notify} />} />
         <Route path='/admin/services/:id' element={<AdminEditService user={user} notify={notify} />} />
         <Route path='/services/:id' element={<PublicService />} />
+        <Route path='/admin/company' element={<AdminCompany user={user} notify={notify} />} />
+        <Route path='/admin/edit-company/:id' element={<AdminEditCompany user={user} notify={notify} />} />
       </Routes>
-      <Footer />
+      <Footer company={company}/>
     </Router>
   );
 }

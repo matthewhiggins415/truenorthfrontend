@@ -4,7 +4,8 @@ import { CiLogin } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import { getAllServices } from '../../api/services';
 
-const Footer = () => {
+const Footer = ({ company }) => {
+  console.log("company: ", company)
   const [services, setServices] = useState([])
   const navigate = useNavigate();
 
@@ -26,10 +27,12 @@ const Footer = () => {
     <FooterContainer>
       <FooterInfo>
         <h4>Company</h4>
-        <p>About Us</p>
-        <p>San Diego, California</p>
-        <FooterServiceLink to="https://firesafechimneycare.com">www.firesafechimneycare.com</FooterServiceLink>
-        <a href="tel:+18007933763">1-800-793-3763</a>
+        <FooterServicesContainer>
+          <FooterServiceLink>About Us</FooterServiceLink>
+          <a href="tel:+18007933763">{company.companyPhone}</a>
+          <FooterServiceLink >San Diego, California</FooterServiceLink>
+          <FooterServiceLink to={'https://firesafechimneycare.com'}>{company.companyWebsite}</FooterServiceLink>
+        </FooterServicesContainer>
       </FooterInfo>
       <FooterInfo>
         <h4>Services</h4>
@@ -39,12 +42,14 @@ const Footer = () => {
           ))}
         </FooterServicesContainer>
       </FooterInfo>
-      <FooterInfo>
+      <FooterInfo>        
         <h4>Connect</h4>
-        <FooterServiceLink to='/blogs'>Blog</FooterServiceLink>
-        <FooterServiceLink to="https://www.yelp.com/biz/fire-safe-chimney-sweeping-co-and-repairs-san-diego" target="_blank">Reviews</FooterServiceLink>
-        <p>Instagram</p>
-        <p>Facebook</p>
+        <FooterServicesContainer>
+          <FooterServiceLink to='/blogs'>Blog</FooterServiceLink>
+          <FooterServiceLink to={company.companyYelp} target="_blank">Reviews</FooterServiceLink>
+          <FooterServiceLink>Instagram</FooterServiceLink>
+          <FooterServiceLink>Facebook</FooterServiceLink>
+        </FooterServicesContainer>
       </FooterInfo>
       <LoginBtn>
         <CiLogin onClick={handleLoginNavigate}/>

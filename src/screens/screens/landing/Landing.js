@@ -13,11 +13,10 @@ const Landing = ({ user, notify }) => {
   useEffect(() => {
     const getServices = async () => {
       const res = await getAllServices();
-      console.log(res)
       setServices(res.data.services)
     }
 
-    getServices()
+    getServices();
   }, [])
 
   return (

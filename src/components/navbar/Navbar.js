@@ -6,20 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { signOut } from '../../api/user';
 import { IoIosMenu } from "react-icons/io";
 
-const Navbar = ({ user, notify, setUser }) => {
+const Navbar = ({ user, notify, setUser, company }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const navigate = useNavigate();
-
-  const handleContactNavigate = () => {
-    navigate('/contacts')
-    setShowMenu(!showMenu)
-  }
-
-  const handleBlogNavigate = () => {
-    navigate('/adminblogs')
-    setShowMenu(!showMenu)
-  }
 
   const handleSignOut = async () => {
     try {
@@ -39,6 +29,16 @@ const Navbar = ({ user, notify, setUser }) => {
     }
   }
 
+  const handleContactNavigate = () => {
+    navigate('/contacts')
+    setShowMenu(!showMenu)
+  }
+
+  const handleBlogNavigate = () => {
+    navigate('/adminblogs')
+    setShowMenu(!showMenu)
+  }
+
   const handleAnalyticsNavigate = () => {
     navigate('/analytics')
     setShowMenu(!showMenu)
@@ -47,6 +47,11 @@ const Navbar = ({ user, notify, setUser }) => {
   const handleServiceNavigate = () => {
     navigate('/admin/services')
     setShowMenu(!showMenu)
+  }
+
+  const handleCompanyNavigate = () => {
+    navigate('/admin/company');
+    setShowMenu(!showMenu);
   }
 
   const handleToggleMenu = () => {
@@ -68,7 +73,7 @@ const Navbar = ({ user, notify, setUser }) => {
           </AvailabilityContainer>
           <CallContainer>
             <p>Call Now</p>
-            <a href="tel:+18007933763">1-800-793-3763</a>
+            <a href="tel:+18007933763">{company.companyPhone}</a>
           </CallContainer>
         </CallUsContainer>
       }
@@ -76,6 +81,7 @@ const Navbar = ({ user, notify, setUser }) => {
         <>
           <IoIosMenu onClick={handleToggleMenu} style={{ backgroundColor: "white", fontSize: "40px", cursor: "pointer", border: "none", outline: "none" }} />
           <DropDownMenu showMenu={showMenu}>
+            <AdminBtn onClick={handleCompanyNavigate}>Company</AdminBtn>
             <AdminBtn onClick={handleServiceNavigate}>Services</AdminBtn>
             <AdminBtn onClick={handleContactNavigate}>Contacts</AdminBtn>
             <AdminBtn onClick={handleBlogNavigate}>Blogs</AdminBtn>
