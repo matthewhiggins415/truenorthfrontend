@@ -10,12 +10,17 @@ export const ReviewSectionContainer = styled.div`
   margin-bottom: 100px;
 
   h2 {
-    padding-bottom: 7px;
+    text-align: center;
+    padding-bottom: 20px;
     border-bottom: 3px solid lightblue;
-    margin-bottom: 10px;
-    font-family: 'Mulish', sans-serif;
-    font-size: 25px;
-    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 50%;
+    font-size: 45px;
+    letter-spacing: 1px;
   }
 `
 
