@@ -44,7 +44,6 @@ const Contact = ({ user, notify }) => {
       notify('something went wrong', 'danger')
       console.log(error)
     }
-
   }
 
   return (
@@ -76,6 +75,10 @@ const Contact = ({ user, notify }) => {
           <ContactInfoContainer>
             <p>Address:</p>
             <p>{contact.address}</p>
+          </ContactInfoContainer>
+          <ContactInfoContainer>
+            <p>Unit Address:</p>
+            <p>{contact.unit}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
             <p>City:</p>

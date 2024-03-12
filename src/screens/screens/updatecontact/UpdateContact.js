@@ -21,6 +21,7 @@ const UpdateContact = ({ user, notify }) => {
     homeType: '',
     chimneyType: '',
     address: '',
+    unit: '',
     city: '',
     zip: '',
     notes: ''
@@ -44,6 +45,7 @@ const UpdateContact = ({ user, notify }) => {
         homeType: res.data.contact.homeType,
         chimneyType: res.data.contact.chimneyType,
         address: res.data.contact.address,
+        unit: res.data.contact.unit,
         city: res.data.contact.city,
         zip: res.data.contact.zip,
         notes: res.data.contact.notes
@@ -77,6 +79,7 @@ const UpdateContact = ({ user, notify }) => {
         homeType: res.data.newContact.homeType,
         chimneyType: res.data.newContact.chimneyType,
         address: res.data.newContact.address,
+        unit: res.data.newContact.unit,
         city: res.data.newContact.city,
         zip: res.data.newContact.zip,
         notes: res.data.newContact.notes
@@ -162,8 +165,8 @@ const UpdateContact = ({ user, notify }) => {
           <InputContainer>
             <label htmlFor="homeType">Home Type:</label>
             <Select name="homeType" id="homeType" value={formData.homeType} onChange={onChange} >
-              <option value="onestory">One Story</option>
-              <option value="twostory">Two Story</option>
+              <option value="one story">One Story</option>
+              <option value="two story">Two Story</option>
               <option value="other">Other</option>
             </Select>
           </InputContainer>
@@ -182,6 +185,16 @@ const UpdateContact = ({ user, notify }) => {
               type="text"
               value={formData.address} 
               placeholder='home address' 
+              onChange={onChange}
+              />
+          </InputContainer>
+          <InputContainer>
+            <label>Unit</label>
+            <Input 
+              name="unit" 
+              type="text"
+              value={formData.unit} 
+              placeholder='unit address' 
               onChange={onChange}
               />
           </InputContainer>
