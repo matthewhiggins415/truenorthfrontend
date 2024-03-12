@@ -85,12 +85,25 @@ export const OfferTopContainer = styled.div`
   text-align: center;
 
   h2 {
-    padding-bottom: 7px;
+    padding-bottom: 20px;
     border-bottom: 3px solid lightblue;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 50%;
+    font-size: 45px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 20px;
     font-family: 'Mulish', sans-serif;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
   }
 `
 
@@ -119,4 +132,17 @@ export const Img = styled.img`
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+`
+
+export const DetailsBtn = styled.button`
+  width: 80%;
+  padding: 15px 20px;
+  margin: 20px auto;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
 `

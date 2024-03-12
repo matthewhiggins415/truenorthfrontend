@@ -1,10 +1,17 @@
 import React from 'react';
-import { Container, ServiceContainer, ServiceCard, OfferContainer, OfferTopContainer, OffersContainer, OfferCard, CardContainer, Img } from './Services.styles';
+import { Container, ServiceContainer, ServiceCard, OfferContainer, OfferTopContainer, OffersContainer, OfferCard, CardContainer, Img, DetailsBtn } from './Services.styles';
+import { useNavigate } from "react-router-dom";
 import { LuClock4 } from "react-icons/lu";
 import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
 
 const Services = ({ services }) => {
+  const navigate = useNavigate();
+
+  const navigateDetails = (id) => {
+    navigate(`/services/${id}`)
+  }
+
   return (
     <Container>
       <ServiceContainer>
@@ -26,7 +33,8 @@ const Services = ({ services }) => {
       </ServiceContainer>
       <OfferContainer>
         <OfferTopContainer>
-          <h2>What we offer</h2>
+          <h2>Full-service Inspection, Cleaning, and Repair</h2>
+          <p>We are equipped to handle all of your chimney servicing needs. Conveniently located in San Diego, California, we proudly serve home owners across the area by keeping their chimneys clean and operational.</p>
         </OfferTopContainer>
         <OffersContainer>
           <CardContainer>
@@ -36,6 +44,7 @@ const Services = ({ services }) => {
               <div>
                 <h3>{service.name}</h3>
                 <p>{service.title}</p>
+                <DetailsBtn onClick={() => navigateDetails(service._id)}>more info</DetailsBtn>
               </div>
             </OfferCard>
           ))}
