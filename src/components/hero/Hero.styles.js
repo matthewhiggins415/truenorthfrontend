@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const HeroContainer = styled.div`
   width: 100%;
-  min-height: 60vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   margin: 0px;
