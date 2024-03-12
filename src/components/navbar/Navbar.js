@@ -72,8 +72,7 @@ const Navbar = ({ user, notify, setUser, company }) => {
             <p>Monday-Friday 8am-6pm</p>
           </AvailabilityContainer>
           <CallContainer>
-            <p>Call Now</p>
-            <a href="tel:+18007933763">{company.companyPhone}</a>
+            <a href="tel:+18007933763">Call Now {company.companyPhone}</a>
           </CallContainer>
         </CallUsContainer>
       }

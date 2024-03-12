@@ -118,6 +118,7 @@ export const DropDownMenu = styled.div`
 `
 
 export const CallUsContainer = styled.div`
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,12 +128,12 @@ export const CallUsContainer = styled.div`
 `
 
 export const CallContainer = styled.div`
-  display: flex;
-  font-size: 25px;
-
   a {
-    color: blue;
+    color: white;
     text-decoration: none;
-    margin-left: 5px;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
   }
 `

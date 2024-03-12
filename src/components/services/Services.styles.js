@@ -142,7 +142,7 @@ export const DetailsBtn = styled.button`
   font-size: 20px;
   cursor: pointer;
   border-radius: 10px;
-  border: 1px solid black;
-  background-color: black;
+  border: none;
+  background-color: red;
   color: white;
 `

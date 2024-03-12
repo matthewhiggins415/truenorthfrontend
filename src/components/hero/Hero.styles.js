@@ -61,7 +61,7 @@ export const Overlay = styled.div`
 
 export const QuoteBtn = styled.button`
   padding: 20px 80px;
-  border: 2px solid white;
+  border: 2px solid red;
   font-size: 20px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -69,15 +69,10 @@ export const QuoteBtn = styled.button`
   color: white;
   border-radius: 15px;
   cursor: pointer;
-  background-color: transparent;
+  background-color: red;
   transition: 150ms ease-in-out;
   margin-top: 20px;
   margin-bottom: 20px;
-
-  &:hover {
-    background-color: white;
-    color: black;
-  }
 `
 
 export const HeroNavContainer = styled.div`
