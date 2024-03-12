@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 40vh;
+  min-height: 60vh;
   background-color: black;
   position: relative;
   display: flex;
@@ -46,8 +46,9 @@ export const FooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  min-height: 200px;
+  min-height: 300px;
   min-width: 200px;
+  height: auto;
 
   @media only screen and (max-width: 600px) {
     margin-top: 10px;
@@ -61,7 +62,7 @@ export const FooterInfo = styled.div`
     border-bottom: 2px solid lightblue;
     padding: 5px;
     font-family: 'Mulish', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   a {
@@ -78,8 +79,13 @@ export const FooterServicesContainer = styled.div`
 
   a {
     font-family: 'Mulish', sans-serif;
-    font-size: 15px;
-    margin-top: 5px;
+    font-size: 18px;
+    margin-top: 15px;
+    transition: 250ms ease-in-out;
+
+    &:hover {
+      color: red;
+    }
   }
 `
 
