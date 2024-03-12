@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select, EmailBtn } from './Contacts.styles';
 import { getContacts, searchContacts } from '../../../api/contact';
 import { CgDetailsMore } from "react-icons/cg";
+import { getContactsCSV } from '../../../api/csv';
 
 const Contacts = ({ user, setUser, notify }) => {
   const [allSelected, setAllSelected] = useState(false)
@@ -80,6 +81,48 @@ const Contacts = ({ user, setUser, notify }) => {
     }
   }
 
+  const handleCSVDownload = async () => {
+    console.log('download')
+
+    try {
+      const res = await getContactsCSV(user)
+      
+      // Check if the response is successful
+      if (res.status !== 200) {
+        throw new Error('Network response was not ok');
+      }
+      // Convert the binary string to a Uint8Array
+      const uint8Array = new Uint8Array([...res.data].map(c => c.charCodeAt(0)));
+
+      // Create a Blob object from the Uint8Array
+      const blob = new Blob([uint8Array], { type: 'text/csv' });
+
+      // Create a URL for the Blob
+      const url = window.URL.createObjectURL(blob);
+
+      // Create a link element
+      const a = document.createElement('a');
+
+      // Set the href attribute to the URL
+      a.href = url;
+
+      // Set the download attribute to specify the filename
+      a.download = 'contact-data.csv';
+
+      // Append the link to the document body
+      document.body.appendChild(a);
+
+      // Click the link to trigger the download
+      a.click();
+
+      // Remove the link from the document body
+      document.body.removeChild(a);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const handleSelectAll = () => {
     setAllSelected(!allSelected)
     setSelectedContacts(contacts)
@@ -122,6 +165,7 @@ const Contacts = ({ user, setUser, notify }) => {
             <Btn onClick={handleDeselectAll}>Unselect All</Btn> : 
             <Btn onClick={handleSelectAll}>Select All</Btn>
           }
+          <Btn onClick={handleCSVDownload}>CSV Download</Btn>
           <Btn onClick={handleNew}>New Contact</Btn>
         </ContactsHeader>
         { selectedContacts.length > 0 ? 
