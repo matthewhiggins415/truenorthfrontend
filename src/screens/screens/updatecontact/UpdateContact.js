@@ -106,8 +106,7 @@ const UpdateContact = ({ user, notify }) => {
               type="text" 
               value={formData.firstname} 
               placeholder='first name' 
-              onChange={onChange}
-              
+              onChange={onChange} 
             />
           </InputContainer>
           <InputContainer>
@@ -118,7 +117,6 @@ const UpdateContact = ({ user, notify }) => {
               value={formData.lastname} 
               placeholder='last name' 
               onChange={onChange}
-              
             />
           </InputContainer>
           <InputContainer>
@@ -149,6 +147,7 @@ const UpdateContact = ({ user, notify }) => {
               value={formData.chimneys} 
               placeholder='number of chimneys' 
               onChange={onChange}
+              min="1"
               />
           </InputContainer>
           <InputContainer>

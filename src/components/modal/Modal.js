@@ -11,15 +11,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     firstname: '', 
     lastname: '',
     email: '',
-    cell_phone: '',
-    chimneys: 0,
-    roofType: '', 
-    homeType: '',
-    chimneyType: '',
-    address: '',
-    city: '',
-    zip: '',
-    website: 'firesafechimneycare.com'
+    cell_phone: ''
   })
 
   const clearForm = () => {
@@ -28,15 +20,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
       firstname: '', 
       lastname: '',
       email: '',
-      cell_phone: '',
-      chimneys: 0,
-      roofType: '', 
-      homeType: '',
-      chimneyType: '',
-      address: '',
-      city: '',
-      zip: '',
-      website: 'firesafechimneycare.com'
+      cell_phone: ''
     })
   }
 
@@ -83,14 +67,7 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
         firstname: formData.firstname, 
         lastname: formData.lastname,
         email: formData.email,
-        cell_phone: formData.cell_phone,
-        chimneys: formData.chimneys,
-        roofType: formData.roofType, 
-        homeType: formData.homeType,
-        chimneyType: formData.chimneyType,
-        address: formData.address,
-        city: formData.city,
-        zip: formData.zip,
+        cell_phone: formData.cell_phone
       }
 
       try {
@@ -156,71 +133,6 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               type="tel" 
               value={formData.cell_phone} 
               placeholder='phone number' 
-              onChange={onChange}
-              required/>
-          </InputContainer>
-          <InputContainer>
-            <label>Chimneys:</label>
-            <Input 
-              name="chimneys" 
-              type="number" 
-              value={formData.chimneys} 
-              placeholder='number of chimneys' 
-              onChange={onChange}
-              required/>
-          </InputContainer>
-          <InputContainer>
-            <label htmlFor="roofType">Roof Type:</label>
-            <Select name="roofType" id="roofType" value={formData.roofType} onChange={onChange} required>
-              <option value="shingle">Shingle</option>
-              <option value="tile">Tile</option>
-              <option value="flat">Flat</option>
-              <option value="other">Other</option>
-            </Select>
-          </InputContainer>
-          <InputContainer>
-            <label htmlFor="homeType">Home Type:</label>
-            <Select name="homeType" id="homeType" value={formData.homeType} onChange={onChange} required>
-              <option value="onestory">One Story</option>
-              <option value="twostory">Two Story</option>
-              <option value="other">Other</option>
-            </Select>
-          </InputContainer>
-          <InputContainer>
-            <label htmlFor="chimneyType">Chimney Type:</label>
-            <Select name="chimneyType" id="chimneyType" value={formData.chimneyType} onChange={onChange} required>
-              <option value="masonry">Masonry</option>
-              <option value="prefab">Prefab</option>
-              <option value="other">Other</option>
-            </Select>
-          </InputContainer>
-          <InputContainer>
-            <label>Address</label>
-            <Input 
-              name="address" 
-              type="text"
-              value={formData.address} 
-              placeholder='home address' 
-              onChange={onChange}
-              required/>
-          </InputContainer>
-          <InputContainer>
-            <label>City</label>
-            <Input 
-              name="city"
-              type="text"
-              value={formData.city}
-              placeholder='city' 
-              onChange={onChange}
-              required/>
-          </InputContainer>
-          <InputContainer>
-            <label>Zip</label>
-            <Input 
-              name="zip" 
-              type="text"
-              value={formData.zip} 
-              placeholder='zip code' 
               onChange={onChange}
               required/>
           </InputContainer>
