@@ -28,7 +28,7 @@ export const Overlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 250px;
+  top: 280px;
   left: 0;
   width: 100%;
   height: auto;
@@ -44,18 +44,9 @@ export const Overlay = styled.div`
     align-items: center;
     justify-content: center;
 
-    h6 {
-      display: none;
-    }
-
     h2 {
       text-decoration: none;
     }
-  }
-
-  h6 {
-    color: black;
-    background-color: transparent;
   }
 `;
 
