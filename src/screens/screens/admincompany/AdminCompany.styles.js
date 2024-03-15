@@ -22,18 +22,22 @@ export const ProfileContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 `
 
+export const ProfileHeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
 export const EditBtn = styled.button`
-  padding: 5px 20px;
-  cursor: pointer;
-  border-radius: 10px;
+  padding: 10px 20px;
   background-color: white;
   border: 1px solid black;
   transition: 150ms ease-in-out;
-  border: none;
+  cursor: pointer;
 
   &:hover {
-    background-color: black;
     color: white;
+    background-color: black;
   }
 `
  
@@ -47,4 +51,15 @@ export const ProfImage = styled.img`
 
 export const InfoContainer = styled.div`
   margin-top: 20px;
+
+  h3 {
+    margin-bottom: 8px;
+  }
+`
+
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+
 `

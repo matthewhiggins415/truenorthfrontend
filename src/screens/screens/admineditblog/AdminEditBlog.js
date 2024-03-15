@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Form, SectionContainer, Label, Input, TextArea, Btn } from '../createblog/CreateBlog.styles';
-import { getBlog, updateBlog, publishBlog, unpublishBlog } from '../../../api/blog';
-import { EditBlogScreen } from './AdminEditBlog.styles';
+import { getBlog, updateBlog, publishBlog, unpublishBlog, updateBlogImage } from '../../../api/blog';
+import { EditBlogScreen, Img } from './AdminEditBlog.styles';
+import { uploadImage } from '../../../api/upload';
+import apiUrl from '../../../apiConfig';
 
 const AdminEditBlog = ({ user, notify }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
     img: '',
     author: '',
@@ -135,10 +138,45 @@ const AdminEditBlog = ({ user, notify }) => {
     }
   }
 
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+      const res = await uploadImage(formData);
+
+      if (res.status === 200) {
+        const picName = res.data.msg
+        const updateImgResponse = await updateBlogImage(id, picName)
+
+        setFormData({
+          img: updateImgResponse.data.updatedBlog.img
+        })
+
+        notify('image updated')
+      }
+    } catch(error) {
+      console.log(error);
+      notify('something went wrong', 'danger');
+    }
+  }
+
   return (
     <EditBlogScreen>
       <Btn onClick={handleBack}>back</Btn>
       {formData.isPublished ? <Btn onClick={handleUnpublish}>unpublish</Btn> : <Btn onClick={handlePublish}>publish</Btn>}
+      <SectionContainer>
+        <Img src={apiUrl + '/uploads/' + formData.img} />
+        <form onSubmit={handleImageUpload}>
+          <input type="file" onChange={handleFileChange} />
+          { selectedFile ? <button type="submit">Upload</button> : <></> }
+        </form>
+      </SectionContainer>
       <Form onSubmit={handleSubmit}>
         <SectionContainer>
           <h3>Meta Info</h3>
@@ -189,16 +227,6 @@ const AdminEditBlog = ({ user, notify }) => {
           />
         </SectionContainer>
         <SectionContainer>
-          <h3>Background Image</h3>
-          <Label>Copy & paste image address by right clicking an image</Label>
-          <Input 
-            name="img" 
-            type="text" 
-            value={formData.img} 
-            placeholder='Image Address' 
-            onChange={onChange}
-            required
-          />
           <h3>Section 1</h3>
           <Label>Ex: Introduction</Label>
           <Input 

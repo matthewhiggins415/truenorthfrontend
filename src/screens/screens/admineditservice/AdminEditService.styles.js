@@ -87,3 +87,9 @@ export const BtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+`

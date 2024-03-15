@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { LuClock4 } from "react-icons/lu";
 import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
+import apiUrl from '../../apiConfig';
 
 const Services = ({ services }) => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const Services = ({ services }) => {
           <CardContainer>
           {services.map((service) => (
             <OfferCard key={service._id}>
-              <Img src={service.img}/>
+              <Img src={apiUrl + '/uploads/' + service.img}/>
               <div>
                 <h3>{service.name}</h3>
                 <p>{service.title}</p>

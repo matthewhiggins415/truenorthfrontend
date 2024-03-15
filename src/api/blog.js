@@ -79,3 +79,10 @@ export const deleteBlog = (user, id) => {
     }
   })
 }
+
+// update image field of Blog 
+export const updateBlogImage = (id, picName) => {
+  return axios.put(apiUrl + `/update-blog-image/${id}`, {
+    image: picName
+  })
+}

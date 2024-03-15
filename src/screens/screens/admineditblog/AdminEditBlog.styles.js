@@ -25,3 +25,9 @@ export const Btn = styled.button`
     background-color: black;
   }
 `
+
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+`

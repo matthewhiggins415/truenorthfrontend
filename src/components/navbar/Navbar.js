@@ -54,6 +54,11 @@ const Navbar = ({ user, notify, setUser, company }) => {
     setShowMenu(!showMenu);
   }
 
+  const handleImagesNavigate = () => {
+    navigate('/admin/images');
+    setShowMenu(!showMenu);
+  }
+
   const handleToggleMenu = () => {
     setShowMenu(!showMenu)
   }
@@ -69,10 +74,10 @@ const Navbar = ({ user, notify, setUser, company }) => {
         <CallUsContainer>
           <AvailabilityContainer>
             <CiClock2 size={30} />
-            <p>Monday-Friday 8am-6pm</p>
+            <p>Available 24/7</p>
           </AvailabilityContainer>
           <CallContainer>
-            <a href="tel:+18007933763">Call Now {company.companyPhone}</a>
+            <a href="tel:+18007933763">Call {company.companyPhone}</a>
           </CallContainer>
         </CallUsContainer>
       }
@@ -84,6 +89,7 @@ const Navbar = ({ user, notify, setUser, company }) => {
             <AdminBtn onClick={handleServiceNavigate}>Services</AdminBtn>
             <AdminBtn onClick={handleContactNavigate}>Contacts</AdminBtn>
             <AdminBtn onClick={handleBlogNavigate}>Blogs</AdminBtn>
+            <AdminBtn onClick={handleImagesNavigate}>Images</AdminBtn>
             <AdminBtn onClick={handleAnalyticsNavigate}>Analytics</AdminBtn>
             <LogoutBtn onClick={handleSignOut}>Logout</LogoutBtn>
           </DropDownMenu>

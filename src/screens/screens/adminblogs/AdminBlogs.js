@@ -33,12 +33,11 @@ const AdminBlogs = ({ user, notify }) => {
       </AdminBlogScreenHeader>
       <div>
         {blogs.map((blog, index) => (
-          <BlogContainer key={blog._id}>
+          <BlogContainer onClick={() => handleNavigateBlog(blog._id)} key={blog._id}>
             <p>{index + 1}.</p>
-            <p>{blog.isPublished ? 'published' : 'not published'}</p>
             <p>{blog.date}</p>
             <p>{blog.title}</p>
-            <BlogBtn onClick={() => handleNavigateBlog(blog._id)}>...</BlogBtn>
+            <p>{blog.isPublished ? 'published' : 'not published'}</p>
           </BlogContainer>
         ))}
       </div>

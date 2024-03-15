@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { SectionContainer, Title } from './Blog.styles';
+import { SectionContainer, Title, Img } from './Blog.styles';
 
 const Blog = ({ img, author, isPublished, title, metaDescription, metaKeywords, date, sectionOneHeader, sectionOneContent, sectionTwoHeader, sectionTwoContent, sectionThreeHeader, sectionThreeContent, sectionFourHeader, sectionFourContent, sectionFiveHeader, sectionFiveContent, conclusionHeader, conclusionContent }) => {
   return (
@@ -11,7 +11,7 @@ const Blog = ({ img, author, isPublished, title, metaDescription, metaKeywords, 
         <meta name="keywords" content={metaKeywords} />
       </Helmet>
       <header>
-        <img src={img} />
+        <Img src={img} />
         <Title>{title}</Title>
         <p>{date}</p>
         <p>{author}</p>

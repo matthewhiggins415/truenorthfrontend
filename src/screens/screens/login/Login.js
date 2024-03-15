@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signIn } from '../../../api/user';
-import { LoginScreenContainer, Form, Input, SubmitBtn, BackLink } from './Login.styles';
-import { useNavigate, Link } from "react-router-dom";
+import { LoginScreenContainer, Form, Input, SubmitBtn } from './Login.styles';
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ user, setUser, notify }) => {
   const navigate = useNavigate();
@@ -44,9 +44,7 @@ const Login = ({ user, setUser, notify }) => {
 
   return (
     <LoginScreenContainer>
-      <BackLink to="/">Back</BackLink>
       <Form onSubmit={onRegister}>
-        <h2>Login</h2>
         <Input type="text" name="email" value={email} placeholder="email" onChange={onChange} required/>
         <Input type="password" name="password" value={password} placeholder="password" onChange={onChange} required/>
         <SubmitBtn type="submit">Login</SubmitBtn>

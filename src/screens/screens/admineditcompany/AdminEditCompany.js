@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { AdminEditScreen, ProfileEditContainer, BackBtn, InputContainer, Input, SubmitBtn } from './AdminEditCompany.styles';
-import { updateCompany, getCompany } from '../../../api/company';
+import { AdminEditScreen, ProfileEditContainer, BackBtn, InputContainer, Input, SubmitBtn, Img, ImgContainer, ImgForm } from './AdminEditCompany.styles';
+import { updateCompany, getCompany, updateCompanyImage } from '../../../api/company';
 import { useParams } from "react-router-dom";
+import { uploadImage } from '../../../api/upload';
+import apiUrl from '../../../apiConfig';
 
 const AdminEditCompany = ({ user, notify }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+
   const [formData, setFormData] = useState({
     companyImage: '',
     companyName: '',
@@ -21,14 +25,13 @@ const AdminEditCompany = ({ user, notify }) => {
     companyTikTok: ''
   })
 
-  const { id } = useParams()
-  console.log("id:", id)
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const requestData = async () => {
       try {
         const res = await getCompany();
-        console.log('res', res)
 
         if (res.status === 200) {
           setFormData({
@@ -41,7 +44,7 @@ const AdminEditCompany = ({ user, notify }) => {
             companyName: res.data.company[0].companyName,
             companyPhone: res.data.company[0].companyPhone,
             companyTikTok: res.data.company[0].companyTikTok,
-            companyTwitter: res.data.company[0].companyTwittier,
+            companyTwitter: res.data.company[0].companyTwitter,
             companyWebsite: res.data.company[0].companyWebsite,
             companyYelp: res.data.company[0].companyYelp,
             companyZip: res.data.company[0].companyZip
@@ -49,13 +52,12 @@ const AdminEditCompany = ({ user, notify }) => {
         }
       } catch(err) {
         console.log(err)
+        notify("something went wrong", "danger")
       }
     }
 
     requestData()
-  }, [])
-
-  const navigate = useNavigate();
+  }, []);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -72,9 +74,7 @@ const AdminEditCompany = ({ user, notify }) => {
     e.preventDefault()
 
     try {
-      console.log("submit")
-      const res = await updateCompany(user, formData, id)
-      console.log("response from update", res)
+      const res = await updateCompany(user, formData, id);
 
       if (res.status === 200) {
         setFormData({
@@ -87,7 +87,7 @@ const AdminEditCompany = ({ user, notify }) => {
           companyName: res.data.newCompany.companyName,
           companyPhone: res.data.newCompany.companyPhone,
           companyTikTok: res.data.newCompany.companyTikTok,
-          companyTwitter: res.data.newCompany.companyTwittier,
+          companyTwitter: res.data.newCompany.companyTwitter,
           companyWebsite: res.data.newCompany.companyWebsite,
           companyYelp: res.data.newCompany.companyYelp,
           companyZip: res.data.newCompany.companyZip
@@ -97,29 +97,56 @@ const AdminEditCompany = ({ user, notify }) => {
       } else {
         notify('something went wrong', 'danger')
       }
-    } catch(e) {
-      console.log(e)
+    } catch(error) {
+      console.log(error)
       notify('something went wrong', 'danger')
     }
   }
-  
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+      const res = await uploadImage(formData);
+
+      if (res.status === 200) {
+        const picName = res.data.msg
+        const updateImgResponse = await updateCompanyImage(id, picName)
+
+        setFormData({
+          companyImage: updateImgResponse.data.updatedCompany.companyImage
+        })
+
+        notify('image updated')
+      }
+    } catch(error) {
+      console.log(error);
+      notify('something went wrong', 'danger');
+    }
+  }
+
   return (
     <AdminEditScreen>
       <BackBtn onClick={handleEditNavigate}>Back</BackBtn>
       <div>
         <ProfileEditContainer>      
           <h1>Edit Company</h1>
+          <ImgContainer>
+            <label>Company Image</label>
+            <Img src={apiUrl + "/uploads/" + formData.companyImage}/>
+            <p>{formData.companyImage}</p>
+          </ImgContainer>
+          <ImgForm onSubmit={handleImageUpload}>
+            <input type="file" onChange={handleFileChange} />
+            { selectedFile ? <button type="submit">Upload</button> : <></> }
+          </ImgForm>
           <form onSubmit={handleSubmit}>
-            <InputContainer>
-              <label>Company Image</label>
-              <Input 
-                name="companyImage" 
-                type="text" 
-                value={formData.companyImage} 
-                placeholder='Company Image' 
-                onChange={onChange}
-              />
-            </InputContainer>
             <InputContainer>
               <label>Company Name</label>
               <Input 

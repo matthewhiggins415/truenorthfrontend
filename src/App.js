@@ -30,6 +30,7 @@ import AdminEditService from './screens/screens/admineditservice/AdminEditServic
 import PublicService from './screens/screens/publicservice/PublicService';
 import AdminCompany from './screens/screens/admincompany/AdminCompany';
 import AdminEditCompany from './screens/screens/admineditcompany/AdminEditCompany';
+import AdminImages from './screens/screens/adminimages/AdminImages';
 
 // Components
 import Navbar from './components/navbar/Navbar';
@@ -88,6 +89,7 @@ const App = () => {
         <Route path='/services/:id' element={<PublicService />} />
         <Route path='/admin/company' element={<AdminCompany user={user} notify={notify} />} />
         <Route path='/admin/edit-company/:id' element={<AdminEditCompany user={user} notify={notify} />} />
+        <Route path='/admin/images' element={<AdminImages user={user} notify={notify} />}/>
       </Routes>
       <Footer company={company}/>
     </Router>

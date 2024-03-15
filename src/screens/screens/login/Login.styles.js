@@ -20,24 +20,19 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   padding: 35px;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
 `
 
 export const Input = styled.input`
   height: 40px;
-  border-radius: 15px;
-  border: 1px solid black;
+  border: none;
+  background-color: #efefef;
   width: 200px;
   padding-left: 10px;
   padding-right: 10px;
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   outline: none;
 
   &:hover {
@@ -46,37 +41,13 @@ export const Input = styled.input`
 `
 
 export const SubmitBtn = styled.button`
-  width: 80%;
+  width: 100%;
   border: 1px solid black;
-  padding: 10px 50px;
+  padding: 20px 50px;
   text-align: center;
-  background-color: white;
-  transition: 150ms;
+  background-color: black;
   cursor: pointer;
-  margin: 10px auto;
+  margin: 0 auto;
   margin-bottom: none;
-  border-radius: 15px;
-  color: black;
-
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-`
-
-export const BackLink = styled(Link)`
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: white;
-  transition: 150ms ease-in-out;
-  margin-bottom: 20px;
-  text-decoration: none;
-  color: black;
-
-  &:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-  }
+  color: white;
 `

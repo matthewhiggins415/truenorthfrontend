@@ -131,7 +131,7 @@ export const CallContainer = styled.div`
   a {
     color: white;
     text-decoration: none;
-    background-color: red;
+    background-color: #ee1c4a;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;

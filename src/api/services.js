@@ -33,6 +33,13 @@ export const updateService = (id, user, data) => {
   })
 }
 
+// update image field of service 
+export const updateServiceImage = (id, picName) => {
+  return axios.put(apiUrl + `/update-service-image/${id}`, {
+    image: picName
+  })
+}
+
 // delete a service
 export const deleteService = (user, id) => {
   return axios.delete(apiUrl + `/service/${id}`, {

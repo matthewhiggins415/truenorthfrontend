@@ -5,6 +5,7 @@ import { PublicBlogContainer, Img, Btn } from './PublicBlog.styles'
 import { getAPublicBlog } from '../../../api/blog';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import apiUrl from '../../../apiConfig';
 
 const PublicBlog = () => {
   const [blog, setBlog] = useState({});
@@ -41,7 +42,7 @@ const PublicBlog = () => {
       </Helmet>
       <header>
         <Title>{blog.title}</Title>
-        <Img src={blog.img} />
+        <Img src={apiUrl + '/uploads/' + blog.img} />
         <p>{blog.date}</p>
         <p>{blog.author}</p>
       </header>

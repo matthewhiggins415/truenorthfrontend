@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ProfileScreen, ProfileContainer, ProfImage, EditBtn, InfoContainer } from './AdminCompany.styles'
+import { ProfileScreen, ProfileContainer, ProfImage, EditBtn, InfoContainer, Img, ProfileHeaderContainer } from './AdminCompany.styles'
 import { getCompany } from '../../../api/company';
+import apiUrl from '../../../apiConfig';
 
 const AdminCompany = ({ user, notify }) => {
   const [companyData, setCompanyData] = useState({});
@@ -28,57 +29,60 @@ const AdminCompany = ({ user, notify }) => {
 
   return (
     <ProfileScreen>
-      <h1>Company Profile</h1>
+      <ProfileHeaderContainer>
+        <h1>Company Profile</h1>
+        <EditBtn onClick={handleEditNavigate}>edit</EditBtn>
+      </ProfileHeaderContainer>
       <div>
         <ProfileContainer>
-          <div>
-            <EditBtn onClick={handleEditNavigate}>edit</EditBtn>
-          </div>
-          <ProfImage src={companyData.companyImage}/>
-            <InfoContainer>
-              <h3>Company Name:</h3>
-              <p>{companyData.companyName}</p>
+          <InfoContainer>
+            <h3>Company Image:</h3>
+            <Img src={apiUrl + "/uploads/" + companyData.companyImage} />
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company Name:</h3>
+            <p>{companyData.companyName}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company Website:</h3>
+            <p>{companyData.companyWebsite}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company Email:</h3>
+            <p>{companyData.companyEmail}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company Phone:</h3>
+            <p>{companyData.companyPhone}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company Address:</h3>
+            <p>{companyData.companyAddress}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company City:</h3>
+            <p>{companyData.companyCity}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Company Yelp:</h3>
+            <p>{companyData.companyYelp}</p>
             </InfoContainer>
-            <InfoContainer>
-              <h3>Company Website:</h3>
-              <p>{companyData.companyWebsite}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Company Email:</h3>
-              <p>{companyData.companyEmail}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Company Phone:</h3>
-              <p>{companyData.companyPhone}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Company Address:</h3>
-              <p>{companyData.companyAddress}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Company City:</h3>
-              <p>{companyData.companyCity}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Company Yelp:</h3>
-              <p>{companyData.companyYelp}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Instagram:</h3>
-              <p>{companyData.companyInstagram}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Facebook:</h3>
-              <p>{companyData.companyFacebook}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Twitter:</h3>
-              <p>{companyData.companyTwitter}</p>
-            </InfoContainer>
-            <InfoContainer>
-              <h3>Tiktok:</h3>
-              <p>{companyData.companyTikTok}</p>
-            </InfoContainer>                
+          <InfoContainer>
+            <h3>Instagram:</h3>
+            <p>{companyData.companyInstagram}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Facebook:</h3>
+            <p>{companyData.companyFacebook}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Twitter:</h3>
+            <p>{companyData.companyTwitter}</p>
+          </InfoContainer>
+          <InfoContainer>
+            <h3>Tiktok:</h3>
+            <p>{companyData.companyTikTok}</p>
+          </InfoContainer>                
         </ProfileContainer>
       </div>
     </ProfileScreen>

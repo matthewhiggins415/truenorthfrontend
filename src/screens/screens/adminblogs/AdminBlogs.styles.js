@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const AdminBlogScreenContainer = styled.div`
   width: 100%;
@@ -15,18 +16,29 @@ export const AdminBlogScreenHeader = styled.div`
   margin-bottom: 20px;
 `
 
-export const BlogContainer = styled.div`
+export const BlogContainer = styled.button`
   display: flex;
-  border: 1px solid black;
-  padding: 10px;
+  padding: 20px;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
   margin-top: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  color: black;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  width: 100%;
+  cursor: pointer;
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     align-items: start;
+    width: 90%;
+  }
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 `
 

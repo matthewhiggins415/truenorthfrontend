@@ -27,3 +27,10 @@ export const updateCompany = (user, data, id) => {
 export const getCompany = () => {
   return axios.get(apiUrl + '/company')
 }
+
+// update image field of company 
+export const updateCompanyImage = (id, picName) => {
+  return axios.put(apiUrl + `/update-company-image/${id}`, {
+    image: picName
+  })
+}

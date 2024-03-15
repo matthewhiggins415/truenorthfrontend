@@ -60,9 +60,9 @@ export const IndividualContact = styled.button`
   align-items: center;
   justify-content: space-between;
   margin: 10px 0px;
-  padding: 15px;
+  padding: 15px 25px;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   transition: 150ms ease-in-out;
   cursor: pointer;
 
@@ -85,22 +85,14 @@ export const ContactBtn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: white;
+  background-color: black;
   font-size: 20px;
   text-align: center;
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
   transition: 150ms ease-in-out;
-
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-
-  @media only screen and (max-width: 600px) {
-    color: black;
-  }
+  color: white;
 `
 
 export const SearchInput = styled.input`

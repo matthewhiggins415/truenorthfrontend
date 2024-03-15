@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer } from './AdminEditService.styles';
+import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img } from './AdminEditService.styles';
 import { useNavigate } from "react-router-dom";
-import { getSingleService, updateService, deleteService } from '../../../api/services';
+import { getSingleService, updateService, deleteService, updateServiceImage} from '../../../api/services';
 import { useParams } from "react-router-dom";
+import axios from 'axios';
+import apiUrl from '../../../apiConfig';
+import { uploadImage } from '../../../api/upload';
 
 const AdminEditService = ({ user, notify }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
     img: '',
     name: '',
@@ -56,7 +60,6 @@ const AdminEditService = ({ user, notify }) => {
       console.log(res)
       if (res.status === 200) {
         notify('service updated');
-        navigate('/admin/services')
       }
     } catch(error) {
       console.log(error)
@@ -83,6 +86,34 @@ const AdminEditService = ({ user, notify }) => {
     }
   }
 
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+      const res = await uploadImage(formData)
+
+      if (res.status === 200) {
+        const picName = res.data.msg
+        const updateImgResponse = await updateServiceImage(id, picName);
+        console.log(updateImgResponse)
+
+        setFormData({
+          img: updateImgResponse.data.updatedService.img
+        })
+
+        notify('image updated')
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+  };
+
   return (
     <EditServiceContainer>
       <BtnContainer>
@@ -91,15 +122,13 @@ const AdminEditService = ({ user, notify }) => {
       </BtnContainer>
       <FormContainer>
         <h2>Edit a Service</h2>
+        <Img src={apiUrl + "/uploads/" + formData.img} />
+        <p>{formData.img}</p>
+        <form onSubmit={handleImageUpload}>
+          <Input type="file" onChange={handleFileChange} />
+          { selectedFile ? <button type="submit">Upload</button> : <></> }
+        </form>
         <Form onSubmit={handleSubmit}>
-          <Input 
-            name="img" 
-            type="text" 
-            value={formData.img} 
-            placeholder='Image Url' 
-            onChange={onChange}
-            required
-          />
           <Input 
             name="name"
             value={formData.name}

@@ -3,6 +3,7 @@ import { ServiceContainer, BackBtn, Img, Container, H2, Line, P } from './Public
 import { getSingleService } from '../../../api/services';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import apiUrl from '../../../apiConfig';
 
 const PublicService = () => {
   const [service, setService] = useState({})
@@ -30,7 +31,7 @@ const PublicService = () => {
         <BackBtn onClick={handleBack}>Back</BackBtn>
         <Container>
           <h1>{service.name}</h1>
-          <Img src={service.img}/>
+          <Img src={apiUrl + "/uploads/" + service.img}/>
           <H2>{service.title}</H2>
           <Line></Line>
            <P>{service.paragraphOne}</P>

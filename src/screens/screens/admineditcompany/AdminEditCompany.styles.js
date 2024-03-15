@@ -19,6 +19,12 @@ export const ProfileEditContainer = styled.div`
   flex-direction: column;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  h1 {
+    font-family: 'Mulish', sans-serif;
+    text-align: center;
+    margin-bottom: 15px;
+  }
 `
 
 export const BackBtn = styled.button`
@@ -47,13 +53,20 @@ export const InputContainer = styled.div`
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
+
+  label {
+    font-family: 'Mulish', sans-serif;
+  }
 `
 
 export const Input = styled.input`
-  padding: 5px;
-  border: 1px solid black;
-  width: 200px;
+  padding: 10px 20px;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #efefef;
 `
 
 export const SubmitBtn = styled.button`
@@ -62,9 +75,48 @@ export const SubmitBtn = styled.button`
   padding: 15px 30px;
   margin: 0px auto;
   border: 1px solid black;
-  margin-top: 20px;
+  margin-top: 40px;
   background-color: black;
   cursor: pointer;
   color: white;
+`
 
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+`
+
+export const ImgContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px auto;
+  font-family: 'Mulish', sans-serif;
+`
+
+export const ImgForm = styled.form`
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef;
+  padding: 10px 20px;
+
+  input {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+
+  button {
+    background-color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    border-radius: 15px;
+    margin-left: 10px;
+  }
 `

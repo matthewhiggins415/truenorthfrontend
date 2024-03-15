@@ -84,7 +84,7 @@ export const FooterServicesContainer = styled.div`
     transition: 250ms ease-in-out;
 
     &:hover {
-      color: red;
+      color: #ee1c4a;
     }
   }
 `

@@ -7,3 +7,9 @@ export const SectionContainer = styled.div`
 export const Title = styled.h1`
   margin-bottom: 20px;
 `
+
+export const Img = styled.img`
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+`

@@ -60,7 +60,7 @@ export const QuoteBtn = styled.button`
   color: white;
   border-radius: 15px;
   cursor: pointer;
-  background-color: red;
+  background-color: #ee1c4a;
   transition: 150ms ease-in-out;
   margin-top: 20px;
   margin-bottom: 20px;
