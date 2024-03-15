@@ -144,8 +144,9 @@ export const SubmitBtn = styled.button`
   margin-top: 20px;
   border: none;
   cursor: pointer;
-  font-family: 'Mulish', sans-serif;
-  font-size: 18px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+  letter-spacing: 1px;
 
   @media only screen and (max-width: 700px) {
     margin-top: 30px;
