@@ -93,9 +93,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     <ModalContainer modalOpen={modalOpen}>
       <FormContainer loading={loading}>
         <Form onSubmit={handleSubmit} loading={loading}>
-          <h2>We will follow up with you shortly</h2>
+          <h2>We will call you back shortly</h2>
           <InputContainer>
-            <label>First Name:</label>
             <Input 
               name="firstname" 
               type="text" 
@@ -106,7 +105,6 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
             />
           </InputContainer>
           <InputContainer>
-            <label>Last Name:</label>
             <Input 
               name="lastname" 
               type="text" 
@@ -117,7 +115,6 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
             />
           </InputContainer>
           <InputContainer>
-            <label>Email:</label>
             <Input 
               name="email" 
               type="email"
@@ -127,7 +124,6 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
               required/>
           </InputContainer>
           <InputContainer>
-            <label>Phone:</label>
             <Input 
               name="cell_phone" 
               type="tel" 

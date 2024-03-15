@@ -33,9 +33,11 @@ export const Form = styled.form`
   color: black;
 
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     padding-bottom: 5px;
-    border-bottom: 2px solid lightblue;
+    font-family: 'Mulish', sans-serif;
+    text-align: center;
   }
 
   @media only screen and (max-width: 600px) {
@@ -54,12 +56,14 @@ export const InputContainer = styled.div`
 
 export const Input = styled.input`
   height: 40px;
-  border-radius: 15px;
-  border: 1px solid black;
-  width: 200px;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 100%;
+  background-color: #efefef;
+  border: none;
+  padding: 25px;
   color: black;
+  outline: none;
+  font-family: 'Mulish', sans-serif;
+  font-size: 18px;
 `
 
 export const Select = styled.select`
@@ -72,40 +76,29 @@ export const Select = styled.select`
 `
 
 export const SubmitBtn = styled.button`
-  width: 80%;
-  border: 1px solid black;
-  padding: 10px 50px;
+  width: 90%;
+  border: none;
+  padding: 20px 50px;
   text-align: center;
-  background-color: white;
-  transition: 150ms;
+  background-color: #ee1c4a;
   cursor: pointer;
-  margin-top: 20px;
-  border-radius: 15px;
-  color: black;
-
-  &:hover {
-    background-color: black;
-    color: white;
-  }
+  margin-top: 10px;
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  font-size: 18px;
 `
 
 export const CloseBtn = styled.button`
-  width: 80%;
-  border: 1px solid black;
-  padding: 10px 50px;
+  width: 90%;
+  border: none;
+  padding: 20px 50px;
   text-align: center;
-  background-color: white;
-  transition: 150ms;
+  background-color: black;
   cursor: pointer;
   margin-top: 10px;
-  border-radius: 15px;
-  color: black;
-
-  &:hover {
-    background-color: red;
-    color: white;
-    border: 1px solid red;
-  }
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  font-size: 18px;
 `
 
 export const LoadingContainer = styled.div`
