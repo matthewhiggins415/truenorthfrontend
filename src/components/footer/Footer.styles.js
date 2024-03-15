@@ -16,8 +16,8 @@ export const FooterContainer = styled.div`
     font-size: 15px;
     flex-direction: column;
     height: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 100px;
   }
 `
 
@@ -52,6 +52,9 @@ export const FooterInfo = styled.div`
 
   @media only screen and (max-width: 600px) {
     margin-top: 10px;
+    width: 70%;
+    margin-bottom: 20px;
+    min-height: auto;
   }
 
   p {
