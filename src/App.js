@@ -86,7 +86,7 @@ const App = () => {
         <Route path='/admin/services' element={<AdminServices />} />
         <Route path='/admin/create-service' element={<AdminCreateService user={user} notify={notify} />} />
         <Route path='/admin/services/:id' element={<AdminEditService user={user} notify={notify} />} />
-        <Route path='/services/:id' element={<PublicService />} />
+        <Route path='/services/:id' element={<PublicService notify={notify}/>} />
         <Route path='/admin/company' element={<AdminCompany user={user} notify={notify} />} />
         <Route path='/admin/edit-company/:id' element={<AdminEditCompany user={user} notify={notify} />} />
         <Route path='/admin/images' element={<AdminImages user={user} notify={notify} />}/>

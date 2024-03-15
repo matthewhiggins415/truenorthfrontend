@@ -4,8 +4,9 @@ import { getSingleService } from '../../../api/services';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import apiUrl from '../../../apiConfig';
+import Contact from '../../../components/contact/Contact';
 
-const PublicService = () => {
+const PublicService = ({ notify }) => {
   const [service, setService] = useState({})
 
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const PublicService = () => {
            <P>{service.paragraphFour}</P>
            <P>{service.paragraphFive}</P>
         </Container>
+        <Contact notify={notify}/>
       </ServiceContainer>
     </>
   )

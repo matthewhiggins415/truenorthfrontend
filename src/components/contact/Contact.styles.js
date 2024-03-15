@@ -39,6 +39,10 @@ export const MapContainer = styled.div`
 
   @media only screen and (max-width: 700px) {
     width: 100%;
+
+    h1 {
+      text-align: center;
+    }
   }
 `
 
@@ -72,6 +76,10 @@ export const Form = styled.form`
     margin-top: 30px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
+
+    h1 {
+      text-align: center;
+    }
   }
 `
 
