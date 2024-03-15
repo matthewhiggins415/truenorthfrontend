@@ -3,6 +3,7 @@ import Hero from '../../../components/hero/Hero';
 import Services from '../../../components/services/Services';
 import Modal from '../../../components/modal/Modal';
 import Reviews from '../../../components/reviews/Reviews';
+import Contact from '../../../components/contact/Contact';
 import { Helmet } from 'react-helmet';
 import { getAllServices } from '../../../api/services';
 
@@ -29,6 +30,7 @@ const Landing = ({ user, notify }) => {
       <Services services={services}/>
       <Modal setModalOpen={setModalOpen} modalOpen={modalOpen} notify={notify}/>
       <Reviews />
+      <Contact notify={notify}/>
     </>
   )
 }
