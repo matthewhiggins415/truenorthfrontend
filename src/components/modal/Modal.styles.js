@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ModalContainer = styled.div`   
   display: ${(props) => (props.modalOpen ? 'block' : 'none')};
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 100%;
