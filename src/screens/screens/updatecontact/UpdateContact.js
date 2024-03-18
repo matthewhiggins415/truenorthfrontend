@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { UpdateContactContainer, BackBtn } from './UpdateContact.styles';
+import { UpdateContactContainer, BackBtn, FormContainer, Form, InputContainer, Input, Select, SubmitBtn, LoadingContainer, TextArea } from './UpdateContact.styles';
 import { getContact } from '../../../api/contact';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FormContainer, Form, InputContainer, Input, Select, SubmitBtn, LoadingContainer  } from '../../../components/modal/Modal.styles';
+
 import BounceLoader from "react-spinners/BounceLoader";
 import { updateAContact } from '../../../api/contact';
 
@@ -219,13 +219,14 @@ const UpdateContact = ({ user, notify }) => {
               />
           </InputContainer>
           <InputContainer>
-            <textarea 
+            <label>Notes</label>
+            <TextArea 
               name="notes" 
               type="textarea"
               value={formData.notes} 
               placeholder='notes' 
               onChange={onChange}
-            ></textarea>
+            ></TextArea>
           </InputContainer>
           <SubmitBtn type="submit">Submit</SubmitBtn>
         </Form>

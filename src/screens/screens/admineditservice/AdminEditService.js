@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img } from './AdminEditService.styles';
+import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img, ImgForm, InputContainer } from './AdminEditService.styles';
 import { useNavigate } from "react-router-dom";
 import { getSingleService, updateService, deleteService, updateServiceImage} from '../../../api/services';
 import { useParams } from "react-router-dom";
@@ -124,63 +124,84 @@ const AdminEditService = ({ user, notify }) => {
         <h2>Edit a Service</h2>
         <Img src={apiUrl + "/uploads/" + formData.img} />
         <p>{formData.img}</p>
-        <form onSubmit={handleImageUpload}>
-          <Input type="file" onChange={handleFileChange} />
+        <ImgForm onSubmit={handleImageUpload}>
+          <input type="file" onChange={handleFileChange} />
           { selectedFile ? <button type="submit">Upload</button> : <></> }
-        </form>
+        </ImgForm>
         <Form onSubmit={handleSubmit}>
-          <Input 
-            name="name"
-            value={formData.name}
-            type="text"
-            placeholder="Name"
-            onChange={onChange}
-            required
-          />
-          <Input 
-            name="title"
-            value={formData.title}
-            type="text"
-            placeholder="Title"
-            onChange={onChange}
-            required
-          />
-          <TextArea
-            name="paragraphOne"
-            value={formData.paragraphOne}
-            type="text"
-            placeholder="Paragraph One"
-            onChange={onChange}
-            required
-          />
-          <TextArea
-            name="paragraphTwo"
-            value={formData.paragraphTwo}
-            type="text"
-            placeholder="Paragraph Two"
-            onChange={onChange}        
-          />
-          <TextArea
-            name="paragraphThree"
-            value={formData.paragraphThree}
-            type="text"
-            placeholder="Paragraph Three"
-            onChange={onChange}         
-          />
-          <TextArea
-            name="paragraphFour"
-            value={formData.paragraphFour}
-            type="text"
-            placeholder="Paragraph Four"
-            onChange={onChange}
-          />
-          <TextArea
-            name="paragraphFive"
-            value={formData.paragraphFive}
-            type="text"
-            placeholder="Paragraph Five"
-            onChange={onChange}         
-          />
+          <InputContainer>
+            <label>Blog Name</label>
+            <Input 
+              name="name"
+              value={formData.name}
+              type="text"
+              placeholder="Name"
+              onChange={onChange}
+              required
+            /> 
+          </InputContainer>
+          <InputContainer>
+            <label>Title</label>
+            <Input 
+              name="title"
+              value={formData.title}
+              type="text"
+              placeholder="Title"
+              onChange={onChange}
+              required
+            />
+          </InputContainer>
+          <InputContainer>
+            <label>Paragraph One</label>
+            <TextArea
+              name="paragraphOne"
+              value={formData.paragraphOne}
+              type="text"
+              placeholder="Paragraph One"
+              onChange={onChange}
+              required
+            />
+          </InputContainer>
+          <InputContainer>
+            <label>Paragraph Two</label>
+            <TextArea
+              name="paragraphTwo"
+              value={formData.paragraphTwo}
+              type="text"
+              placeholder="Paragraph Two"
+              onChange={onChange}        
+            />
+          </InputContainer>
+          <InputContainer>
+            <label>Paragraph Three</label>
+            <TextArea
+              name="paragraphThree"
+              value={formData.paragraphThree}
+              type="text"
+              placeholder="Paragraph Three"
+              onChange={onChange}         
+            />
+          </InputContainer>
+          <InputContainer>
+            <label>Paragraph Four</label>
+            <TextArea
+              name="paragraphFour"
+              value={formData.paragraphFour}
+              type="text"
+              placeholder="Paragraph Four"
+              onChange={onChange}
+            />
+          </InputContainer>
+          <InputContainer>
+            <label>Paragraph Five</label>
+            <TextArea
+              name="paragraphFive"
+              value={formData.paragraphFive}
+              type="text"
+              placeholder="Paragraph Five"
+              onChange={onChange}         
+            />
+          </InputContainer>
           <SubmitBtn type="submit">submit</SubmitBtn>
         </Form>
       </FormContainer>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Form, SectionContainer, Label, Input, TextArea, Btn } from '../createblog/CreateBlog.styles';
+import { Form, SectionContainer, Label, Input, TextArea } from '../createblog/CreateBlog.styles';
 import { getBlog, updateBlog, publishBlog, unpublishBlog, updateBlogImage } from '../../../api/blog';
-import { EditBlogScreen, Img } from './AdminEditBlog.styles';
+import { EditBlogScreen, Img, BtnContainer, Btn, SubmitBtn, ImgForm } from './AdminEditBlog.styles';
 import { uploadImage } from '../../../api/upload';
 import apiUrl from '../../../apiConfig';
 
@@ -168,14 +168,17 @@ const AdminEditBlog = ({ user, notify }) => {
 
   return (
     <EditBlogScreen>
-      <Btn onClick={handleBack}>back</Btn>
-      {formData.isPublished ? <Btn onClick={handleUnpublish}>unpublish</Btn> : <Btn onClick={handlePublish}>publish</Btn>}
+      <BtnContainer>
+        <Btn onClick={handleBack}>back</Btn>
+        {formData.isPublished ? <Btn onClick={handleUnpublish}>unpublish</Btn> : <Btn onClick={handlePublish}>publish</Btn>}
+      </BtnContainer>
       <SectionContainer>
+        <h3>Blog Image</h3>
         <Img src={apiUrl + '/uploads/' + formData.img} />
-        <form onSubmit={handleImageUpload}>
+        <ImgForm onSubmit={handleImageUpload}>
           <input type="file" onChange={handleFileChange} />
           { selectedFile ? <button type="submit">Upload</button> : <></> }
-        </form>
+        </ImgForm>
       </SectionContainer>
       <Form onSubmit={handleSubmit}>
         <SectionContainer>
@@ -346,7 +349,7 @@ const AdminEditBlog = ({ user, notify }) => {
             required
           />
         </SectionContainer>
-        <Btn type='submit'>submit</Btn>
+        <SubmitBtn type='submit'>submit</SubmitBtn>
       </Form>
     </EditBlogScreen>
   )

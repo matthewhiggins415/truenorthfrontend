@@ -4,6 +4,10 @@ export const ImagesScreenContainer = styled.div`
   min-height: 90vh;
   border-top: 2px solid lightblue;
   padding: 20px;
+
+  h2 {
+    font-family: 'Mulish', sans-serif;
+  }
 `
 
 export const Warning = styled.p`
@@ -47,8 +51,4 @@ export const RemoveBtn = styled.button`
   width: 100%;
   border: 1px solid black;
   color: white;
-`
-
-export const H1 = styled.h1`
-  font-family: 'Mulish', sans-serif;
 `

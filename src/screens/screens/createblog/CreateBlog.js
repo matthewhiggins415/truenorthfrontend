@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { CreateBlogScreen, Form, SectionContainer, Input, Label, TextArea, Btn } from './CreateBlog.styles';
+import { CreateBlogScreen, Form, SectionContainer, Input, InputContainer, Label, TextArea, BackBtn, SubmitBtn, BtnContainer, ImgForm } from './CreateBlog.styles';
 import { createBlog } from '../../../api/blog';
+import apiUrl from '../../../apiConfig';
+import { uploadImage } from '../../../api/upload';
 
 const CreateBlog = ({ user, notify }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     img: '',
@@ -53,9 +56,43 @@ const CreateBlog = ({ user, notify }) => {
     navigate('/adminblogs')
   }
 
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleImageUpload = async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+      const res = await uploadImage(formData);
+
+      if (res.status === 200) {
+        const picName = res.data.msg
+
+        setFormData({
+          img: picName
+        })
+      }
+    } catch(error) {
+      console.log(error);
+      notify('something went wrong', 'danger');
+    }
+  }
+
   return (
     <CreateBlogScreen>
-      <Btn onClick={handleBack}>back</Btn>
+      <BtnContainer>
+        <BackBtn onClick={handleBack}>back</BackBtn>
+      </BtnContainer>
+      <SectionContainer>
+        <h3>Blog Image</h3>
+        <ImgForm onSubmit={handleImageUpload}>
+          <input type="file" onChange={handleFileChange} />
+          { selectedFile ? <button type="submit">Upload</button> : <></> }
+        </ImgForm>
+      </SectionContainer>
       <Form onSubmit={handleSubmit}>
         <SectionContainer>
           <h3>Meta Info</h3>
@@ -95,7 +132,6 @@ const CreateBlog = ({ user, notify }) => {
             onChange={onChange}
             required
           />
-          <Label>Author</Label>
           <Input 
             name="author" 
             type="text" 
@@ -106,16 +142,6 @@ const CreateBlog = ({ user, notify }) => {
           />
         </SectionContainer>
         <SectionContainer>
-          <h3>Background Image</h3>
-          <Label>Ex: Copy image address by right clicking on image</Label>
-          <Input 
-            name="img" 
-            type="text" 
-            value={formData.img} 
-            placeholder='Section One Header' 
-            onChange={onChange}
-            required
-          />
           <h3>Section 1</h3>
           <Label>Ex: Introduction</Label>
           <Input 
@@ -235,7 +261,7 @@ const CreateBlog = ({ user, notify }) => {
             required
           />
         </SectionContainer>
-        <Btn type='submit'>submit</Btn>
+        <SubmitBtn type='submit'>submit</SubmitBtn>
       </Form>
     </CreateBlogScreen>
   )

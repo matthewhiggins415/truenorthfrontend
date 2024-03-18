@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getBlog, deleteBlog } from '../../../api/blog';
-import { AdminBlogScreenContainer, BlogPostContainer, Btn, BtnContainer, MetaContainer } from './AdminBlog.styles';
+import { AdminBlogScreenContainer, BlogPostContainer, Btn, BtnContainer, MetaContainer, RemoveBtn } from './AdminBlog.styles';
 import Blog from '../blog/Blog';
 import apiUrl from '../../../apiConfig';
 
@@ -41,28 +41,26 @@ const AdminBlog = ({ user, notify }) => {
 
   return (
     <AdminBlogScreenContainer>
-      <BlogPostContainer>
-        <BtnContainer>
-          <Btn onClick={handleBack}>back</Btn>
+      <BtnContainer>
+        <Btn onClick={handleBack}>back</Btn>
+        <div>
           <Btn onClick={handleEdit}>edit</Btn>
-          <Btn onClick={handleDelete}>delete</Btn>
-        </BtnContainer>
+          <RemoveBtn onClick={handleDelete}>delete</RemoveBtn>
+        </div>
+      </BtnContainer>
+      <BlogPostContainer>
         <MetaContainer>
           <div>
-            <h4>Is Blog Currently Published:</h4>
+            <h3>Is Blog Currently Published:</h3>
             <p>{blog.isPublished ? 'True' : 'False'}</p>
           </div>
           <div>
-            <h4>meta description:</h4>
+            <h3>meta description:</h3>
             <p>{blog.metaDescription}</p>
           </div>
           <div>
-            <h4>meta keywords:</h4>
+            <h3>meta keywords:</h3>
             <p>{blog.metaKeywords}</p>
-          </div>
-          <div>
-            <h4>Background Image Address:</h4>
-            <p>{blog.img}</p>
           </div>
         </MetaContainer>
         <Blog 

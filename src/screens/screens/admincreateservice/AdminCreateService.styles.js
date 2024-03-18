@@ -9,18 +9,23 @@ export const CreateServiceContainer = styled.div`
   border-top: 2px solid lightblue;
 `
 
+export const BtnContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`
+
 export const BackBtn = styled.button`
-  width: 100px;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: white;
-  transition: 150ms ease-in-out;
   border: 1px solid black;
-  border-radius: 10px;
+  transition: 150ms ease-in-out;
   cursor: pointer;
+  margin-bottom: 20px;
 
   &:hover {
-    background-color: black;
     color: white;
+    background-color: black;
   }
 `
 
@@ -39,29 +44,51 @@ export const FormContainer = styled.div`
   justify-content: space-between;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 15px;
+
+  h2 {
+    font-family: 'Mulish', sans-serif;
+  }
 `
 
 export const Input = styled.input`
-  margin-top: 20px;
   padding: 10px 20px;
+  width: 100%;
+  border: none;
+  background-color: #efefef;
+  margin-top: 10px;
+`
+
+export const InputContainer = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+
+  label {
+    font-family: 'Mulish', sans-serif;
+  }
 `
 
 export const TextArea = styled.textarea`
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 10px 20px;
+  background-color: #efefef;
+  border: none;
+  width: 100%;
+  min-height: 200px;
 `
 
 export const SubmitBtn = styled.button`
+  border-radius: 10px;
   width: 100%;
-  padding: 10px;
-  background-color: white;
-  transition: 150ms ease-in-out;
+  padding: 15px 30px;
+  margin: 0px auto;
   border: 1px solid black;
-  margin-top: 20px;
+  margin-top: 40px;
+  background-color: black;
   cursor: pointer;
-
-  &:hover {
-    background-color: black;
-    color: white;
-  }
+  color: white;
+  font-size: 20px;
 `

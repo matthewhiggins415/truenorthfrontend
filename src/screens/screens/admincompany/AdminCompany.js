@@ -30,7 +30,7 @@ const AdminCompany = ({ user, notify }) => {
   return (
     <ProfileScreen>
       <ProfileHeaderContainer>
-        <h1>Company Profile</h1>
+        <h2>Company Profile</h2>
         <EditBtn onClick={handleEditNavigate}>edit</EditBtn>
       </ProfileHeaderContainer>
       <div>

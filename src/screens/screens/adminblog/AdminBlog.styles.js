@@ -17,19 +17,33 @@ export const BtnContainer = styled.div`
 `
 
 export const Btn = styled.button`
-  padding: 5px 15px;
-  text-align: center;
-  width: 80px;
+  padding: 10px 20px;
   background-color: white;
-  color: black;
-  transition: 150ms ease-in-out;
-  border-radius: 5px;
   border: 1px solid black;
+  transition: 150ms ease-in-out;
   cursor: pointer;
+  margin-bottom: 20px;
+  color: black;
 
   &:hover {
-    background-color: black;
     color: white;
+    background-color: black;
+  }
+`
+
+export const RemoveBtn = styled.button`
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid red;
+  transition: 150ms ease-in-out;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: red;
+  margin-left: 20px;
+
+  &:hover {
+    color: white;
+    background-color: red;
   }
 `
 
@@ -39,6 +53,7 @@ export const BlogPostContainer = styled.div`
   width: 400px;
   justify-content: space-evenly;
   margin: 20px auto;
+  font-family: 'Mulish', sans-serif;
 
   @media only screen and (max-width: 600px) {
     width: 300px;
@@ -47,8 +62,17 @@ export const BlogPostContainer = styled.div`
 
 export const MetaContainer = styled.div`
   margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
 
   div {
     margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
   }
 `

@@ -13,6 +13,10 @@ export const AdminServiceScreenHeader = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
+
+  h2 {
+    font-family: 'Mulish', sans-serif;
+  }
 `
 
 export const ServiceContainer = styled.button`

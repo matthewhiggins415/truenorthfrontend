@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { NewContactContainer, BackBtn } from './NewContact.styles';
-import { FormContainer, Form, InputContainer, Input, Select, SubmitBtn, LoadingContainer  } from '../../../components/modal/Modal.styles';
+import { NewContactContainer, Form, BackBtn, InputContainer, SubmitBtn, TextArea, Select, Input } from './NewContact.styles';
+import { FormContainer, LoadingContainer  } from '../../../components/modal/Modal.styles';
 import BounceLoader from "react-spinners/BounceLoader";
 import { createContact } from '../../../api/contact';
 
-
 const NewContact = ({ user, notify }) => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstname: '', 
     lastname: '',
@@ -19,6 +17,7 @@ const NewContact = ({ user, notify }) => {
     homeType: '',
     chimneyType: '',
     address: '',
+    unit: '',
     city: '',
     zip: '',
     notes: ''
@@ -41,6 +40,7 @@ const NewContact = ({ user, notify }) => {
       homeType: '',
       chimneyType: '',
       address: '',
+      unit: '',
       city: '',
       zip: '',
       notes: '',
@@ -82,8 +82,8 @@ const NewContact = ({ user, notify }) => {
   return (
     <NewContactContainer>
       <BackBtn onClick={handleBack}>back</BackBtn>
-      <FormContainer loading={loading}>
-        <Form onSubmit={handleSubmit} loading={loading}>
+      <FormContainer>
+        <Form onSubmit={handleSubmit}>
           <h2>Create a new Contact</h2>
           <InputContainer>
             <label>First Name:</label>
@@ -93,7 +93,6 @@ const NewContact = ({ user, notify }) => {
               value={formData.firstname} 
               placeholder='first name' 
               onChange={onChange}
-              
             />
           </InputContainer>
           <InputContainer>
@@ -135,6 +134,7 @@ const NewContact = ({ user, notify }) => {
               value={formData.chimneys} 
               placeholder='number of chimneys' 
               onChange={onChange}
+              min="1"
               />
           </InputContainer>
           <InputContainer>
@@ -173,6 +173,16 @@ const NewContact = ({ user, notify }) => {
               />
           </InputContainer>
           <InputContainer>
+            <label>Unit</label>
+            <Input 
+              name="unit" 
+              type="text"
+              value={formData.unit} 
+              placeholder='home unit address' 
+              onChange={onChange}
+              />
+          </InputContainer>
+          <InputContainer>
             <label>City</label>
             <Input 
               name="city"
@@ -193,20 +203,17 @@ const NewContact = ({ user, notify }) => {
               />
           </InputContainer>
           <InputContainer>
-            <textarea 
+            <label>Notes</label>
+            <TextArea 
               name="notes" 
               type="textarea"
               value={formData.notes} 
               placeholder='notes' 
               onChange={onChange}
-            ></textarea>
+            ></TextArea>
           </InputContainer>
           <SubmitBtn type="submit">Submit</SubmitBtn>
         </Form>
-        <LoadingContainer loading={loading}>
-          <h2>Loading</h2>
-          <BounceLoader color="#36d7b7" />
-        </LoadingContainer>
       </FormContainer>
     </NewContactContainer>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavbarContainer, AvailabilityContainer, LogoContainer, Img, AdminNavBarSection, AdminBtn, LogoutBtn, DropDownMenu, CallUsContainer, CallContainer } from './Navbar.styles'
+import { NavbarContainer, AvailabilityContainer, LogoContainer, Img, AdminNavBarSection, AdminBtn, LogoutBtn, DropDownMenu, CallUsContainer, CallContainer, PaymentLink } from './Navbar.styles'
 import { CiClock2 } from "react-icons/ci";
 import logo from '../../images/fscc.jpg';
 import { useNavigate } from "react-router-dom";

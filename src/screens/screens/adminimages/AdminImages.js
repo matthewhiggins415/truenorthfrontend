@@ -27,7 +27,7 @@ const AdminImages = ({ user, notify }) => {
 
   return (
     <ImagesScreenContainer>
-        <H1>Manage your Images: </H1>
+        <h2>Manage your Images: </h2>
         <Warning>REQUIRED** Update your blog, service, or company image with a new image before deleting the existing one.</Warning>
         <ImagesContainer>
           {images.map((image, index) => (

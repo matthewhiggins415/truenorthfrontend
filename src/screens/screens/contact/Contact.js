@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { getContact, destroyContact } from '../../../api/contact';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer } from './Contact.styles';
+import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer, DeleteBtn } from './Contact.styles';
 
 const Contact = ({ user, notify }) => {
   const [contact, setContact] = useState({});
@@ -50,66 +50,68 @@ const Contact = ({ user, notify }) => {
     <ContactPageContainer>
       <BtnContainer>
         <Btn onClick={handleBack}>back</Btn>
-        <Btn onClick={handleEdit}>edit</Btn>
-        <Btn onClick={handleDeleteContact}>delete</Btn>
+        <div>
+          <Btn onClick={handleEdit}>edit</Btn>
+          <DeleteBtn onClick={handleDeleteContact}>delete</DeleteBtn>
+        </div>
       </BtnContainer>
       <div>
         <ContactSectionContainer>
           <h2>Contact Information</h2>
           <ContactInfoContainer>
-            <p>Customer ID:</p>
+            <h3>Customer ID:</h3>
             <p>{contact._id}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Name:</p>
+            <h3>Name:</h3>
             <p>{contact.firstname + ' ' + contact.lastname}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Email:</p>
+            <h3>Email:</h3>
             <p>{contact.email}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Cell Phone:</p>
+            <h3>Cell Phone:</h3>
             <p>{contact.cell_phone}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Address:</p>
+            <h3>Address:</h3>
             <p>{contact.address}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Unit Address:</p>
+            <h3>Unit Address:</h3>
             <p>{contact.unit}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>City:</p>
+            <h3>City:</h3>
             <p>{contact.city}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Zip:</p>
+            <h3>Zip:</h3>
             <p>{contact.zip}</p>
           </ContactInfoContainer>
         </ContactSectionContainer>
         <ContactSectionContainer>
-          <h2>Home Information</h2>
+          <h3>Home Information</h3>
           <ContactInfoContainer>
-            <p>Home Type:</p>
+            <h3>Home Type:</h3>
             <p>{contact.homeType}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Roof Type:</p>
+            <h3>Roof Type:</h3>
             <p>{contact.roofType}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Num of Chimneys:</p>
+            <h3>Num of Chimneys:</h3>
             <p>{contact.chimneys}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <p>Chimney Type:</p>
+            <h3>Chimney Type:</h3>
             <p>{contact.chimneyType}</p>
           </ContactInfoContainer>
         </ContactSectionContainer>
         <ContactSectionContainer>
-          <h2>General Notes</h2>
+          <h3>General Notes</h3>
           <NotesContainer>
             <p>{contact.notes}</p>
           </NotesContainer>
