@@ -18,6 +18,7 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
   return (
     <>
       <HeroNavContainer>
+        <HeroNavLink to='/about'>About</HeroNavLink>
         <HeroNavLink to='/blogs'>Blog</HeroNavLink>
         <ServicesBtn onClick={handleOpenDropDown}>
           Services

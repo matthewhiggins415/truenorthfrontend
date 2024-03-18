@@ -28,7 +28,7 @@ const Footer = ({ company }) => {
       <FooterInfo>
         <h4>Company</h4>
         <FooterServicesContainer>
-          <FooterServiceLink>About Us</FooterServiceLink>
+          <FooterServiceLink to="/about">About Us</FooterServiceLink>
           <a href="tel:+18007933763">{company.companyPhone}</a>
           <FooterServiceLink >San Diego, California</FooterServiceLink>
           <FooterServiceLink to={'https://firesafechimneycare.com'}>{company.companyWebsite}</FooterServiceLink>

@@ -31,6 +31,7 @@ import PublicService from './screens/screens/publicservice/PublicService';
 import AdminCompany from './screens/screens/admincompany/AdminCompany';
 import AdminEditCompany from './screens/screens/admineditcompany/AdminEditCompany';
 import AdminImages from './screens/screens/adminimages/AdminImages';
+import About from './screens/screens/about/About';
 
 // Components
 import Navbar from './components/navbar/Navbar';
@@ -81,6 +82,7 @@ const App = () => {
         <Route path='/adminnewblog' element={<CreateBlog user={user} notify={notify}/>} />
         <Route path='/adminblogedit/:id' element={<AdminEditBlog user={user} notify={notify}/>} />
         <Route path='/blogs' element={<PublicBlogs />} />
+        <Route path='/about' element={<About />} />
         <Route path='/blogs/:id' element={<PublicBlog />} />
         <Route path='/analytics' element={<AdminAnalytics />} />
         <Route path='/admin/services' element={<AdminServices />} />
