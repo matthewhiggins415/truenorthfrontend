@@ -16,6 +16,10 @@ export const Warning = styled.p`
   margin-top: 20px;
   padding: 15px 30px;
   font-family: 'Mulish', sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
 `
 
 export const ImagesContainer = styled.div`

@@ -39,7 +39,13 @@ export const BlogContainer = styled.button`
     flex-direction: column;
     align-items: start;
     width: 90%;
+
+    p {
+      margin-bottom: 10px;
+      text-align: start;
+    }
   }
+
 
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

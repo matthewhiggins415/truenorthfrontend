@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select, EmailBtn } from './Contacts.styles';
+import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select, EmailBtn, SearchForm } from './Contacts.styles';
 import { getContacts, searchContacts } from '../../../api/contact';
 import { CgDetailsMore } from "react-icons/cg";
 import { getContactsCSV } from '../../../api/csv';
@@ -138,7 +138,7 @@ const Contacts = ({ user, setUser, notify }) => {
       <BottomSection>
         <ContactsHeader>
           <h2>Contacts</h2>
-          <form onSubmit={handleSearchSubmit}>
+          <SearchForm onSubmit={handleSearchSubmit}>
             <Select name="searchType" id="chimneyType" searchType={searchType} onChange={(e) =>{ setSearchType(e.target.value)}} defaultValue='zip'>
               <option value="firstname">first name</option>
               <option value="lastname">last name</option>
@@ -160,7 +160,7 @@ const Contacts = ({ user, setUser, notify }) => {
               placeholder={`search ${searchType}`}
             />
             <Btn type="submit">search</Btn>
-          </form>
+          </SearchForm>
           {  allSelected ?  
             <Btn onClick={handleDeselectAll}>Unselect All</Btn> : 
             <Btn onClick={handleSelectAll}>Select All</Btn>

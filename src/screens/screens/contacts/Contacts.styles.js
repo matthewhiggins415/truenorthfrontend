@@ -54,6 +54,11 @@ export const Btn = styled.button`
     background-color: black;
     color: white;
   }
+
+  @media only screen and (max-width: 600px) {
+    margin-top: 10px;
+    width: 200px;
+  }
 `
 
 export const IndividualContact = styled.button`
@@ -99,6 +104,11 @@ export const ContactBtn = styled.button`
   cursor: pointer;
   transition: 150ms ease-in-out;
   color: white;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    margin-top: 10px;
+  }
 `
 
 export const SearchInput = styled.input`
@@ -107,6 +117,12 @@ export const SearchInput = styled.input`
   border: 1px solid black;
   outline: none;
   margin-right: 10px;
+
+  @media only screen and (max-width: 600px) {
+    width: 200px;
+    margin-right: 0px;
+    margin-top: 10px;
+  }
 `
 
 export const Select = styled.select`
@@ -117,7 +133,9 @@ export const Select = styled.select`
   margin-right: 10px;
 
   @media only screen and (max-width: 600px) {
-    color: black;
+    width: 200px;
+    margin-right: 0px;
+    margin-top: 10px;
   }
 `
 
@@ -128,4 +146,12 @@ export const EmailBtn = styled.button`
   background-color: black;
   border: 1px solid black;
   cursor: pointer;
+`
+
+export const SearchForm = styled.form`
+  @media only screen and (max-width: 600px) {
+    padding: 0px 10px 10px 10px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
 `
