@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavbarContainer, AvailabilityContainer, LogoContainer, Img, AdminNavBarSection, AdminBtn, LogoutBtn, DropDownMenu, CallUsContainer, CallContainer, PaymentLink } from './Navbar.styles'
 import { CiClock2 } from "react-icons/ci";
-import logo from '../../images/fscc.jpg';
+import logo from '../../images/truenorthlogo.png';
 import { useNavigate } from "react-router-dom";
 import { signOut } from '../../api/user';
 import { IoIosMenu } from "react-icons/io";
@@ -67,8 +67,7 @@ const Navbar = ({ user, notify, setUser, company }) => {
   return (
     <NavbarContainer>
       <LogoContainer to="/">
-        <Img src={logo}/>
-        <h3>FireSafe Chimney Sweeping & Repairs</h3>
+        <Img src={logo} alt="company logo"/>
       </LogoContainer>
       {Object.keys(user).length === 0 && 
         <CallUsContainer>
@@ -77,7 +76,7 @@ const Navbar = ({ user, notify, setUser, company }) => {
             <p>Available 24/7</p>
           </AvailabilityContainer>
           <CallContainer>
-            <a href="tel:+18007933763">Call {company.companyPhone}</a>
+            <a href="tel:+14156866219">Call {company?.companyPhone}</a>
           </CallContainer>
         </CallUsContainer>
       }

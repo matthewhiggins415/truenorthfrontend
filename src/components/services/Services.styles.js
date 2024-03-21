@@ -136,6 +136,7 @@ export const Img = styled.img`
 
 export const DetailsBtn = styled.button`
   width: 80%;
+  min-width: 170px;
   padding: 15px 20px;
   margin: 20px auto;
   font-family: "Bebas Neue", sans-serif;

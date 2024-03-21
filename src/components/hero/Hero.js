@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HeroContainer, Overlay, QuoteBtn, HeroNavContainer, HeroNavLink, ServiceDropDown, ServicesBtn, ServiceLink } from './Hero.styles';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
+import HeroImg from '../../images/TNHERO.JPEG';
 
 const Hero = ({ modalOpen, setModalOpen, services }) => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -19,7 +20,7 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
     <>
       <HeroNavContainer>
         <HeroNavLink to='/about'>About</HeroNavLink>
-        <HeroNavLink to='/blogs'>Blog</HeroNavLink>
+        <HeroNavLink to='/blogs'>Our Work</HeroNavLink>
         <ServicesBtn onClick={handleOpenDropDown}>
           Services
           { showDropDown ? <MdKeyboardArrowDown style={{ fontSize: '24px' }}/> : <MdKeyboardArrowUp style={{ fontSize: '24px' }}/> }
@@ -31,11 +32,11 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
         </ServiceDropDown>
         <HeroNavLink to="https://www.yelp.com/biz/fire-safe-chimney-sweeping-co-and-repairs-san-diego" target="_blank">More reviews</HeroNavLink>
      </HeroNavContainer>
-      <HeroContainer>
+      <HeroContainer imgSrc={HeroImg}>
         <Overlay>
-          <h2>Chimney Services of San Diego</h2>
+          <h2>Residential HVAC Services of Fairfield County, CT</h2>
           <QuoteBtn onClick={handleModalOpen}>request a quote</QuoteBtn>
-          <h2>1-800-793-3763</h2>
+          <h2>1-415-686-6219</h2>
         </Overlay>
       </HeroContainer>
     </>

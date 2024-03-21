@@ -33,7 +33,7 @@ const AdminEditCompany = ({ user, notify }) => {
       try {
         const res = await getCompany();
 
-        if (res.status === 200) {
+        if (res?.status === 200) {
           setFormData({
             companyImage: res.data.company[0].companyImage,
             companyCity: res.data.company[0].companyCity,
@@ -76,7 +76,7 @@ const AdminEditCompany = ({ user, notify }) => {
     try {
       const res = await updateCompany(user, formData, id);
 
-      if (res.status === 200) {
+      if (res?.status === 200) {
         setFormData({
           companyImage: res.data.newCompany.companyImage,
           companyCity: res.data.newCompany.companyCity,
@@ -140,7 +140,7 @@ const AdminEditCompany = ({ user, notify }) => {
           <ImgContainer>
             <label>Company Image</label>
             <Img src={apiUrl + "/uploads/" + formData.companyImage}/>
-            <p>{formData.companyImage}</p>
+            <p>{formData?.companyImage}</p>
           </ImgContainer>
           <ImgForm onSubmit={handleImageUpload}>
             <input type="file" onChange={handleFileChange} />
@@ -152,7 +152,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyName" 
                 type="text" 
-                value={formData.companyName} 
+                value={formData?.companyName} 
                 placeholder='Company Name' 
                 onChange={onChange}
               />
@@ -162,7 +162,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyPhone" 
                 type="text" 
-                value={formData.companyPhone} 
+                value={formData?.companyPhone} 
                 placeholder='Company Phone' 
                 onChange={onChange}
               />
@@ -172,7 +172,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyEmail" 
                 type="text" 
-                value={formData.companyEmail} 
+                value={formData?.companyEmail} 
                 placeholder='Company Email' 
                 onChange={onChange}
               />
@@ -182,7 +182,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyWebsite" 
                 type="text" 
-                value={formData.companyWebsite} 
+                value={formData?.companyWebsite} 
                 placeholder='Company Website' 
                 onChange={onChange}
               />
@@ -192,7 +192,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyAddress" 
                 type="text" 
-                value={formData.companyAddress} 
+                value={formData?.companyAddress} 
                 placeholder='Company Address' 
                 onChange={onChange}
               />
@@ -202,7 +202,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyCity" 
                 type="text" 
-                value={formData.companyCity} 
+                value={formData?.companyCity} 
                 placeholder='Company City' 
                 onChange={onChange}
               />
@@ -212,7 +212,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyZip" 
                 type="text" 
-                value={formData.companyZip} 
+                value={formData?.companyZip} 
                 placeholder='Company Zip' 
                 onChange={onChange}
               />
@@ -222,7 +222,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyYelp" 
                 type="text" 
-                value={formData.companyYelp} 
+                value={formData?.companyYelp} 
                 placeholder='Company Yelp' 
                 onChange={onChange}
               />
@@ -232,7 +232,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyInstagram" 
                 type="text" 
-                value={formData.companyInstagram} 
+                value={formData?.companyInstagram} 
                 placeholder='Company Instagram' 
                 onChange={onChange}
               />
@@ -242,7 +242,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyFacebook" 
                 type="text" 
-                value={formData.companyFacebook} 
+                value={formData?.companyFacebook} 
                 placeholder='Company Facebook' 
                 onChange={onChange}
               />
@@ -252,7 +252,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyTwitter" 
                 type="text" 
-                value={formData.companyTwitter} 
+                value={formData?.companyTwitter} 
                 placeholder='Company Twitter' 
                 onChange={onChange}
               />
@@ -262,7 +262,7 @@ const AdminEditCompany = ({ user, notify }) => {
               <Input 
                 name="companyTikTok" 
                 type="text" 
-                value={formData.companyTikTok} 
+                value={formData?.companyTikTok} 
                 placeholder='Company TikTok' 
                 onChange={onChange}
               />

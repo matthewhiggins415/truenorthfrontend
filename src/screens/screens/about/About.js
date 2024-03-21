@@ -19,8 +19,8 @@ const About = () => {
       <SectionContainer>
         <Img src={image} alt="about us image"/> 
         <Section>
-          <h1>Fire Safe Chimney Company</h1>
-          <p>Firesafe Chimney Care celebrated its grand opening in 2017. Landon Boneck, owner of Firesafe Chimney Care, has on the job experience in the chimney servicing industry. Since opening the shop, Landon has focused on growing his team to include San Diego’s finest chimney servicing talent establishing Firesafe Chimney Care as San Diego’s most responsive and reliable chimney servicing company boasting some of the happiest clients and team.
+          <h1>True North Heating & Cooling</h1>
+          <p>True North celebrates its grand opening in 2023. Colin Higgins, owner of True North, has on the job experience in the HVAC industry. Since opening the shop, Colin has focused on growing his team to include Connecticut’s finest heating and cooling servicing talent establishing True North as Fairfield and surrounding areas most responsive and reliable residential HVAC company boasting the happiest customers and team.
           </p>
         </Section>
       </SectionContainer>

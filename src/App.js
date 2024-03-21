@@ -56,6 +56,7 @@ const App = () => {
   useEffect(() => {
     const getCompanyInfo = async () => {
       const res = await getCompany();
+      console.log(res)
       setCompany(res.data.company[0]);
     }
 

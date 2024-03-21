@@ -8,7 +8,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px;
+  padding: 10px;
   margin: 0 auto;
 
   h3 {
@@ -51,8 +51,8 @@ export const LogoContainer = styled(Link)`
 `
 
 export const Img = styled.img`
-  height: 60px;
-  width: 60px;
+  height: auto;
+  width: 450px;
   object-fit: cover;
   margin-right: 20px;
 `
@@ -124,7 +124,12 @@ export const CallUsContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: 25px;
+  margin-right: 25px;
   font-family: "Libre Franklin", sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 0px;
+  }
 `
 
 export const CallContainer = styled.div`

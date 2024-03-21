@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ContactContainer, Container, Img, MapContainer, Form, FormTop, FormBottom, InputTop, InputBottom, SubmitBtn } from './Contact.styles';
-import serviceMap from '../../images/servicemap.png';
+import serviceMap from '../../images/truenorthservicemap.png';
 import { createContact } from '../../api/contact';
 
 const Contact = ({ notify }) => {
@@ -54,7 +54,7 @@ const Contact = ({ notify }) => {
     <ContactContainer>
       <Container>
         <MapContainer>
-          <h1>Area of Service</h1>
+          <h1>Servicing Fairfield County & surrounding areas</h1>
           <Img src={serviceMap} alt="area of service"/>
         </MapContainer>
         <Form onSubmit={onHandleSubmit}>

@@ -7,7 +7,6 @@ import { createContact } from '../../api/contact';
 const Modal = ({ modalOpen, setModalOpen, notify }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    objectID: 0,
     firstname: '', 
     lastname: '',
     email: '',
@@ -16,7 +15,6 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
   const clearForm = () => {
     setFormData({
-      objectID: 0,
       firstname: '', 
       lastname: '',
       email: '',
@@ -38,55 +36,28 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const url = `https://firesafebackend-3afcb49789a6.herokuapp.com/contactFormSubmit`;
-    const payload = formData;
-    console.log('payload:', payload)
-
     setLoading(true);
 
-    const makeRequest = async () => {
-      try {
-        const res = await axios.post(url, payload);
-
-        if (res.status === 200) {
-          notify('thank you for your info');
-          setLoading(false);
-          handleCloseModal();
-        }
-
-      } catch(error) {
-        console.log(error)
-        notify('something went wrong', 'danger');
-        handleCloseModal();
-      }
+    let payloadData = {
+      firstname: formData.firstname, 
+      lastname: formData.lastname,
+      email: formData.email,
+      cell_phone: formData.cell_phone
     }
 
-    const createContactRequest = async () => {
-      let payloadData = {
-        firstname: formData.firstname, 
-        lastname: formData.lastname,
-        email: formData.email,
-        cell_phone: formData.cell_phone
-      }
+    try {
+      const res = createContact(payloadData);
 
-      try {
-        const res = createContact(payloadData)
-        console.log(res)
-        if (res.status === 201) {
-          notify('thank you for your info');
-          setLoading(false);
-          handleCloseModal();
-        }
-      } catch(error) {
-        console.log(error)
-        notify('something went wrong', 'danger');
+      if (res.status === 201) {
+        notify('thank you for your info');
+        setLoading(false);
         handleCloseModal();
       }
+    } catch(error) {
+      console.log(error);
+      notify('something went wrong', 'danger');
+      handleCloseModal();
     }
-
-    makeRequest();
-    createContactRequest();
   }
 
   return (

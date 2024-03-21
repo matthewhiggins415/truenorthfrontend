@@ -8,9 +8,11 @@ export const HeroContainer = styled.div`
   align-items: center;
   margin: 0px;
   border: 1px solid black;
-  background-image: url('https://fullservicechimney.com/wp-content/uploads/2020/01/chimney.jpg');
+  background-image: url(${props => props.imgSrc});
   background-size: cover; 
   background-position: center; 
+  /* background-size: 120%; Increase the background-size */
+  background-repeat: no-repeat;
 
   @media only screen and (max-width: 600px) {
     height: 80vh;
@@ -121,7 +123,7 @@ export const ServiceDropDown = styled.div`
   display: ${(props) => (props.showDropDown ? "flex" : "none")};
   position: absolute;
   right: 110px;
-  top: 170px;
+  top: 230px;
   background-color: white;
   color: black;
   width: 250px;

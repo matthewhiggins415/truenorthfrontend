@@ -92,3 +92,35 @@ export const SubmitBtn = styled.button`
   color: white;
   font-size: 20px;
 `
+
+export const ImgForm = styled.form`
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef;
+  padding: 10px 20px;
+
+  input {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+
+  button {
+    background-color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    border-radius: 15px;
+    margin-left: 10px;
+  }
+`
+
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+`

@@ -14,7 +14,7 @@ const AdminCompany = ({ user, notify }) => {
         console.log("retrieve company data")
         const res = await getCompany();
         console.log(res)
-        setCompanyData(res.data.company[0]);
+        setCompanyData(res?.data.company[0]);
       } catch (err) {
         console.log(err)
       }
@@ -37,51 +37,51 @@ const AdminCompany = ({ user, notify }) => {
         <ProfileContainer>
           <InfoContainer>
             <h3>Company Image:</h3>
-            <Img src={apiUrl + "/uploads/" + companyData.companyImage} />
+            <Img src={apiUrl + "/uploads/" + companyData?.companyImage} />
           </InfoContainer>
           <InfoContainer>
             <h3>Company Name:</h3>
-            <p>{companyData.companyName}</p>
+            <p>{companyData?.companyName}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Company Website:</h3>
-            <p>{companyData.companyWebsite}</p>
+            <p>{companyData?.companyWebsite}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Company Email:</h3>
-            <p>{companyData.companyEmail}</p>
+            <p>{companyData?.companyEmail}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Company Phone:</h3>
-            <p>{companyData.companyPhone}</p>
+            <p>{companyData?.companyPhone}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Company Address:</h3>
-            <p>{companyData.companyAddress}</p>
+            <p>{companyData?.companyAddress}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Company City:</h3>
-            <p>{companyData.companyCity}</p>
+            <p>{companyData?.companyCity}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Company Yelp:</h3>
-            <p>{companyData.companyYelp}</p>
+            <p>{companyData?.companyYelp}</p>
             </InfoContainer>
           <InfoContainer>
             <h3>Instagram:</h3>
-            <p>{companyData.companyInstagram}</p>
+            <p>{companyData?.companyInstagram}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Facebook:</h3>
-            <p>{companyData.companyFacebook}</p>
+            <p>{companyData?.companyFacebook}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Twitter:</h3>
-            <p>{companyData.companyTwitter}</p>
+            <p>{companyData?.companyTwitter}</p>
           </InfoContainer>
           <InfoContainer>
             <h3>Tiktok:</h3>
-            <p>{companyData.companyTikTok}</p>
+            <p>{companyData?.companyTikTok}</p>
           </InfoContainer>                
         </ProfileContainer>
       </div>
