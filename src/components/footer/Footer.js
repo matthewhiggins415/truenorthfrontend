@@ -29,6 +29,7 @@ const Footer = ({ company }) => {
         <h4>Company</h4>
         <FooterServicesContainer>
           <a href="tel:+18007933763">{company?.companyPhone}</a>
+          <FooterServiceLink>{company?.companyEmail}</FooterServiceLink>
           <FooterServiceLink>Fairfield County, Connecticut</FooterServiceLink>
           <FooterServiceLink to={'https://truenorthheat.com'}>{company?.companyWebsite}</FooterServiceLink>
         </FooterServicesContainer>
