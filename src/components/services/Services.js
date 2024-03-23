@@ -34,8 +34,8 @@ const Services = ({ services }) => {
       </ServiceContainer>
       <OfferContainer>
         <OfferTopContainer>
-          <h2>Full-service Inspection, Cleaning, and Repair</h2>
-          <p>We are equipped to handle all of your chimney servicing needs. Conveniently located in San Diego, California, we proudly serve home owners across the area by keeping their chimneys clean and operational.</p>
+          <h2>Licensed Residential HVAC Services</h2>
+          <p>We are equipped to handle all of your heating and cooling needs. Conveniently located in Fairfield, Connecticut and surrounding areas, we proudly serve home owners by keeping heating and cooling systems operational.</p>
         </OfferTopContainer>
         <OffersContainer>
           <CardContainer>
