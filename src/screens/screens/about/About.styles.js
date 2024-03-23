@@ -8,6 +8,13 @@ export const AboutScreenContainer = styled.div`
   flex-direction: column;
 `
 
+export const ImgContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`
 
 export const BackBtn = styled.button`
   padding: 10px 20px;
@@ -33,9 +40,13 @@ export const Section = styled.section`
 `
 
 export const Img = styled.img`
-  width: 90%;
+  width: 40%;
   max-height: 400px;
   margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 10px;
 `
 
 export const SectionContainer = styled.div`
