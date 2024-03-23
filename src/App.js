@@ -63,9 +63,9 @@ const App = () => {
     getCompanyInfo();
   }, [])
 
-  // const gtagID = process.env.REACT_APP_GTAG_TRACKING_ID
-  // ReactGA.initialize(gtagID)
-  // ReactGA.send({ hitType: 'pageview', page: '/' })
+  const gtagID = process.env.REACT_APP_GTAG_TRACKING_ID
+  ReactGA.initialize(gtagID)
+  ReactGA.send({ hitType: 'pageview', page: '/' })
 
   return (
     <Router>
