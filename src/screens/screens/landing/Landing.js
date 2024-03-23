@@ -23,8 +23,8 @@ const Landing = ({ user, notify }) => {
   return (
     <>
       <Helmet>
-        <title>Chimney Cleaning and Repair Services in San Diego - FireSafe Chimney Care</title>
-        <meta name="description" content="FireSafe Chimney Care offers professional chimney cleaning and repair services in San Diego. We specialize in chimney maintenance, inspections, and more." />
+        <title>HVAC Services in Fairfield County</title>
+        <meta name="description" content="HVAC heating and cooling services for homes in Fairfield County, Connecticut" />
       </Helmet>
       <Hero setModalOpen={setModalOpen} modalOpen={modalOpen} services={services}/>
       <Services services={services}/>
