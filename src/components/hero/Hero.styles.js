@@ -15,8 +15,7 @@ export const HeroContainer = styled.div`
   background-repeat: no-repeat;
 
   @media only screen and (max-width: 600px) {
-    top: -100px;
-    min-height: 600px;
+    min-height: 500px;
     background-size: cover;
     background-color: green;
   }
@@ -45,9 +44,10 @@ export const Overlay = styled.div`
   @media only screen and (max-width: 600px) {
     font-size: 1.5em;
     width: 100%;
-    height: 40%;
-    top: 480px;
+    height: 50%;
+    top: 380px;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
 
     h2 {
