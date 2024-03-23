@@ -29,8 +29,8 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
             <ServiceLink to={`/services/${service._id}`} key={service._id}>{service.name}</ServiceLink>
           ))}
         </ServiceDropDown>
-        <HeroNavLink to='/blogs'>Our Work</HeroNavLink>
-        <HeroNavLink to="https://www.yelp.com/biz/fire-safe-chimney-sweeping-co-and-repairs-san-diego" target="_blank">More reviews</HeroNavLink>
+        <HeroNavLink to='/blogs'>Blog</HeroNavLink>
+        {/* <HeroNavLink to="https://biz.yelp.com/biz_info/PAvWvTFXuEwfz_nZWTAaTg" target="_blank">More reviews</HeroNavLink> */}
      </HeroNavContainer>
       <HeroContainer imgSrc={HeroImg}>
         <Overlay>
