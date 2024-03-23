@@ -82,6 +82,23 @@ export const AdminBtn = styled.button`
   }
 `
 
+export const AdminLink = styled(Link)`
+  width: 200px;
+  padding: 15px;
+  background-color: white;
+  transition: 150ms ease-in-out;
+  border: none;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+  }
+`
+
 export const LogoutBtn = styled.button`
   width: 100%;
   padding: 15px;

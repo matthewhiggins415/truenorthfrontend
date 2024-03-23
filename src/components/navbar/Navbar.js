@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavbarContainer, AvailabilityContainer, LogoContainer, Img, AdminNavBarSection, AdminBtn, LogoutBtn, DropDownMenu, CallUsContainer, CallContainer, PaymentLink } from './Navbar.styles'
+import { NavbarContainer, AvailabilityContainer, LogoContainer, Img, AdminNavBarSection, AdminBtn, LogoutBtn, DropDownMenu, CallUsContainer, CallContainer, PaymentLink, AdminLink } from './Navbar.styles'
 import { CiClock2 } from "react-icons/ci";
 import logo from '../../images/truenorthlogo.png';
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,9 @@ import { signOut } from '../../api/user';
 import { IoIosMenu } from "react-icons/io";
 
 const Navbar = ({ user, notify, setUser, company }) => {
+  const googleAnalyticsLink = process.env.REACT_APP_GOOGLE_ANALYTICS_LINK;
+  console.log("google analytics link:", googleAnalyticsLink)
+
   const [showMenu, setShowMenu] = useState(false);
 
   const navigate = useNavigate();
@@ -39,11 +42,6 @@ const Navbar = ({ user, notify, setUser, company }) => {
     setShowMenu(!showMenu)
   }
 
-  const handleAnalyticsNavigate = () => {
-    navigate('/analytics')
-    setShowMenu(!showMenu)
-  }
-
   const handleServiceNavigate = () => {
     navigate('/admin/services')
     setShowMenu(!showMenu)
@@ -57,11 +55,6 @@ const Navbar = ({ user, notify, setUser, company }) => {
   const handleImagesNavigate = () => {
     navigate('/admin/images');
     setShowMenu(!showMenu);
-  }
-
-  const handleEmailNavigate = () => {
-    navigate('/admin/inbox')
-    setShowMenu(!showMenu)
   }
 
   const handleToggleMenu = () => {
@@ -94,8 +87,7 @@ const Navbar = ({ user, notify, setUser, company }) => {
             <AdminBtn onClick={handleContactNavigate}>Contacts</AdminBtn>
             <AdminBtn onClick={handleBlogNavigate}>Blogs</AdminBtn>
             <AdminBtn onClick={handleImagesNavigate}>Images</AdminBtn>
-            <AdminBtn onClick={handleEmailNavigate}>Emails</AdminBtn>
-            <AdminBtn onClick={handleAnalyticsNavigate}>Analytics</AdminBtn>
+            <AdminLink to={googleAnalyticsLink} target="_blank">Analytics</AdminLink>
             <LogoutBtn onClick={handleSignOut}>Logout</LogoutBtn>
           </DropDownMenu>
         </>

@@ -23,7 +23,6 @@ import CreateBlog from './screens/screens/createblog/CreateBlog';
 import AdminEditBlog from './screens/screens/admineditblog/AdminEditBlog';
 import PublicBlogs from './screens/screens/publicblogs/PublicBlogs';
 import PublicBlog from './screens/screens/publicblog/PublicBlog';
-import AdminAnalytics from './screens/screens/adminanalytics/AdminAnalytics';
 import AdminServices from './screens/screens/adminservices/AdminServices';
 import AdminCreateService from './screens/screens/admincreateservice/AdminCreateService';
 import AdminEditService from './screens/screens/admineditservice/AdminEditService';
@@ -85,7 +84,6 @@ const App = () => {
         <Route path='/blogs' element={<PublicBlogs />} />
         <Route path='/about' element={<About />} />
         <Route path='/blogs/:id' element={<PublicBlog />} />
-        <Route path='/analytics' element={<AdminAnalytics />} />
         <Route path='/admin/services' element={<AdminServices />} />
         <Route path='/admin/create-service' element={<AdminCreateService user={user} notify={notify} />} />
         <Route path='/admin/services/:id' element={<AdminEditService user={user} notify={notify} />} />
