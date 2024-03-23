@@ -15,7 +15,10 @@ export const HeroContainer = styled.div`
   background-repeat: no-repeat;
 
   @media only screen and (max-width: 600px) {
-    height: 80vh;
+    top: -100px;
+    min-height: 600px;
+    background-size: cover;
+    background-color: green;
   }
 `
 
@@ -40,9 +43,10 @@ export const Overlay = styled.div`
   padding-bottom: 15px;
 
   @media only screen and (max-width: 600px) {
+    font-size: 1.5em;
     width: 100%;
-    height: auto;
-    top: 380px;
+    height: 40%;
+    top: 480px;
     align-items: center;
     justify-content: center;
 
@@ -134,7 +138,7 @@ export const ServiceDropDown = styled.div`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   @media only screen and (max-width: 600px) {
-    top: 300px;
+    top: 350px;
   }
 `
 

@@ -19,6 +19,7 @@ export const NavbarContainer = styled.nav`
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
+    padding-bottom: 20px;
 
     h3 {
       margin-bottom: 15px;
@@ -55,6 +56,11 @@ export const Img = styled.img`
   width: 450px;
   object-fit: cover;
   margin-right: 20px;
+
+  @media only screen and (max-width: 500px) {
+    width: 400px;
+    margin-right: 0px;
+  }
 `
 
 export const AdminNavBarSection = styled.div`

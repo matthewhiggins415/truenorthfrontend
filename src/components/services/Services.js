@@ -34,7 +34,7 @@ const Services = ({ services }) => {
       </ServiceContainer>
       <OfferContainer>
         <OfferTopContainer>
-          <h2>Licensed Residential HVAC Services</h2>
+          <h2>Full-Service, Licensed Residential HVAC Services</h2>
           <p>We are equipped to handle all of your heating and cooling needs. Conveniently located in Fairfield, Connecticut and surrounding areas, we proudly serve home owners by keeping heating and cooling systems operational.</p>
         </OfferTopContainer>
         <OffersContainer>

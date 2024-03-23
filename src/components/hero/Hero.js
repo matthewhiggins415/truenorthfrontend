@@ -20,7 +20,6 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
     <>
       <HeroNavContainer>
         <HeroNavLink to='/about'>About</HeroNavLink>
-        <HeroNavLink to='/blogs'>Our Work</HeroNavLink>
         <ServicesBtn onClick={handleOpenDropDown}>
           Services
           { showDropDown ? <MdKeyboardArrowDown style={{ fontSize: '24px' }}/> : <MdKeyboardArrowUp style={{ fontSize: '24px' }}/> }
@@ -30,6 +29,7 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
             <ServiceLink to={`/services/${service._id}`} key={service._id}>{service.name}</ServiceLink>
           ))}
         </ServiceDropDown>
+        <HeroNavLink to='/blogs'>Our Work</HeroNavLink>
         <HeroNavLink to="https://www.yelp.com/biz/fire-safe-chimney-sweeping-co-and-repairs-san-diego" target="_blank">More reviews</HeroNavLink>
      </HeroNavContainer>
       <HeroContainer imgSrc={HeroImg}>
