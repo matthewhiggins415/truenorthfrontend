@@ -109,9 +109,16 @@ export const LoadingContainer = styled.div`
   display: ${(props) => (props.loading ? "flex" : "none")};
   flex-direction: column;
   text-align: center;
+  font-family: 'Mulish', sans-serif;
+  justify-content: center;
+  align-items: center;
 
   h2 {
     margin-bottom: 20px;
   }
-
+  
+  @media only screen and (max-width: 600px) {
+    max-width: 200px;
+    padding: 100px 150px;
+  }
 `

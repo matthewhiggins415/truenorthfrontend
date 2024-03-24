@@ -46,7 +46,9 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
     }
 
     try {
-      const res = createContact(payloadData);
+      const res = await createContact(payloadData);
+
+      console.log("Res:", res);
 
       if (res.status === 201) {
         notify('thank you for your info');
@@ -107,8 +109,8 @@ const Modal = ({ modalOpen, setModalOpen, notify }) => {
           <CloseBtn onClick={handleCloseModal}>Close</CloseBtn>
         </Form>
         <LoadingContainer loading={loading}>
-          <h2>Loading</h2>
-          <BounceLoader color="#36d7b7" />
+          <h2>loading...</h2>
+          <BounceLoader color="#ee1c4a" />
         </LoadingContainer>
       </FormContainer>
     </ModalContainer>

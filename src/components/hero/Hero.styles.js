@@ -17,7 +17,6 @@ export const HeroContainer = styled.div`
   @media only screen and (max-width: 600px) {
     min-height: 500px;
     background-size: cover;
-    background-color: green;
   }
 `
 
