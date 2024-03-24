@@ -31,7 +31,7 @@ export const Overlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  top: 280px;
+  top: 320px;
   left: 0;
   width: 100%;
   height: auto;
@@ -44,7 +44,7 @@ export const Overlay = styled.div`
     font-size: 1.5em;
     width: 100%;
     height: 50%;
-    top: 380px;
+    top: 420px;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
