@@ -8,6 +8,7 @@ import { IoIosMenu } from "react-icons/io";
 
 const Navbar = ({ user, notify, setUser, company }) => {
   const googleAnalyticsLink = process.env.REACT_APP_GOOGLE_ANALYTICS_LINK;
+  const invoiceLink = process.env.REACT_APP_INVOICE_LINK
   console.log("google analytics link:", googleAnalyticsLink)
 
   const [showMenu, setShowMenu] = useState(false);
@@ -83,6 +84,7 @@ const Navbar = ({ user, notify, setUser, company }) => {
           <IoIosMenu onClick={handleToggleMenu} style={{ backgroundColor: "white", fontSize: "40px", cursor: "pointer", border: "none", outline: "none" }} />
           <DropDownMenu showMenu={showMenu}>
             <AdminBtn onClick={handleCompanyNavigate}>Company</AdminBtn>
+            <AdminLink to={invoiceLink} target="_blank">Invoice</AdminLink>
             <AdminBtn onClick={handleServiceNavigate}>Services</AdminBtn>
             <AdminBtn onClick={handleContactNavigate}>Contacts</AdminBtn>
             <AdminBtn onClick={handleBlogNavigate}>Blogs</AdminBtn>

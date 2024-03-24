@@ -75,6 +75,8 @@ export const AdminBtn = styled.button`
   background-color: white;
   transition: 150ms ease-in-out;
   border: none;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
 
   &:hover {
     cursor: pointer;
@@ -97,6 +99,8 @@ export const AdminLink = styled(Link)`
   text-align: center;
   color: black;
   text-decoration: none;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
 
   &:hover {
     cursor: pointer;
@@ -127,7 +131,7 @@ export const DropDownMenu = styled.div`
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   flex-direction: column;
   position: absolute;
-  top: 80px;
+  top: 100px;
   right: 25px;
   background-color: white;
   z-index: 15;

@@ -58,8 +58,8 @@ export const InfoContainer = styled.div`
 `
 
 export const Img = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: auto;
   margin: 0 auto;
 
 `
