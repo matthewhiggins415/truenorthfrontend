@@ -30,7 +30,7 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
           ))}
         </ServiceDropDown>
         <HeroNavLink to='/blogs'>Blog</HeroNavLink>
-        {/* <HeroNavLink to="https://biz.yelp.com/biz_info/PAvWvTFXuEwfz_nZWTAaTg" target="_blank">More reviews</HeroNavLink> */}
+        <HeroNavLink to="https://www.yelp.com/biz/true-north-heating-and-cooling-redding" target="_blank">More reviews</HeroNavLink>
      </HeroNavContainer>
       <HeroContainer imgSrc={HeroImg}>
         <Overlay>

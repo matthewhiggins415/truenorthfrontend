@@ -47,7 +47,7 @@ const Footer = ({ company }) => {
         <FooterServicesContainer>
           <FooterServiceLink to='/blogs'>Blog</FooterServiceLink>
           <FooterServiceLink to="/about">About Us</FooterServiceLink>
-          {/* <FooterServiceLink to={company?.companyYelp} target="_blank">Reviews</FooterServiceLink> */}
+          <FooterServiceLink to={company?.companyYelp} target="_blank">Reviews</FooterServiceLink>
           {company?.Instagram === 'none' ? <FooterServiceLink to={company?.Instagram}>Instagram</FooterServiceLink> : <></>}
           {company?.Facebook === 'none' ? <FooterServiceLink to={company?.Instagram}>Instagram</FooterServiceLink> : <></>}
         </FooterServicesContainer>
