@@ -34,7 +34,7 @@ const Hero = ({ modalOpen, setModalOpen, services }) => {
      </HeroNavContainer>
       <HeroContainer imgSrc={HeroImg}>
         <Overlay>
-          <h2>Residential HVAC Services of Fairfield County, CT</h2>
+          <h2>Air Conditioning and Heating Services of Fairfield County, CT</h2>
           <QuoteBtn onClick={handleModalOpen}>request a quote</QuoteBtn>
           <h2>1-415-686-6219</h2>
         </Overlay>
