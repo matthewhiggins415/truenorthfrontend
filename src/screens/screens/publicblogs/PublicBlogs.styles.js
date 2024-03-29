@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const BlogsPageContainer = styled.div`
   width: 100%;
-  border-top: 2px solid lightblue;
+  border-top: 2px solid #25335F;
   padding: 40px;
   min-height: 80vh;
   display: flex;
@@ -45,13 +45,13 @@ export const BackBtn = styled.button`
   color: black;
   transition: 150ms ease-in-out;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid #25335F;
   cursor: pointer;
   justify-content: flex-start;
 
 
   &:hover {
     color: white;
-    background-color: black;
+    background-color: #25335F;
   }
 `

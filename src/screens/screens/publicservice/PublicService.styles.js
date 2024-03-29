@@ -6,7 +6,7 @@ export const ServiceContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-top: 2px solid lightblue;
+  border-top: 2px solid #25335F;
   padding: 20px;
 `
 
