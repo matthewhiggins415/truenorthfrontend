@@ -34,6 +34,7 @@ export const Input = styled.input`
   color: black;
   margin-bottom: 20px;
   outline: none;
+  margin-right: 10px;
 
   &:hover {
     cursor: pointer;
@@ -53,4 +54,20 @@ export const SubmitBtn = styled.button`
   font-family: "Bebas Neue", sans-serif;
   font-size: 25px;
   letter-spacing: 1px;
+`
+
+export const PasswordContainer = styled.div`
+  display: flex;
+  align-items: start;
+`
+
+export const PWButton = styled.button`
+  top: -20px;
+  border: none;
+  background-color: white;
+  margin-top: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

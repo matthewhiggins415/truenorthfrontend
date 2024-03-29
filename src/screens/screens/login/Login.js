@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { signIn } from '../../../api/user';
-import { LoginScreenContainer, Form, Input, SubmitBtn } from './Login.styles';
+import { LoginScreenContainer, Form, Input, SubmitBtn, PasswordContainer, PWButton } from './Login.styles';
 import { useNavigate } from "react-router-dom";
+import { FaRegEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Login = ({ user, setUser, notify }) => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false)
 
   const [formData, setFormData] = useState({
     email: '', 
@@ -42,11 +45,28 @@ const Login = ({ user, setUser, notify }) => {
     }
   }
 
+  const handleChangeShowPassword = (e) => {
+    e.preventDefault(); // Prevent form submission
+    setShowPassword(!showPassword)
+  }
+
   return (
     <LoginScreenContainer>
       <Form onSubmit={onRegister}>
         <Input type="text" name="email" value={email} placeholder="email" onChange={onChange} required/>
-        <Input type="password" name="password" value={password} placeholder="password" onChange={onChange} required/>
+        
+        <PasswordContainer>
+          <Input type={showPassword ? "text" : "password"} name="password" value={password} placeholder="password" onChange={onChange} required/>
+          { showPassword ? 
+            <PWButton onClick={handleChangeShowPassword}>
+              <FaRegEye size={25}/>
+            </PWButton>
+           : 
+             <PWButton onClick={handleChangeShowPassword}>
+              <FaEyeSlash size={25}/>
+             </PWButton>
+           }
+        </PasswordContainer>
         <SubmitBtn type="submit">Login</SubmitBtn>
       </Form>
     </LoginScreenContainer>
