@@ -9,7 +9,7 @@ export const LoginScreenContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-top: 2px solid lightblue;
+  border-top: 2px solid #25335F;
 `
 
 export const Form = styled.form`
@@ -42,12 +42,15 @@ export const Input = styled.input`
 
 export const SubmitBtn = styled.button`
   width: 100%;
-  border: 1px solid black;
-  padding: 20px 50px;
+  border: 1px solid #ee1c4a;
+  padding: 15px 50px;
   text-align: center;
-  background-color: black;
+  background-color: #ee1c4a;
   cursor: pointer;
   margin: 0 auto;
   margin-bottom: none;
   color: white;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+  letter-spacing: 1px;
 `

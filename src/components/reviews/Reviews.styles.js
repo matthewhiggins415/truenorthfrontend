@@ -12,7 +12,7 @@ export const ReviewSectionContainer = styled.div`
   h2 {
     text-align: center;
     padding-bottom: 20px;
-    border-bottom: 3px solid lightblue;
+    border-bottom: 3px solid black;
     margin-bottom: 20px;
     margin-top: 20px;
     font-family: "Fjalla One", sans-serif;
@@ -64,7 +64,7 @@ export const Img = styled.img`
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid lightblue;
+  border: 2px solid #d4d4d4;
   padding: 4px;
 `
 

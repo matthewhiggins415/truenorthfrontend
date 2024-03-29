@@ -7,7 +7,6 @@ export const HeroContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 0px;
-  border: 1px solid black;
   background-image: url(${props => props.imgSrc});
   background-size: cover; 
   background-position: center; 
@@ -57,7 +56,7 @@ export const Overlay = styled.div`
 
 export const QuoteBtn = styled.button`
   padding: 20px 80px;
-  border: 2px solid red;
+  border: 2px solid #ee1c4a;
   font-size: 20px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -79,6 +78,7 @@ export const HeroNavContainer = styled.div`
   align-items: center;
   justify-content: end;
   font-family: "DM Sans", sans-serif;
+  background-color: #25335F;
 
   @media only screen and (max-width: 600px) {
     width: 100%;
@@ -112,7 +112,7 @@ export const ServicesBtn = styled.button`
   padding: 10px;
   font-size: 20px;
   color: white;
-  background-color: black;
+  background-color: #25335F;
   border: none;
   display: flex;
   align-items: center;
@@ -155,7 +155,7 @@ export const ServiceLink = styled(Link)`
   
   &:hover {
     color: white;
-    background-color: black;
+    background-color: #25335F;
   }
 
   &:first-child {

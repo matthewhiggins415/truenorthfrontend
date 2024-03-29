@@ -52,8 +52,8 @@ const Footer = ({ company }) => {
           {company?.Facebook === 'none' ? <FooterServiceLink to={company?.Instagram}>Instagram</FooterServiceLink> : <></>}
         </FooterServicesContainer>
       </FooterInfo>
-      <LoginBtn>
-        <CiLogin onClick={handleLoginNavigate}/>
+      <LoginBtn onClick={handleLoginNavigate}>
+        <CiLogin/>
       </LoginBtn>
     </FooterContainer>
   )

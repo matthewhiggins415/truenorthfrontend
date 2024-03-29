@@ -17,17 +17,17 @@ const Services = ({ services }) => {
     <Container>
       <ServiceContainer>
         <ServiceCard>
-          <LuClock4 size={90} color={'lightblue'}/>
+          <LuClock4 size={90} color={'#ee1c4a'}/>
           <h3>Reliability</h3>
           <p>We are a local business valuing high quality work</p>
         </ServiceCard>
         <ServiceCard>
-          <AiOutlineDollar size={90} color={'lightblue'}/>
+          <AiOutlineDollar size={90} color={'#ee1c4a'}/>
           <h3>Fair Prices</h3>
           <p>We offer fair pricing to meet your budget</p>
         </ServiceCard>
         <ServiceCard>
-          <IoCalendarOutline size={90} color={'lightblue'}/>
+          <IoCalendarOutline size={90} color={'#ee1c4a'}/>
           <h3>Easy Scheduling</h3>
           <p>We are punctual and prioritize your schedule</p>
         </ServiceCard>

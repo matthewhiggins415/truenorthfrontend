@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.div`
   width: 100%;
-  min-height: 60vh;
-  background-color: black;
+  max-height: 40vh;
+  min-height: 40vh;
+  background-color: #25335F;
   position: relative;
   display: flex;
   align-items: center;
@@ -16,6 +17,7 @@ export const FooterContainer = styled.div`
     font-size: 15px;
     flex-direction: column;
     height: auto;
+    max-height: none;
     padding-top: 50px;
     padding-bottom: 100px;
   }
@@ -26,7 +28,7 @@ export const LoginBtn = styled.button`
   right: 0px;
   bottom: 0px;
   padding: 15px 20px;
-  background-color: black;
+  background-color: #25335F;
   cursor: pointer;
   border: none;
   transition: 150ms ease-in-out;
@@ -46,9 +48,8 @@ export const FooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  min-height: 300px;
+  min-height: 400px;
   min-width: 200px;
-  height: auto;
 
   @media only screen and (max-width: 600px) {
     margin-top: 10px;
@@ -62,7 +63,7 @@ export const FooterInfo = styled.div`
   }
 
   h4 {
-    border-bottom: 2px solid lightblue;
+    border-bottom: 2px solid #ee1c4a;
     padding: 5px;
     font-family: 'Mulish', sans-serif;
     font-size: 25px;

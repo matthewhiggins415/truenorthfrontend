@@ -11,7 +11,7 @@ export const ServiceContainer = styled.div`
   justify-content: space-around;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: black;
+  background-color: #25335F;
 `
 
 export const ServiceCard = styled.div`
@@ -33,6 +33,8 @@ export const ServiceCard = styled.div`
     margin-top: 10px;
     letter-spacing: 1px;
     font-size: 22px;
+    font-family: 'Mulish', sans-serif;
+
   }
 
   p {
@@ -86,7 +88,7 @@ export const OfferTopContainer = styled.div`
 
   h2 {
     padding-bottom: 20px;
-    border-bottom: 3px solid lightblue;
+    border-bottom: 3px solid black;
     margin-bottom: 20px;
     margin-top: 20px;
     font-family: "Fjalla One", sans-serif;
@@ -95,6 +97,7 @@ export const OfferTopContainer = styled.div`
     width: 50%;
     font-size: 45px;
     letter-spacing: 1px;
+    color: black;
   }
 
   p {

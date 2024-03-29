@@ -15,17 +15,17 @@ export const BackBtn = styled.button`
   width: 100px;
   margin-bottom: 20px;
   background-color: white;
-  color: black;
+  color: #25335F;
   transition: 150ms ease-in-out;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid #25335F;
   cursor: pointer;
   justify-content: flex-start;
 
 
   &:hover {
     color: white;
-    background-color: black;
+    background-color: #25335F;
   }
 `
 
@@ -36,7 +36,7 @@ export const Img = styled.img`
 `
 
 export const Container = styled.div`
-  max-width: 400px;
+  max-width: 550px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -54,6 +54,7 @@ export const Container = styled.div`
 export const H2 = styled.h2`
   margin-bottom: 20px;
   font-family: 'Mulish', sans-serif;
+  font-size: 30px;
 `
 
 export const Line = styled.div`
@@ -65,6 +66,7 @@ export const Line = styled.div`
 export const P = styled.p`
   margin-bottom: 20px;
   font-family: 'Mulish', sans-serif;
+  font-size: 18.5px;
 
   &:last-child {
     margin-bottom: 50px;
