@@ -82,6 +82,8 @@ export const Form = styled.form`
       text-align: center;
     }
   }
+
+
 `
 
 export const FormTop = styled.div`
@@ -93,6 +95,11 @@ export const FormTop = styled.div`
   @media only screen and (max-width: 700px) {
     margin-bottom: 20px;
     margin-top: 20px;
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
     width: 90%;
   }
 `
@@ -115,6 +122,14 @@ export const InputTop = styled.input`
   outline: none;
   font-family: 'Mulish', sans-serif;
   font-size: 18px;
+
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+
+    &:last-child {
+      margin-top: 20px;
+    }
+  }
 `
 
 export const InputBottom = styled.input`

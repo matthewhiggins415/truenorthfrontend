@@ -34,7 +34,7 @@ const Login = ({ user, setUser, notify }) => {
         navigate("/contacts");
       } else {
         notify(`${signInResponse.data.msg}`, 'danger')
-        console.log('not an admin')
+        console.log(signInResponse)
       }
     } catch(e) {
       notify(`something went wrong`, 'danger')
