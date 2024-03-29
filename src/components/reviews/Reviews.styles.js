@@ -8,6 +8,7 @@ export const ReviewSectionContainer = styled.div`
   justify-content: space-evenly;
   flex-direction: column;
   margin-bottom: 100px;
+  margin-top: 100px;
 
   h2 {
     text-align: center;
@@ -54,8 +55,8 @@ export const Review  = styled.div`
     font-family: 'Mulish', sans-serif;
   }
 
-  @media only screen and (max-width: 400px) {
-    margin-top: 25px;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 25px;
   } 
 `
 
