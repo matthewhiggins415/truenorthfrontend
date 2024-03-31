@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 export const ContactsContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #fefefe;
 `
 
 export const BottomSection = styled.div`
-  border-top: 2px solid lightblue;
+  border-top: 2px solid #25335F;
   display: flex;
   flex-direction: column;
   padding: 40px;
@@ -62,7 +62,7 @@ export const Btn = styled.button`
 `
 
 export const IndividualContact = styled.button`
-  border: ${({ isSelected }) => isSelected ? '2px solid red' : 'none'};
+  border: ${({ isSelected }) => isSelected ? '2px solid #ee1c4a' : 'none'};
   width: 100%;
   background-color: white;
   display: flex;
@@ -96,7 +96,7 @@ export const ContactBtn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: black;
+  background-color: #ee1c4a;
   font-size: 20px;
   text-align: center;
   padding: 5px;

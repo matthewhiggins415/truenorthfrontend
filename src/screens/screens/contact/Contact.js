@@ -1,13 +1,16 @@
 import React, { useState, useEffect} from 'react';
 import { getContact, destroyContact } from '../../../api/contact';
+import { getJobs } from '../../../api/job';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer, DeleteBtn } from './Contact.styles';
+import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer, DeleteBtn, ContactContainer, CustomerIdWarning } from './Contact.styles';
+import AddJobModal from '../../../components/addjobmodal/AddJobModal';
 
 const Contact = ({ user, notify }) => {
   const [contact, setContact] = useState({});
+  const [showAddJobModal, setShowAddJobModal] = useState(false);
+  
   const navigate = useNavigate();
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -17,8 +20,10 @@ const Contact = ({ user, notify }) => {
 
     const retrieveContact = async () => {
       const res = await getContact(user, id)
-      console.log(res)
       setContact(res.data.contact)
+
+      const response = await getJobs(user, id)
+      console.log("get jobs:", response)
     }
 
     retrieveContact();
@@ -46,19 +51,25 @@ const Contact = ({ user, notify }) => {
     }
   }
 
+  const handleAddJob = () => {
+    setShowAddJobModal(!showAddJobModal)
+  }
+
   return (
     <ContactPageContainer>
       <BtnContainer>
-        <Btn onClick={handleBack}>back</Btn>
+        <Btn onClick={handleBack}>Back</Btn>
         <div>
-          <Btn onClick={handleEdit}>edit</Btn>
-          <DeleteBtn onClick={handleDeleteContact}>delete</DeleteBtn>
+          <Btn onClick={handleAddJob}>Add Job</Btn>
+          <Btn onClick={handleEdit}>Edit</Btn>
+          <DeleteBtn onClick={handleDeleteContact}>Delete</DeleteBtn>
         </div>
       </BtnContainer>
-      <div>
+      <ContactContainer>
         <ContactSectionContainer>
           <h2>Contact Information</h2>
           <ContactInfoContainer>
+            <CustomerIdWarning>*id value is only used for database</CustomerIdWarning>
             <h3>Customer ID:</h3>
             <p>{contact._id}</p>
           </ContactInfoContainer>
@@ -92,7 +103,7 @@ const Contact = ({ user, notify }) => {
           </ContactInfoContainer>
         </ContactSectionContainer>
         <ContactSectionContainer>
-          <h3>Home Information</h3>
+          <h2>Home Information</h2>
           <ContactInfoContainer>
             <h3>Home Type:</h3>
             <p>{contact.homeType}</p>
@@ -111,12 +122,13 @@ const Contact = ({ user, notify }) => {
           </ContactInfoContainer>
         </ContactSectionContainer>
         <ContactSectionContainer>
-          <h3>General Notes</h3>
+          <h2>General Notes</h2>
           <NotesContainer>
             <p>{contact.notes}</p>
           </NotesContainer>
         </ContactSectionContainer>
-      </div>
+      </ContactContainer>
+      { showAddJobModal ? <AddJobModal handleAddJob={handleAddJob} notify={notify} user={user} id={id}/> : <></> }
     </ContactPageContainer>
   )
 }

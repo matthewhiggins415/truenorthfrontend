@@ -59,11 +59,11 @@ const Login = ({ user, setUser, notify }) => {
           <Input type={showPassword ? "text" : "password"} name="password" value={password} placeholder="password" onChange={onChange} required/>
           { showPassword ? 
             <PWButton onClick={handleChangeShowPassword}>
-              <FaRegEye size={25}/>
+              <FaEyeSlash size={25}/>
             </PWButton>
            : 
              <PWButton onClick={handleChangeShowPassword}>
-              <FaEyeSlash size={25}/>
+              <FaRegEye size={25}/>
              </PWButton>
            }
         </PasswordContainer>
