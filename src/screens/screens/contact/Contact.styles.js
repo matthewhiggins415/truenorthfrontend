@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const ContactPageContainer = styled.div`
   width: 100%;
   height: 100vh;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,19 +12,18 @@ export const ContactPageContainer = styled.div`
 `
 
 export const ContactSectionContainer = styled.div`
-  margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 10px;
-  max-width: 400px;
+  width: 90%;
+  max-width: 1200px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   font-family: 'Mulish', sans-serif;
   font-size: 18px;
-  height: 60%;
+  height: auto;
 
   h2 {
-    text-align: center;
-    margin-top: 20px;
+    text-align: start;
     margin-bottom: 30px;
   }
 `
@@ -33,7 +33,6 @@ export const BtnContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  margin-bottom: 15px;
   margin-top: 25px;
   padding-left: 20px;
   padding-right: 20px;
@@ -41,7 +40,6 @@ export const BtnContainer = styled.div`
   @media only screen and (max-width: 600px) {
     width: 100%;
     color: black;
-    margin-bottom: 20px;
   }
 `
 
@@ -105,15 +103,74 @@ export const NotesContainer = styled.div`
 
 export const ContactContainer = styled.div`
   display: flex;
-  height: 100%;
-
-  @media only screen and (max-width: 600px) {
-    flex-direction: column;
-  }
+  height: auto;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 export const CustomerIdWarning = styled.p`
   font-size: '6px';
   background-color: pink;
   padding: 5px;
+`
+
+export const ContactSectionContainerBottom = styled.div`
+  display: flex;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`
+
+export const JobBtn = styled.button`
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 150ms ease-in-out;
+  margin-bottom: 10px;
+
+  &:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    height: auto;
+  }
+`
+
+export const JobBtnContainer = styled.div`
+  width: 100%;
+  display: flex;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`
+
+export const JobBtnInfoContainer = styled.div`
+  margin-right: 20px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `

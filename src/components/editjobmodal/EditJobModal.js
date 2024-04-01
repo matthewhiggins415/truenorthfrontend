@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { AddJobModalContainer, Form, ContainerWithForm, TopContainer, CloseBtn, Input, FormBtn, TextArea, Label, FormInputsContainer, InputContainer, FormTop, FormInputTextArea, Select, LoadingContainer } from './AddJobModal.styles';
+import { AddJobModalContainer, Form, ContainerWithForm, TopContainer, CloseBtn, Input, FormBtn, TextArea, Label, FormInputsContainer, InputContainer, FormTop, FormInputTextArea, Select, LoadingContainer } from './EditJobModal.styles';
 import { IoMdClose } from "react-icons/io";
 import { getAllServices } from '../../api/services';
-import { createJob } from '../../api/job';
+import { getJob, updateAJob } from '../../api/job';
 import BounceLoader from "react-spinners/BounceLoader";
 
-const AddJobModal = ({ handleAddJob, notify, user, id }) => {
+const EditJobModal = ({ user, notify, handleReverseShowEditModal, jobID, handleShowJob }) => {
   const [services, setServices] = useState([]);
+  const [job, setJob] = useState({});
   const [loading, setLoading] = useState(false);
 
-  console.log("id:", id)
-
   const [formData, setFormData] = useState({
-    contact_id: id,
+    // contact_id: id,
     dateJobReceived: '', 
     serviceType: '',
     invoiceLink: '',
@@ -26,11 +25,27 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
 
   useEffect(() => {
     const getServices = async () => {
-      setLoading(true)
       try {
+        setLoading(true)
         const response = await getAllServices();
         const titles = response.data.services.map((service) => service.title);
         setServices(titles)
+
+        const jobResponse = await getJob(user, jobID);
+        console.log("jobResponse: ", jobResponse)
+        setJob(jobResponse.data.job);
+
+        setFormData({
+          dateJobReceived: jobResponse.data.job.dateJobReceived, 
+          serviceType: jobResponse.data.job.serviceType,
+          invoiceLink: jobResponse.data.job.invoiceLink,
+          dateJobCompleted: jobResponse.data.job.dateJobCompleted,
+          paymentType: jobResponse.data.job.paymentType,
+          amountDue: jobResponse.data.job.amountDue, 
+          amountPaid: jobResponse.data.job.amountPaid,
+          datePaidInFull: jobResponse.data.job.datePaidInFull,
+          notes: jobResponse.data.job.notes
+        })
         setLoading(false)
       } catch(error) {
         console.log(error)
@@ -41,8 +56,8 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
     getServices()
   }, [])
 
-  const closeJobModal = () => {
-    handleAddJob()
+  const closeEditJobModal = () => {
+    handleReverseShowEditModal()
   }
 
   const onChange = (e) => {
@@ -54,17 +69,17 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    console.log('submit');
-
+   
     try {
-      // make sure to send off with contact id involved here. 
-      const response = await createJob(user, formData);
+      setLoading(true) 
+      const response = await updateAJob(formData, user, jobID);
       console.log(response);
         
       if (response.status === 201) {
-        notify('new job created');
-        handleAddJob();
+        notify('job updated');
+        setLoading(false);
+        handleReverseShowEditModal()
+        handleShowJob(jobID)
       }
 
     } catch(error) {
@@ -75,15 +90,15 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
 
   return (
     <AddJobModalContainer>
-      {loading ? 
-        <LoadingContainer>
-            <BounceLoader color="#ee1c4a" />
-        </LoadingContainer>
-      : 
       <ContainerWithForm>
-        <TopContainer>
-          <h2>Add a New Job</h2>
-          <CloseBtn onClick={closeJobModal}>
+        {loading ? 
+          <LoadingContainer>
+            <BounceLoader color="#ee1c4a" />
+          </LoadingContainer>
+          : 
+        <><TopContainer>
+          <h2>Edit Your Job</h2>
+          <CloseBtn onClick={closeEditJobModal}>
           <IoMdClose size={30}/>
           </CloseBtn>
         </TopContainer>
@@ -96,8 +111,7 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
                   type="date" 
                   name="dateJobReceived" 
                   value={formData.dateJobReceived} 
-                  onChange={onChange}
-                  required 
+                  onChange={onChange} 
                 />
               </InputContainer>
               <InputContainer>
@@ -107,7 +121,6 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
                   id="serviceType" 
                   value={formData.serviceType} 
                   onChange={onChange}
-                  required
                 >
                   {services.map((service, index) => (
                     <option key={index + 1} value={service}>{service}</option>
@@ -192,10 +205,10 @@ const AddJobModal = ({ handleAddJob, notify, user, id }) => {
             ></TextArea>
           </FormInputTextArea>
           <FormBtn type="submit">Submit</FormBtn> 
-        </Form>
-      </ContainerWithForm>}
+        </Form></>}
+      </ContainerWithForm>
     </AddJobModalContainer>
   )
 }
 
-export default AddJobModal
+export default EditJobModal

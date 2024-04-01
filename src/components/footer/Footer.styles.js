@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.div`
   width: 100%;
-  max-height: 40vh;
-  min-height: 40vh;
+  padding-top: 50px;
+  max-height: auto;
   background-color: #25335F;
   position: relative;
   display: flex;

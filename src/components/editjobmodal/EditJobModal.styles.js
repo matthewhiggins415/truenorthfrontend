@@ -170,6 +170,4 @@ export const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border-radius: 15px;
 `
