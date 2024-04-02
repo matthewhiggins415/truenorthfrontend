@@ -3,12 +3,14 @@ import { getContact, destroyContact } from '../../../api/contact';
 import { getJobs } from '../../../api/job';
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer, DeleteBtn, ContactContainer, CustomerIdWarning, ContactSectionContainerBottom, JobBtn, JobBtnContainer, JobBtnInfoContainer } from './Contact.styles';
+import { ContactPageContainer, ContactInfoContainer, ContactSectionContainer, BtnContainer, Btn, NotesContainer, DeleteBtn, ContactContainer, CustomerIdWarning, ContactSectionContainerBottom, JobBtn, JobBtnContainer, JobBtnInfoContainer, LoadingContainer } from './Contact.styles';
 import AddJobModal from '../../../components/addjobmodal/AddJobModal';
 import JobModal from '../../../components/jobmodal/JobModal';
 import EditJobModal from '../../../components/editjobmodal/EditJobModal';
+import BounceLoader from "react-spinners/BounceLoader";
 
 const Contact = ({ user, notify }) => {
+  const [loading, setLoading] = useState(false);
   const [contact, setContact] = useState({});
   const [showAddJobModal, setShowAddJobModal] = useState(false);
   const [showJobModal, setShowJobModal] = useState(false);
@@ -25,12 +27,14 @@ const Contact = ({ user, notify }) => {
     }
 
     const retrieveContact = async () => {
+      setLoading(true)
       const res = await getContact(user, id)
       setContact(res.data.contact)
 
       const response = await getJobs(user, id)
       console.log("get jobs:", response)
       setJobs(response.data.jobs)
+      setLoading(false)
     }
 
     retrieveContact();
@@ -86,6 +90,11 @@ const Contact = ({ user, notify }) => {
           <DeleteBtn onClick={handleDeleteContact}>Delete</DeleteBtn>
         </div>
       </BtnContainer>
+      {loading ? 
+        <LoadingContainer>
+          <BounceLoader color="#ee1c4a" />
+        </LoadingContainer>
+      :
       <ContactContainer>
         <ContactSectionContainer>
           <h2>Contact Information</h2>
@@ -194,7 +203,7 @@ const Contact = ({ user, notify }) => {
             </JobBtn>
           ))}
         </ContactSectionContainer>
-      </ContactContainer>
+      </ContactContainer>}
       { showAddJobModal ? <AddJobModal handleAddJob={handleAddJob} notify={notify} user={user} id={id}/> : <></> }
       { showJobModal ? <JobModal jobID={jobID} setJobID={setJobID} showJobModal={showJobModal} setShowJobModal={setShowJobModal} notify={notify} user={user} handleShowEditJob={handleShowEditJob}/> : <></> }
       { showEditJobModal ? <EditJobModal user={user} notify={notify} handleReverseShowEditModal={handleReverseShowEditModal} jobID={jobID} handleShowJob={handleShowJob}/> :  <></>}

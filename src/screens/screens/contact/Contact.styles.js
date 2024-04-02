@@ -174,3 +174,11 @@ export const JobBtnInfoContainer = styled.div`
     justify-content: space-between;
   }
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
