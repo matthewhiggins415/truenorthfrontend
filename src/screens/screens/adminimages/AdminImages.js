@@ -10,6 +10,7 @@ const AdminImages = ({ user, notify }) => {
     const getAllImages = async () => {
       try {
         const res = await getImages();
+        console.log("res", res)
         setImages(res.data)
       } catch(error) {
         console.log(error)

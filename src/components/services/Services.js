@@ -1,10 +1,13 @@
 import React from 'react';
-import { Container, ServiceContainer, ServiceCard, OfferContainer, OfferTopContainer, OffersContainer, OfferCard, CardContainer, Img, DetailsBtn } from './Services.styles';
+import { Container, ServiceContainer, ServiceCard, OfferContainer, OfferTopContainer, OffersContainer, OfferCard, CardContainer, Img, DetailsBtn, CardInfo } from './Services.styles';
 import { useNavigate } from "react-router-dom";
 import { LuClock4 } from "react-icons/lu";
 import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
 import apiUrl from '../../apiConfig';
+import serviceImgOne from '../../images/serviceImgOne.jpg';
+import serviceImgTwo from '../../images/serviceImgTwo.jpg';
+import serviceImgThree from '../../images/serviceImgThree.jpg';
 
 const Services = ({ services }) => {
   const navigate = useNavigate();
@@ -16,20 +19,23 @@ const Services = ({ services }) => {
   return (
     <Container>
       <ServiceContainer>
-        <ServiceCard>
-          <LuClock4 size={90} color={'#ee1c4a'}/>
-          <h3>Reliability</h3>
-          <p>We are a local business valuing high quality work</p>
+        <ServiceCard imgSrc={serviceImgOne}>
+          <CardInfo>
+            <h3>Reliability</h3>
+            <LuClock4 size={40} color={'white'}/>
+          </CardInfo>
         </ServiceCard>
-        <ServiceCard>
-          <AiOutlineDollar size={90} color={'#ee1c4a'}/>
-          <h3>Fair Prices</h3>
-          <p>We offer fair pricing to meet your budget</p>
+        <ServiceCard imgSrc={serviceImgTwo}>
+          <CardInfo>
+            <h3>Fair Prices</h3>
+            <AiOutlineDollar size={40} color={'white'}/>
+          </CardInfo>
         </ServiceCard>
-        <ServiceCard>
-          <IoCalendarOutline size={90} color={'#ee1c4a'}/>
-          <h3>Easy Scheduling</h3>
-          <p>We are punctual and prioritize your schedule</p>
+        <ServiceCard imgSrc={serviceImgThree}>
+          <CardInfo>
+            <h3>Easy Scheduling</h3>
+            <IoCalendarOutline size={40} color={'white'}/>
+          </CardInfo>
         </ServiceCard>
       </ServiceContainer>
       <OfferContainer>

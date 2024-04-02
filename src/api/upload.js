@@ -12,7 +12,7 @@ export const uploadImage = (formData) => {
 
 // get uploads 
 export const getImages = () => {
-  return axios.get(apiUrl + `/get-images`)
+  return axios.get(process.env.REACT_APP_API_URL + `/get-images`)
 }
 
 // remove upload

@@ -15,18 +15,23 @@ export const ServiceContainer = styled.div`
 `
 
 export const ServiceCard = styled.div`
-  min-height: 200px;
-  width: 200px;
+  min-height: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
+  justify-content: end;
   border-radius: 10px;
   margin: 10px;
-  background-color: white;
+  border: 5px solid rgba(238, 28, 74, 0.6);
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-image: url(${props => props.imgSrc});
+  background-size: cover; 
+  background-position: center; 
+  /* background-size: 120%; Increase the background-size */
+  background-repeat: no-repeat;
+
 
   h3 {
     margin-bottom: 10px;
@@ -34,6 +39,7 @@ export const ServiceCard = styled.div`
     letter-spacing: 1px;
     font-size: 22px;
     font-family: 'Mulish', sans-serif;
+    color: white;
 
   }
 
@@ -149,4 +155,14 @@ export const DetailsBtn = styled.button`
   border: none;
   background-color: #ee1c4a;
   color: white;
+`
+
+export const CardInfo = styled.div`
+  display: flex;
+  width: 100%;
+  background-color: rgba(238, 28, 74, 0.6);
+  position: relative;
+  bottom: 15px;
+  align-items: center;
+  justify-content: space-evenly;
 `
