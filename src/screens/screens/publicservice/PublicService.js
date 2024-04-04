@@ -32,7 +32,7 @@ const PublicService = ({ notify }) => {
         <BackBtn onClick={handleBack}>Back</BackBtn>
         <Container>
           <h1>{service.name}</h1>
-          <Img src={apiUrl + "/uploads/" + service.img}/>
+          <Img src={service.img}/>
           <H2>{service.title}</H2>
           <Line></Line>
            <P>{service.paragraphOne}</P>
