@@ -47,7 +47,7 @@ const Services = ({ services }) => {
           <CardContainer>
           {services.map((service) => (
             <OfferCard key={service._id}>
-              <Img src={apiUrl + '/uploads/' + service.img}/>
+              <Img src={service.img}/>
               <div>
                 <h3>{service.name}</h3>
                 <p>{service.title}</p>
