@@ -8,13 +8,13 @@ export const ReviewSectionContainer = styled.div`
   justify-content: space-evenly;
   flex-direction: column;
   margin-bottom: 100px;
-  margin-top: 100px;
+  margin-top: 50px;
 
   h2 {
     text-align: center;
     padding-bottom: 20px;
     border-bottom: 3px solid black;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     margin-top: 20px;
     font-family: "Fjalla One", sans-serif;
     font-weight: 400;
@@ -30,7 +30,7 @@ export const ReviewContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: 20px;
   flex-wrap: wrap;
 
   h3 {

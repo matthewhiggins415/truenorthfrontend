@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { LuClock4 } from "react-icons/lu";
 import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlineDollar } from "react-icons/ai";
-import apiUrl from '../../apiConfig';
+
+// Lazy loading the images
 import serviceImgOne from '../../images/serviceImgOne.jpg';
 import serviceImgTwo from '../../images/serviceImgTwo.jpg';
 import serviceImgThree from '../../images/serviceImgThree.jpg';

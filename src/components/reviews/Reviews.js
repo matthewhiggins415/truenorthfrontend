@@ -10,7 +10,7 @@ const Reviews = () => {
       <ReviewContainer>
         {reviews.map((review) => (
           <Review review={review} key={review._id}>
-            <Img src={review.img}/>
+            {/* <Img src={review.img}/> */}
             <StarContainer>
               <FaStar size={25} color="gold"/>
               <FaStar size={25} color="gold"/>
