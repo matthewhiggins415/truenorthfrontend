@@ -47,6 +47,7 @@ export const Form = styled.form`
 
 export const FormContainer = styled.div`
   margin: 40px auto;
+  width: 700px;
   text-align: center;
   border: none;
   padding: 20px;
@@ -54,6 +55,10 @@ export const FormContainer = styled.div`
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 15px;
   font-family: 'Mulish', sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
 `
 
 export const InputContainer = styled.div`
@@ -113,15 +118,17 @@ export const Img = styled.img`
   margin-top: 20px;
 `
 
-export const ImgForm = styled.form`
+export const ImgContainer = styled.form`
   margin: 0 auto;
   width: 100%;
+  
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #efefef;
   padding: 10px 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   
   input {
     background-color: white;
@@ -136,6 +143,6 @@ export const ImgForm = styled.form`
     border: 1px solid black;
     color: white;
     border-radius: 15px;
-    margin-left: 10px;
+    margin-top: 10px;
   }
 `

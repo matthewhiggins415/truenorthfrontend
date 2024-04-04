@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img, ImgForm, InputContainer } from './AdminEditService.styles';
+import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img, ImgContainer, InputContainer } from './AdminEditService.styles';
 import { useNavigate } from "react-router-dom";
 import { getSingleService, updateService, deleteService, updateServiceImage} from '../../../api/services';
 import { useParams } from "react-router-dom";
-import axios from 'axios';
-import apiUrl from '../../../apiConfig';
-import { uploadImage } from '../../../api/upload';
+import SelectImageModal from '../../../components/selectimagemodal/SelectImageModal';
 
 const AdminEditService = ({ user, notify }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [showImageModal, setShowImageModal] = useState(false)
   const [formData, setFormData] = useState({
     img: '',
     name: '',
@@ -41,7 +39,7 @@ const AdminEditService = ({ user, notify }) => {
     }
 
     retrieveService()
-  }, [])
+  }, [showImageModal])
 
   const navigate = useNavigate();
 
@@ -86,33 +84,9 @@ const AdminEditService = ({ user, notify }) => {
     }
   }
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleImageUpload = async (e) => {
-    e.preventDefault();
-
-    try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
-      const res = await uploadImage(formData)
-
-      if (res.status === 200) {
-        const picName = res.data.msg
-        const updateImgResponse = await updateServiceImage(id, picName);
-        console.log(updateImgResponse)
-
-        setFormData({
-          img: updateImgResponse.data.updatedService.img
-        })
-
-        notify('image updated')
-      }
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
-  };
+  const handleShowImageModal = () => {
+    setShowImageModal(!showImageModal);
+  }
 
   return (
     <EditServiceContainer>
@@ -122,12 +96,19 @@ const AdminEditService = ({ user, notify }) => {
       </BtnContainer>
       <FormContainer>
         <h2>Edit a Service</h2>
-        <Img src={apiUrl + "/uploads/" + formData.img} />
-        <p>{formData.img}</p>
-        <ImgForm onSubmit={handleImageUpload}>
-          <input type="file" onChange={handleFileChange} />
-          { selectedFile ? <button type="submit">Upload</button> : <></> }
-        </ImgForm>
+        {
+          showImageModal 
+        ? 
+          <SelectImageModal user={user} notify={notify} handleShowImageModal={handleShowImageModal} id={id}/>
+        : 
+          <InputContainer>
+            <label>Image</label>
+            <ImgContainer>
+              <Img src={formData.img}/>
+              <button onClick={handleShowImageModal}>select new image</button>
+            </ImgContainer>
+          </InputContainer>
+        }
         <Form onSubmit={handleSubmit}>
           <InputContainer>
             <label>Blog Name</label>

@@ -3,7 +3,7 @@ import apiUrl from '../apiConfig.js'
 
 // upload 
 export const uploadImage = (formData) => {
-  return axios.post(apiUrl + '/upload-image', formData, {
+  return axios.post(process.env.REACT_APP_API_URL + '/upload-image', formData, {
     headers: {
       'Content-Type': 'multipart/form-data'
     }
@@ -17,5 +17,5 @@ export const getImages = () => {
 
 // remove upload
 export const removeImage = (image) => {
-  return axios.delete(apiUrl + `/remove-image/${image}`)
+  return axios.delete(process.env.REACT_APP_API_URL + `/remove-image/${image}`)
 }
