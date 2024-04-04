@@ -77,3 +77,61 @@ export const ImgForm = styled.form`
     margin-left: 10px;
   }
 `
+
+export const InputContainer = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+
+  label {
+    font-family: 'Mulish', sans-serif;
+  }
+`
+
+export const ImgContainer = styled.form`
+  margin: 0 auto;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef;
+  padding: 10px 20px;
+  margin-top: 10px;
+  
+  input {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+
+  button {
+    background-color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+`
+
+export const FormContainer = styled.div`
+  margin: 40px auto;
+  width: 700px;
+  text-align: center;
+  border: none;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 15px;
+  font-family: 'Mulish', sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
+`

@@ -42,7 +42,7 @@ const PublicBlog = () => {
       </Helmet>
       <header>
         <Title>{blog.title}</Title>
-        <Img src={apiUrl + '/uploads/' + blog.img} />
+        <Img src={blog.img} />
         <p>{blog.date}</p>
         <p>{blog.author}</p>
       </header>

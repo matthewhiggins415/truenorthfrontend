@@ -28,7 +28,7 @@ const PublicBlogs = () => {
       <BackBtn onClick={handleBack}>Back</BackBtn>
       {blogs?.map((blog) => (
         <BlogCard to={`/blogs/${blog._id}`} key={blog._id}>
-          <img src={apiUrl + '/uploads/' + blog.img} />
+          <img src={blog.img} />
           <h3>{blog.title}</h3>
           <p>{blog.date}</p>
         </BlogCard>

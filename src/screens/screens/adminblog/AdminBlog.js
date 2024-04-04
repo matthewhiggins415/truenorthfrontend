@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { getBlog, deleteBlog } from '../../../api/blog';
 import { AdminBlogScreenContainer, BlogPostContainer, Btn, BtnContainer, MetaContainer, RemoveBtn } from './AdminBlog.styles';
 import Blog from '../blog/Blog';
-import apiUrl from '../../../apiConfig';
 
 const AdminBlog = ({ user, notify }) => {
   const [blog, setBlog] = useState({});
@@ -64,7 +63,7 @@ const AdminBlog = ({ user, notify }) => {
           </div>
         </MetaContainer>
         <Blog 
-          img={apiUrl + '/uploads/' + blog.img}
+          img={blog.img}
           title={blog.title}
           author={blog.author}
           isPublished={blog.isPublished}

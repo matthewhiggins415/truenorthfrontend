@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { CreateServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, BtnContainer, InputContainer, ImgForm, Img } from './AdminCreateService.styles';
 import { useNavigate } from "react-router-dom";
 import { createService } from '../../../api/services';
-import { uploadImage } from '../../../api/upload';
-import apiUrl from '../../../apiConfig';
 
 const AdminCreateService = ({ user, notify }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
-
   const [formData, setFormData] = useState({
     img: '',
     name: '',
@@ -48,38 +44,6 @@ const AdminCreateService = ({ user, notify }) => {
     navigate('/admin/services')
   }
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleImageUpload = async (e) => {
-    e.preventDefault();
-
-    console.log(selectedFile)
-
-    try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
-      const res = await uploadImage(formData);
-      console.log("res:", res)
-
-      if (res.status === 200) {
-
-        const picName = res.data.msg
-
-        setFormData(prevFormData => ({
-          ...prevFormData,
-          img: picName
-        }));
-
-        console.log("formData: ", formData)
-      }
-    } catch(error) {
-      console.log(error);
-      notify('something went wrong', 'danger');
-    }
-  }
-
   return (
     <CreateServiceContainer>
       <BtnContainer>
@@ -87,11 +51,6 @@ const AdminCreateService = ({ user, notify }) => {
       </BtnContainer>
       <FormContainer>
         <h2>Create a Service</h2>
-        {formData.img ? <p>{formData.img}</p> : <></>}
-        <ImgForm onSubmit={handleImageUpload}>
-          <input type="file" onChange={handleFileChange} />
-          { selectedFile ? <button type="submit">Upload</button> : <></> }
-        </ImgForm>
         <Form onSubmit={handleSubmit}>
           <InputContainer>
             <label>Name</label>

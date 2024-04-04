@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getImages } from '../../api/image';
-import { ModalContainer, CloseBtn, LoadingContainer, ImagesContainer, Img, H3, ImageContainer, ImgSelectBtn } from './SelectImageModal.styles';
+import { ModalContainer, CloseBtn, LoadingContainer, ImagesContainer, Img, H3, ImageContainer, ImgSelectBtn } from './SelectBlogImageModal.styles';
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import BounceLoader from "react-spinners/BounceLoader";
 import { IoMdAddCircle } from "react-icons/io";
-import { updateService } from '../../api/services';
+import { updateBlog } from '../../api/blog';
 
-const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
+const SelectBlogImageModal = ({ user, notify, toggleModal, id }) => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -28,7 +28,7 @@ const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
   }, [])
 
   const handleCloseModal = () => {
-    handleShowImageModal();
+    toggleModal();
   }
 
   const handleSelectImage = async (img) => {
@@ -40,8 +40,8 @@ const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
     }
 
     try {
-      const res = await updateService(id, user, data)
-      console.log("service updated with new img", res)
+      const res = await updateBlog(data, user, id)
+      console.log("blog updated with new img", res)
       if (res.status === 201) {
         notify('image updated');
         setLoading(false)
@@ -77,4 +77,4 @@ const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
   )
 }
 
-export default SelectImageModal
+export default SelectBlogImageModal

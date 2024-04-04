@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getImages } from '../../api/image';
-import { ModalContainer, CloseBtn, LoadingContainer, ImagesContainer, Img, H3, ImageContainer, ImgSelectBtn } from './SelectImageModal.styles';
+import { ModalContainer, CloseBtn, LoadingContainer, ImagesContainer, Img, H3, ImageContainer, ImgSelectBtn } from './SelectCompanyImageModal.styles';
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import BounceLoader from "react-spinners/BounceLoader";
 import { IoMdAddCircle } from "react-icons/io";
-import { updateService } from '../../api/services';
+import { updateCompany } from '../../api/company';
 
-const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
+const SelectCompanyImageModal = ({ user, notify, handleToggleImgModal, id }) => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -28,7 +28,7 @@ const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
   }, [])
 
   const handleCloseModal = () => {
-    handleShowImageModal();
+    handleToggleImgModal();
   }
 
   const handleSelectImage = async (img) => {
@@ -36,11 +36,11 @@ const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
     const { downloadURL } = img
 
     const data = {
-      img: downloadURL
+      companyImage: downloadURL
     }
 
     try {
-      const res = await updateService(id, user, data)
+      const res = await updateCompany(user, data, id)
       console.log("service updated with new img", res)
       if (res.status === 201) {
         notify('image updated');
@@ -77,4 +77,4 @@ const SelectImageModal = ({ user, notify, handleShowImageModal, id }) => {
   )
 }
 
-export default SelectImageModal
+export default SelectCompanyImageModal

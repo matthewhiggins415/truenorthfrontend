@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { AdminEditScreen, ProfileEditContainer, BackBtn, InputContainer, Input, SubmitBtn, Img, ImgContainer, ImgForm } from './AdminEditCompany.styles';
+import { AdminEditScreen, ProfileEditContainer, BackBtn, InputContainer, Input, SubmitBtn, Img, ImgContainer, Form, FormContainer } from './AdminEditCompany.styles';
 import { updateCompany, getCompany, updateCompanyImage } from '../../../api/company';
 import { useParams } from "react-router-dom";
-import { uploadImage } from '../../../api/upload';
-import apiUrl from '../../../apiConfig';
+import SelectCompanyImageModal from '../../../components/selectcompanyimagemodal/SelectCompanyImageModal';
 
 const AdminEditCompany = ({ user, notify }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [showSelectImgModal, setShowSelectImgModal] = useState(false);
 
   const [formData, setFormData] = useState({
     companyImage: '',
@@ -57,7 +56,7 @@ const AdminEditCompany = ({ user, notify }) => {
     }
 
     requestData()
-  }, []);
+  }, [showSelectImgModal]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -103,50 +102,29 @@ const AdminEditCompany = ({ user, notify }) => {
     }
   }
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleImageUpload = async (e) => {
-    e.preventDefault();
-
-    try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
-      const res = await uploadImage(formData);
-
-      if (res.status === 200) {
-        const picName = res.data.msg
-        const updateImgResponse = await updateCompanyImage(id, picName)
-
-        setFormData({
-          companyImage: updateImgResponse.data.updatedCompany.companyImage
-        })
-
-        notify('image updated')
-      }
-    } catch(error) {
-      console.log(error);
-      notify('something went wrong', 'danger');
-    }
+  const handleToggleImgModal = () => {
+    setShowSelectImgModal(!showSelectImgModal)
   }
 
   return (
     <AdminEditScreen>
       <BackBtn onClick={handleEditNavigate}>Back</BackBtn>
-      <div>
-        <ProfileEditContainer>      
-          <h1>Edit Company</h1>
-          <ImgContainer>
-            <label>Company Image</label>
-            <Img src={apiUrl + "/uploads/" + formData.companyImage}/>
-            <p>{formData?.companyImage}</p>
-          </ImgContainer>
-          <ImgForm onSubmit={handleImageUpload}>
-            <input type="file" onChange={handleFileChange} />
-            { selectedFile ? <button type="submit">Upload</button> : <></> }
-          </ImgForm>
-          <form onSubmit={handleSubmit}>
+      <FormContainer>
+          <h2>Edit Company</h2>
+          {
+            showSelectImgModal 
+          ? 
+            <SelectCompanyImageModal user={user} notify={notify} handleToggleImgModal={handleToggleImgModal} id={id}/>
+          : 
+            <InputContainer>
+              <label>Image</label>
+              <ImgContainer>
+                <Img src={formData.companyImage}/>
+                <button onClick={handleToggleImgModal}>select new image</button>
+              </ImgContainer>
+            </InputContainer>
+          }
+          <Form onSubmit={handleSubmit}>
             <InputContainer>
               <label>Company Name</label>
               <Input 
@@ -268,9 +246,8 @@ const AdminEditCompany = ({ user, notify }) => {
               />
             </InputContainer>
             <SubmitBtn type="submit">complete</SubmitBtn>
-          </form>
-        </ProfileEditContainer>
-      </div>
+          </Form>
+      </FormContainer>
   </AdminEditScreen>
   )
 }

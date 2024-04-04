@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { CreateBlogScreen, Form, SectionContainer, Input, InputContainer, Label, TextArea, BackBtn, SubmitBtn, BtnContainer, ImgForm } from './CreateBlog.styles';
+import { CreateBlogScreen, Form, SectionContainer, Input, InputContainer, Label, TextArea, BackBtn, SubmitBtn, BtnContainer, ImgForm, FormContainer } from './CreateBlog.styles';
 import { createBlog } from '../../../api/blog';
-import apiUrl from '../../../apiConfig';
-import { uploadImage } from '../../../api/upload';
 
 const CreateBlog = ({ user, notify }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     img: '',
@@ -56,43 +53,12 @@ const CreateBlog = ({ user, notify }) => {
     navigate('/adminblogs')
   }
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleImageUpload = async (e) => {
-    e.preventDefault();
-
-    try {
-      const formData = new FormData();
-      formData.append('image', selectedFile);
-      const res = await uploadImage(formData);
-
-      if (res.status === 200) {
-        const picName = res.data.msg
-
-        setFormData({
-          img: picName
-        })
-      }
-    } catch(error) {
-      console.log(error);
-      notify('something went wrong', 'danger');
-    }
-  }
-
   return (
     <CreateBlogScreen>
       <BtnContainer>
         <BackBtn onClick={handleBack}>back</BackBtn>
       </BtnContainer>
-      <SectionContainer>
-        <h3>Blog Image</h3>
-        <ImgForm onSubmit={handleImageUpload}>
-          <input type="file" onChange={handleFileChange} />
-          { selectedFile ? <button type="submit">Upload</button> : <></> }
-        </ImgForm>
-      </SectionContainer>
+      <FormContainer>
       <Form onSubmit={handleSubmit}>
         <SectionContainer>
           <h3>Meta Info</h3>
@@ -103,7 +69,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.title} 
             placeholder='blog title' 
             onChange={onChange}
-            required
           />
           <Label>Ex: Explore the fascinating relationship between bees and chimneys in San Diego's urban landscape. Learn about the importance of bees, implications for residents, and how to promote coexistence.</Label>
           <Input 
@@ -112,7 +77,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.metaDescription} 
             placeholder='Meta Description' 
             onChange={onChange}
-            required
           />
           <Label>Ex: bees, chimneys, San Diego, urban ecology, coexistence</Label>
           <Input 
@@ -121,7 +85,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.metaKeywords} 
             placeholder='Meta Keywords' 
             onChange={onChange}
-            required
           />
           <Label>Ex: February 12, 2024</Label>
           <Input 
@@ -130,7 +93,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.date} 
             placeholder='Date' 
             onChange={onChange}
-            required
           />
           <Input 
             name="author" 
@@ -138,7 +100,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.author} 
             placeholder='Author' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SectionContainer>
@@ -150,7 +111,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionOneHeader} 
             placeholder='Section One Header' 
             onChange={onChange}
-            required
           />
           <Label>Ex: San Diego, renowned for its picturesque coastline and vibrant urban scene, is also home to a fascinating ecological phenomenon that often goes unnoticed – the symbiotic relationship between bees and chimneys...</Label>
           <TextArea 
@@ -159,7 +119,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionOneContent} 
             placeholder='Section One Content' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SectionContainer>
@@ -171,7 +130,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionTwoHeader} 
             placeholder='Section Two Header' 
             onChange={onChange}
-            required
           />
           <Label>Ex: Bees play a critical role in pollinating flowers, fruits, and crops, contributing to ecosystem health and agricultural productivity...</Label>
           <TextArea 
@@ -180,7 +138,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionTwoContent} 
             placeholder='Section Two Content' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SectionContainer>
@@ -191,7 +148,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionThreeHeader} 
             placeholder='Section Three Header' 
             onChange={onChange}
-            required
           />
           <TextArea 
             name="sectionThreeContent" 
@@ -199,7 +155,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionThreeContent} 
             placeholder='Section Three Content' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SectionContainer>
@@ -210,7 +165,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionFourHeader} 
             placeholder='Section Four Header' 
             onChange={onChange}
-            required
           />
           <TextArea 
             name="sectionFourContent" 
@@ -218,7 +172,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionFourContent} 
             placeholder='Section Four Content' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SectionContainer>
@@ -229,7 +182,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionFiveHeader} 
             placeholder='Section Five Header' 
             onChange={onChange}
-            required
           />
           <TextArea 
             name="sectionFiveContent" 
@@ -237,7 +189,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.sectionFiveContent} 
             placeholder='Section Five Content' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SectionContainer>
@@ -249,7 +200,6 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.conclusionHeader} 
             placeholder='Conclusion Header' 
             onChange={onChange}
-            required
           />
           <Label>Ex: In the heart of San Diego's urban landscape, the harmonious coexistence of bees and chimneys underscores the interconnectedness of nature and human habitation...</Label>
           <TextArea 
@@ -258,11 +208,11 @@ const CreateBlog = ({ user, notify }) => {
             value={formData.conclusionContent} 
             placeholder='Conclusion Content' 
             onChange={onChange}
-            required
           />
         </SectionContainer>
         <SubmitBtn type='submit'>submit</SubmitBtn>
       </Form>
+      </FormContainer>
     </CreateBlogScreen>
   )
 }

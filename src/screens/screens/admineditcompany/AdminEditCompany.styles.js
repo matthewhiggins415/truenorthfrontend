@@ -1,10 +1,12 @@
 import { styled } from 'styled-components';
 
 export const AdminEditScreen = styled.div`
-  min-height: 90vh;
   width: 100%;
+  padding: 40px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
   border-top: 2px solid lightblue;
-  padding: 20px;
 `
 
 export const ProfileEditContainer = styled.div`
@@ -34,6 +36,7 @@ export const BackBtn = styled.button`
   transition: 150ms ease-in-out;
   cursor: pointer;
   margin-bottom: 20px;
+  width: 100px;
 
   &:hover {
     color: white;
@@ -50,6 +53,7 @@ export const ProfImage = styled.img`
 `
 
 export const InputContainer = styled.div`
+  width: 100%;
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
@@ -62,11 +66,12 @@ export const InputContainer = styled.div`
 `
 
 export const Input = styled.input`
+  margin-top: 10px;
   padding: 10px 20px;
+  background-color: #efefef;
   border: none;
   width: 100%;
-  margin-top: 10px;
-  background-color: #efefef;
+  cursor: pointer;
 `
 
 export const SubmitBtn = styled.button`
@@ -83,17 +88,38 @@ export const SubmitBtn = styled.button`
 `
 
 export const Img = styled.img`
-  width: 150px;
+  width: 350px;
   height: 150px;
-  margin: 10px auto;
+  margin-top: 20px auto;
 `
 
 export const ImgContainer = styled.div`
+  margin: 0 auto;
+  width: 100%;
+  
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin: 20px auto;
-  font-family: 'Mulish', sans-serif;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef;
+  padding: 10px 20px;
+  margin-top: 10px;
+  
+  input {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+
+  button {
+    background-color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid black;
+    color: white;
+    border-radius: 15px;
+    margin-top: 10px;
+  }
 `
 
 export const ImgForm = styled.form`
@@ -111,13 +137,26 @@ export const ImgForm = styled.form`
     border-radius: 15px;
   }
 
-  button {
-    background-color: black;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 1px solid black;
-    color: white;
-    border-radius: 15px;
-    margin-left: 10px;
+`
+
+export const FormContainer = styled.div`
+  margin: 40px auto;
+  width: 700px;
+  text-align: center;
+  border: none;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 15px;
+  font-family: 'Mulish', sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
   }
+`
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
 `

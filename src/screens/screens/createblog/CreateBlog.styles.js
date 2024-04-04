@@ -14,7 +14,7 @@ export const CreateBlogScreen = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
   align-items: center;
 `
 
@@ -25,12 +25,12 @@ export const BtnContainer = styled.div`
 `
 
 export const SectionContainer = styled.div`
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-top: 15px;
   padding: 20px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -131,5 +131,21 @@ export const ImgForm = styled.form`
     color: white;
     border-radius: 15px;
     margin-top: 10px;
+  }
+`
+
+export const FormContainer = styled.div`
+  margin: 40px auto;
+  width: 700px;
+  text-align: center;
+  border: none;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  border-radius: 15px;
+  font-family: 'Mulish', sans-serif;
+
+  @media only screen and (max-width: 600px) {
+    width: 300px;
   }
 `
