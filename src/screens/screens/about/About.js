@@ -28,7 +28,7 @@ const About = () => {
         </ImgContainer>
         <Section>
           <h1>True North Heating & Cooling</h1>
-          <p>True North celebrates its grand opening in 2023. Colin Higgins, owner of True North, has on the job experience in the HVAC industry. Since opening the shop, Colin has focused on growing his team to include Connecticut’s finest heating and cooling servicing talent establishing True North as Fairfield and surrounding areas most responsive and reliable residential HVAC company boasting the happiest customers and team.
+          <p>Founded in 2023, True North helps home owners of Fairfield County & surrounding areas solve their heating and cooling needs. Colin Higgins, founder of True North Heating & Cooling, has many years of on the job experience in the HVAC industry. Since opening the shop, Colin has focused on growing his team to include Connecticut’s finest heating and cooling servicing talent establishing True North as Fairfield's and surrounding areas' most responsive and reliable residential HVAC company. 
           </p>
         </Section>
       </SectionContainer>
