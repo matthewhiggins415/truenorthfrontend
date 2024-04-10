@@ -70,3 +70,11 @@ export const ServiceBtn = styled.button`
     color: white;
   }
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

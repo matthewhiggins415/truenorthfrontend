@@ -61,5 +61,12 @@ export const Img = styled.img`
   width: 350px;
   height: auto;
   margin: 0 auto;
+`
 
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

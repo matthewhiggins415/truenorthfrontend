@@ -77,3 +77,11 @@ export const BlogBtn = styled.button`
   font-size: 20px;
   text-align: center;
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select, EmailBtn, SearchForm } from './Contacts.styles';
+import { ContactsContainer, BottomSection, ContactsHeader, Btn, IndividualContact, ContactBtn, SearchInput, Select, EmailBtn, SearchForm, LoadingContainer } from './Contacts.styles';
 import { getContacts, searchContacts } from '../../../api/contact';
 import { CgDetailsMore } from "react-icons/cg";
 import { getContactsCSV } from '../../../api/csv';
+import BounceLoader from "react-spinners/BounceLoader";
 
 const Contacts = ({ user, setUser, notify }) => {
+  const [isLoading, setIsLoading] = useState(false)
   const [allSelected, setAllSelected] = useState(false)
   const [selectedContacts, setSelectedContacts] = useState([])
   const[contacts, setContacts] = useState([]);
@@ -20,9 +22,12 @@ const Contacts = ({ user, setUser, notify }) => {
       navigate("/");
     }
 
+    setIsLoading(true)
+
     const getAllContacts = async () => {
       const res = await getContacts(user);
       setContacts(res.data.contacts);
+      setIsLoading(false)
     }
     
     getAllContacts()
@@ -168,6 +173,12 @@ const Contacts = ({ user, setUser, notify }) => {
           <Btn onClick={handleCSVDownload}>CSV Download</Btn>
           <Btn onClick={handleNew}>New Contact</Btn>
         </ContactsHeader>
+        { isLoading ?
+          <LoadingContainer>
+            <BounceLoader color="#ee1c4a" />
+          </LoadingContainer>
+        : 
+        <>
         { selectedContacts.length > 0 ? 
           <div>
             <EmailBtn>Email</EmailBtn>
@@ -192,6 +203,8 @@ const Contacts = ({ user, setUser, notify }) => {
             </IndividualContact>
           ))}
         </div>
+        </>
+        }
       </BottomSection>
     </ContactsContainer>
   )

@@ -160,3 +160,11 @@ export const Form = styled.form`
   width: 100%;
   margin: 0 auto;
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

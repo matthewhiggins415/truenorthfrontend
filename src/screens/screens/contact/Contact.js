@@ -141,20 +141,24 @@ const Contact = ({ user, notify }) => {
         <ContactSectionContainer>
           <h2>Home Information</h2>
           <ContactInfoContainer>
-            <h3>Home Type:</h3>
-            <p>{contact.homeType}</p>
+            <h3>System Type:</h3>
+            <p>{contact.systemType}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <h3>Roof Type:</h3>
-            <p>{contact.roofType}</p>
+            <h3>Model Number:</h3>
+            <p>{contact.modelNumber}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <h3>Num of Chimneys:</h3>
-            <p>{contact.chimneys}</p>
+            <h3>Serial Number:</h3>
+            <p>{contact.serialNumber}</p>
           </ContactInfoContainer>
           <ContactInfoContainer>
-            <h3>Chimney Type:</h3>
-            <p>{contact.chimneyType}</p>
+            <h3>Fuel Type:</h3>
+            <p>{contact.fuelType}</p>
+          </ContactInfoContainer>
+          <ContactInfoContainer>
+            <h3>System Size:</h3>
+            <p>{contact.systemSize}</p>
           </ContactInfoContainer>
         </ContactSectionContainer>
         <ContactSectionContainer>

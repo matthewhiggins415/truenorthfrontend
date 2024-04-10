@@ -146,3 +146,11 @@ export const ImgContainer = styled.form`
     margin-top: 10px;
   }
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

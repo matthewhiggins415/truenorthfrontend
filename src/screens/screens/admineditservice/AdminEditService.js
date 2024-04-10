@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img, ImgContainer, InputContainer } from './AdminEditService.styles';
+import { EditServiceContainer, BackBtn, Form, FormContainer, Input, TextArea, SubmitBtn, RemoveBtn, BtnContainer, Img, ImgContainer, InputContainer, LoadingContainer } from './AdminEditService.styles';
 import { useNavigate } from "react-router-dom";
 import { getSingleService, updateService, deleteService, updateServiceImage} from '../../../api/services';
 import { useParams } from "react-router-dom";
 import SelectImageModal from '../../../components/selectimagemodal/SelectImageModal';
+import BounceLoader from "react-spinners/BounceLoader";
 
 const AdminEditService = ({ user, notify }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false)
   const [formData, setFormData] = useState({
     img: '',
@@ -22,6 +24,7 @@ const AdminEditService = ({ user, notify }) => {
 
   useEffect(() => {
     const retrieveService = async () => {
+      setIsLoading(true)
       const res = await getSingleService(id)
       console.log("get service: ", res)
 
@@ -36,6 +39,8 @@ const AdminEditService = ({ user, notify }) => {
         paragraphFour: res.data.service.paragraphFour,
         paragraphFive: res.data.service.paragraphFive
       })
+
+      setIsLoading(false)
     }
 
     retrieveService()
@@ -52,16 +57,18 @@ const AdminEditService = ({ user, notify }) => {
     
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setIsLoading(true)
     try {
       const res = await updateService(id, user, formData)
       console.log(res)
       if (res.status === 200) {
         notify('service updated');
+        setIsLoading(false)
       }
     } catch(error) {
       console.log(error)
       notify('something went wrong', 'danger')
+      setIsLoading(false)
     }
   }
 
@@ -94,98 +101,103 @@ const AdminEditService = ({ user, notify }) => {
         <BackBtn onClick={handleBack}>back</BackBtn>
         <RemoveBtn onClick={handleDelete}>delete</RemoveBtn>
       </BtnContainer>
-      <FormContainer>
-        <h2>Edit a Service</h2>
-        {
-          showImageModal 
-        ? 
-          <SelectImageModal user={user} notify={notify} handleShowImageModal={handleShowImageModal} id={id}/>
-        : 
-          <InputContainer>
-            <label>Image</label>
-            <ImgContainer>
-              <Img src={formData.img}/>
-              <button onClick={handleShowImageModal}>select new image</button>
-            </ImgContainer>
-          </InputContainer>
-        }
-        <Form onSubmit={handleSubmit}>
-          <InputContainer>
-            <label>Blog Name</label>
-            <Input 
-              name="name"
-              value={formData.name}
-              type="text"
-              placeholder="Name"
-              onChange={onChange}
-              required
-            /> 
-          </InputContainer>
-          <InputContainer>
-            <label>Title</label>
-            <Input 
-              name="title"
-              value={formData.title}
-              type="text"
-              placeholder="Title"
-              onChange={onChange}
-              required
-            />
-          </InputContainer>
-          <InputContainer>
-            <label>Paragraph One</label>
-            <TextArea
-              name="paragraphOne"
-              value={formData.paragraphOne}
-              type="text"
-              placeholder="Paragraph One"
-              onChange={onChange}
-              required
-            />
-          </InputContainer>
-          <InputContainer>
-            <label>Paragraph Two</label>
-            <TextArea
-              name="paragraphTwo"
-              value={formData.paragraphTwo}
-              type="text"
-              placeholder="Paragraph Two"
-              onChange={onChange}        
-            />
-          </InputContainer>
-          <InputContainer>
-            <label>Paragraph Three</label>
-            <TextArea
-              name="paragraphThree"
-              value={formData.paragraphThree}
-              type="text"
-              placeholder="Paragraph Three"
-              onChange={onChange}         
-            />
-          </InputContainer>
-          <InputContainer>
-            <label>Paragraph Four</label>
-            <TextArea
-              name="paragraphFour"
-              value={formData.paragraphFour}
-              type="text"
-              placeholder="Paragraph Four"
-              onChange={onChange}
-            />
-          </InputContainer>
-          <InputContainer>
-            <label>Paragraph Five</label>
-            <TextArea
-              name="paragraphFive"
-              value={formData.paragraphFive}
-              type="text"
-              placeholder="Paragraph Five"
-              onChange={onChange}         
-            />
-          </InputContainer>
-          <SubmitBtn type="submit">submit</SubmitBtn>
-        </Form>
-      </FormContainer>
+      {isLoading ?
+        <LoadingContainer>
+          <BounceLoader color="#ee1c4a" />
+        </LoadingContainer>
+      : 
+        <FormContainer>
+          <h2>Edit a Service</h2>
+          {
+            showImageModal 
+          ? 
+            <SelectImageModal user={user} notify={notify} handleShowImageModal={handleShowImageModal} id={id}/>
+          : 
+            <InputContainer>
+              <label>Image</label>
+              <ImgContainer>
+                <Img src={formData.img}/>
+                <button onClick={handleShowImageModal}>select new image</button>
+              </ImgContainer>
+            </InputContainer>
+          }
+          <Form onSubmit={handleSubmit}>
+            <InputContainer>
+              <label>Blog Name</label>
+              <Input 
+                name="name"
+                value={formData.name}
+                type="text"
+                placeholder="Name"
+                onChange={onChange}
+                required
+              /> 
+            </InputContainer>
+            <InputContainer>
+              <label>Title</label>
+              <Input 
+                name="title"
+                value={formData.title}
+                type="text"
+                placeholder="Title"
+                onChange={onChange}
+                required
+              />
+            </InputContainer>
+            <InputContainer>
+              <label>Paragraph One</label>
+              <TextArea
+                name="paragraphOne"
+                value={formData.paragraphOne}
+                type="text"
+                placeholder="Paragraph One"
+                onChange={onChange}
+                required
+              />
+            </InputContainer>
+            <InputContainer>
+              <label>Paragraph Two</label>
+              <TextArea
+                name="paragraphTwo"
+                value={formData.paragraphTwo}
+                type="text"
+                placeholder="Paragraph Two"
+                onChange={onChange}        
+              />
+            </InputContainer>
+            <InputContainer>
+              <label>Paragraph Three</label>
+              <TextArea
+                name="paragraphThree"
+                value={formData.paragraphThree}
+                type="text"
+                placeholder="Paragraph Three"
+                onChange={onChange}         
+              />
+            </InputContainer>
+            <InputContainer>
+              <label>Paragraph Four</label>
+              <TextArea
+                name="paragraphFour"
+                value={formData.paragraphFour}
+                type="text"
+                placeholder="Paragraph Four"
+                onChange={onChange}
+              />
+            </InputContainer>
+            <InputContainer>
+              <label>Paragraph Five</label>
+              <TextArea
+                name="paragraphFive"
+                value={formData.paragraphFive}
+                type="text"
+                placeholder="Paragraph Five"
+                onChange={onChange}         
+              />
+            </InputContainer>
+            <SubmitBtn type="submit">submit</SubmitBtn>
+          </Form>
+        </FormContainer>}
     </EditServiceContainer>
   )
 }

@@ -155,3 +155,11 @@ export const SearchForm = styled.form`
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`

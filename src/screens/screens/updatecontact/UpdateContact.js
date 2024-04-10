@@ -16,10 +16,11 @@ const UpdateContact = ({ user, notify }) => {
     lastname: '',
     email: '',
     cell_phone: '',
-    chimneys: 0,
-    roofType: '', 
-    homeType: '',
-    chimneyType: '',
+    systemType: '',
+    modelNumber: '',
+    serialNumber: '', 
+    fuelType: '',
+    systemSize: '',
     address: '',
     unit: '',
     city: '',
@@ -40,10 +41,11 @@ const UpdateContact = ({ user, notify }) => {
         lastname: res.data.contact.lastname,
         email: res.data.contact.email,
         cell_phone: res.data.contact.cell_phone,
-        chimneys: res.data.contact.chimneys,
-        roofType: res.data.contact.roofType, 
-        homeType: res.data.contact.homeType,
-        chimneyType: res.data.contact.chimneyType,
+        systemType: res.data.contact.systemType,
+        modelNumber: res.data.contact.modelNumber,
+        serialNumber: res.data.contact.serialNumber, 
+        fuelType: res.data.contact.fuelType,
+        systemSize: res.data.contact.systemSize,
         address: res.data.contact.address,
         unit: res.data.contact.unit,
         city: res.data.contact.city,
@@ -74,10 +76,11 @@ const UpdateContact = ({ user, notify }) => {
         lastname: res.data.newContact.lastname,
         email: res.data.newContact.email,
         cell_phone: res.data.newContact.cell_phone,
-        chimneys: res.data.newContact.chimneys,
-        roofType: res.data.newContact.roofType, 
-        homeType: res.data.newContact.homeType,
-        chimneyType: res.data.newContact.chimneyType,
+        systemType: res.data.newContact.systemType,
+        modelNumber: res.data.newContact.modelNumber,
+        serialNumber: res.data.newContact.serialNumber, 
+        fuelType: res.data.newContact.fuelType,
+        systemSize: res.data.newContact.systemSize,
         address: res.data.newContact.address,
         unit: res.data.newContact.unit,
         city: res.data.newContact.city,
@@ -143,40 +146,54 @@ const UpdateContact = ({ user, notify }) => {
               />
           </InputContainer>
           <InputContainer>
-            <label>Chimneys:</label>
+            <label>System Type:</label>
             <Input 
-              name="chimneys" 
-              type="number" 
-              value={formData.chimneys} 
-              placeholder='number of chimneys' 
+              name="systemType" 
+              type="text" 
+              value={formData.systemType} 
+              placeholder='system type' 
               onChange={onChange}
-              min="1"
               />
           </InputContainer>
           <InputContainer>
-            <label htmlFor="roofType">Roof Type:</label>
-            <Select name="roofType" id="roofType" value={formData.roofType} onChange={onChange} >
-              <option value="shingle">Shingle</option>
-              <option value="tile">Tile</option>
-              <option value="flat">Flat</option>
-              <option value="other">Other</option>
-            </Select>
+            <label>Model Number:</label>
+            <Input 
+              name="modelNumber" 
+              type="text" 
+              value={formData.modelNumber} 
+              placeholder='model number' 
+              onChange={onChange}
+              />
           </InputContainer>
           <InputContainer>
-            <label htmlFor="homeType">Home Type:</label>
-            <Select name="homeType" id="homeType" value={formData.homeType} onChange={onChange} >
-              <option value="one story">One Story</option>
-              <option value="two story">Two Story</option>
-              <option value="other">Other</option>
-            </Select>
+            <label>Serial Number:</label>
+            <Input 
+              name="serialNumber" 
+              type="text" 
+              value={formData.serialNumber} 
+              placeholder='serial number' 
+              onChange={onChange}
+              />
           </InputContainer>
           <InputContainer>
-            <label htmlFor="chimneyType">Chimney Type:</label>
-            <Select name="chimneyType" id="chimneyType" value={formData.chimneyType} onChange={onChange} >
-              <option value="masonry">Masonry</option>
-              <option value="prefab">Prefab</option>
-              <option value="other">Other</option>
-            </Select>
+            <label>Fuel Type:</label>
+            <Input 
+              name="fuelType" 
+              type="text" 
+              value={formData.fuelType} 
+              placeholder='fuel number' 
+              onChange={onChange}
+              />
+          </InputContainer>
+          <InputContainer>
+            <label>System Size:</label>
+            <Input 
+              name="systemSize" 
+              type="text" 
+              value={formData.systemSize} 
+              placeholder='system size' 
+              onChange={onChange}
+              />
           </InputContainer>
           <InputContainer>
             <label>Address</label>

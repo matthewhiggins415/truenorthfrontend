@@ -135,3 +135,11 @@ export const FormContainer = styled.div`
     width: 300px;
   }
 `
+
+export const LoadingContainer = styled.div`
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
