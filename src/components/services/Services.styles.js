@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import SmartImage from '../smartimage/SmartImage'
 
 export const Container = styled.div`
   min-height: 400px;
@@ -135,7 +136,7 @@ export const CardContainer = styled.div`
   justify-content: center;
 `
 
-export const Img = styled.img`
+export const Img = styled(SmartImage)`
   width: 250px;
   height: 200px;
   object-fit: cover;

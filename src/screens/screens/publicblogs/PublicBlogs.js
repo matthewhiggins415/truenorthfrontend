@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllPublicBlogs } from '../../../api/blog';
 import { BlogCard, BlogsPageContainer, BackBtn } from './PublicBlogs.styles';
 import { useNavigate } from "react-router-dom";
+import SmartImage from '../../../components/smartimage/SmartImage';
 import apiUrl from '../../../apiConfig';
 
 const PublicBlogs = () => {
@@ -28,7 +29,7 @@ const PublicBlogs = () => {
       <BackBtn onClick={handleBack}>Back</BackBtn>
       {blogs?.map((blog) => (
         <BlogCard to={`/blogs/${blog._id}`} key={blog._id}>
-          <img src={blog.img} />
+          <SmartImage src={blog.img} alt={blog.title} />
           <h3>{blog.title}</h3>
           <p>{blog.date}</p>
         </BlogCard>

@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import SmartImage from '../../../components/smartimage/SmartImage';
 
 export const AboutScreenContainer = styled.div`
   min-height: 90vh;
@@ -39,7 +40,7 @@ export const Section = styled.section`
   }
 `
 
-export const Img = styled.img`
+export const Img = styled(SmartImage)`
   width: 40%;
   max-height: 400px;
   margin-bottom: 20px;
