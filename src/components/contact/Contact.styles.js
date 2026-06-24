@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import SmartImage from '../smartimage/SmartImage'
 
 export const ContactContainer = styled.div`
   min-height: 70vh;
@@ -47,7 +48,7 @@ export const MapContainer = styled.div`
   }
 `
 
-export const Img = styled.img`
+export const Img = styled(SmartImage)`
   width: 90%;
   min-height: 75%;
   border-radius: 15px;

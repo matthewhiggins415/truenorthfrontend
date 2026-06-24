@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import SmartImage from '../../../components/smartimage/SmartImage';
 
 export const PublicBlogContainer = styled.div`
   padding: 40px;
@@ -14,7 +15,7 @@ export const PublicBlogContainer = styled.div`
   }
 `
 
-export const Img = styled.img`
+export const Img = styled(SmartImage)`
   margin: 0px auto;
   margin-bottom: 20px;
   width: 100%;

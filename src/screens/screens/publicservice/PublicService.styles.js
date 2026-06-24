@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import SmartImage from '../../../components/smartimage/SmartImage';
 
 export const ServiceContainer = styled.div`
   min-height: 80vh;
@@ -29,7 +30,7 @@ export const BackBtn = styled.button`
   }
 `
 
-export const Img = styled.img`
+export const Img = styled(SmartImage)`
   border-radius: 15px;
   margin-bottom: 20px;
   margin-top: 20px;
