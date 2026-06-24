@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; // Moved the CSS import to the top
 import ReactGA from 'react-ga4';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme/theme';
+import GlobalStyle from './theme/GlobalStyle';
 import { getCompany } from './api/company';
 
 // React Router
@@ -67,33 +70,36 @@ const App = () => {
   ReactGA.send({ hitType: 'pageview', page: '/' })
 
   return (
-    <Router>
-      <Navbar user={user} setUser={setUser} notify={notify} company={company}/>
-      <ToastContainer theme="light" position="top-left" autoClose={1200}/>
-      <Routes>
-        <Route path='/' element={<Landing user={user} notify={notify}/>} />
-        <Route path='/login' element={<Login user={user} setUser={setUser} notify={notify}/>} />
-        <Route path='/contacts' element={<Contacts user={user} setUser={setUser} notify={notify}/>} />
-        <Route path='/newcontact' element={<NewContact user={user} notify={notify}/>} />
-        <Route path='/contact/:id' element={<Contact user={user} notify={notify}/>} />
-        <Route path='/updatecontact/:id' element={<UpdateContact user={user} notify={notify}/>} />
-        <Route path='/adminblogs' element={<AdminBlogs user={user} notify={notify}/>} />
-        <Route path='/adminblog/:id' element={<AdminBlog user={user} notify={notify}/>} />
-        <Route path='/adminnewblog' element={<CreateBlog user={user} notify={notify}/>} />
-        <Route path='/adminblogedit/:id' element={<AdminEditBlog user={user} notify={notify}/>} />
-        <Route path='/blogs' element={<PublicBlogs />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/blogs/:id' element={<PublicBlog />} />
-        <Route path='/admin/services' element={<AdminServices />} />
-        <Route path='/admin/create-service' element={<AdminCreateService user={user} notify={notify} />} />
-        <Route path='/admin/services/:id' element={<AdminEditService user={user} notify={notify} />} />
-        <Route path='/services/:id' element={<PublicService notify={notify}/>} />
-        <Route path='/admin/company' element={<AdminCompany user={user} notify={notify} />} />
-        <Route path='/admin/edit-company/:id' element={<AdminEditCompany user={user} notify={notify} />} />
-        <Route path='/admin/images' element={<AdminImages user={user} notify={notify} />}/>
-      </Routes>
-      <Footer company={company}/>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Router>
+        <Navbar user={user} setUser={setUser} notify={notify} company={company}/>
+        <ToastContainer theme="light" position="top-left" autoClose={1200}/>
+        <Routes>
+          <Route path='/' element={<Landing user={user} notify={notify}/>} />
+          <Route path='/login' element={<Login user={user} setUser={setUser} notify={notify}/>} />
+          <Route path='/contacts' element={<Contacts user={user} setUser={setUser} notify={notify}/>} />
+          <Route path='/newcontact' element={<NewContact user={user} notify={notify}/>} />
+          <Route path='/contact/:id' element={<Contact user={user} notify={notify}/>} />
+          <Route path='/updatecontact/:id' element={<UpdateContact user={user} notify={notify}/>} />
+          <Route path='/adminblogs' element={<AdminBlogs user={user} notify={notify}/>} />
+          <Route path='/adminblog/:id' element={<AdminBlog user={user} notify={notify}/>} />
+          <Route path='/adminnewblog' element={<CreateBlog user={user} notify={notify}/>} />
+          <Route path='/adminblogedit/:id' element={<AdminEditBlog user={user} notify={notify}/>} />
+          <Route path='/blogs' element={<PublicBlogs />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/blogs/:id' element={<PublicBlog />} />
+          <Route path='/admin/services' element={<AdminServices />} />
+          <Route path='/admin/create-service' element={<AdminCreateService user={user} notify={notify} />} />
+          <Route path='/admin/services/:id' element={<AdminEditService user={user} notify={notify} />} />
+          <Route path='/services/:id' element={<PublicService notify={notify}/>} />
+          <Route path='/admin/company' element={<AdminCompany user={user} notify={notify} />} />
+          <Route path='/admin/edit-company/:id' element={<AdminEditCompany user={user} notify={notify} />} />
+          <Route path='/admin/images' element={<AdminImages user={user} notify={notify} />}/>
+        </Routes>
+        <Footer company={company}/>
+      </Router>
+    </ThemeProvider>
   );
 }
 

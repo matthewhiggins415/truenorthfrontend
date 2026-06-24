@@ -16,7 +16,7 @@ export const AdminBlogScreenHeader = styled.div`
   margin-bottom: 20px;
 
   h2 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 `
 

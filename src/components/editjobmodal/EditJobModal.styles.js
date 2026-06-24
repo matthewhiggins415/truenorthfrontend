@@ -81,7 +81,7 @@ export const Select = styled.select`
   cursor: pointer;
   border: none;
   margin-top: 8px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   outline: none;
   appearance: none;
@@ -131,7 +131,7 @@ export const FormBtn = styled.button`
   background-color: #ee1c4a;
   cursor: pointer;
   color: white;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 25px;
   letter-spacing: 1px;
 `
@@ -141,7 +141,7 @@ export const TopContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 `
 
 export const CloseBtn = styled.button`
@@ -161,7 +161,7 @@ export const CloseBtn = styled.button`
 
 export const Label = styled.label`
   text-align: start;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 `
 
 export const LoadingContainer = styled.div`

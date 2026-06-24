@@ -53,7 +53,7 @@ export const BlogPostContainer = styled.div`
   width: 400px;
   justify-content: space-evenly;
   margin: 20px auto;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media only screen and (max-width: 600px) {
     width: 300px;

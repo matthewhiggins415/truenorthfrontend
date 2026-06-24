@@ -22,16 +22,22 @@ export const ServiceCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  border-radius: 10px;
-  margin: 10px;
-  border: 5px solid rgba(238, 28, 74, 0.6);
+  border-radius: ${({ theme }) => theme.radius.md};
+  margin: 12px;
+  border: 4px solid rgba(238, 28, 74, 0.55);
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: ${({ theme }) => theme.shadow.md};
+  transition: ${({ theme }) => theme.transition};
   background-image: url(${props => props.imgSrc});
   background-size: cover; 
   background-position: center; 
   /* background-size: 120%; Increase the background-size */
   background-repeat: no-repeat;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadow.lg};
+  }
 
 
   h3 {
@@ -39,13 +45,13 @@ export const ServiceCard = styled.div`
     margin-top: 10px;
     letter-spacing: 1px;
     font-size: 22px;
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: white;
 
   }
 
   p {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
   }
 `
@@ -56,26 +62,35 @@ export const OfferCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  margin: 10px;
-  background-color: white;
+  justify-content: flex-start;
+  border-radius: ${({ theme }) => theme.radius.md};
+  margin: 12px;
+  background-color: ${({ theme }) => theme.colors.surface};
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadow.sm};
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadow.lg};
+  }
 
   div {
-    padding: 10px;
+    padding: 16px;
   }
 
   p {
-    font-family: 'Mulish', sans-serif;
-    margin-top: 10px;
-    font-size: 18px;
+    font-family: ${({ theme }) => theme.fonts.body};
+    color: ${({ theme }) => theme.colors.textMuted};
+    margin-top: 8px;
+    font-size: 16px;
   } 
 
   h3 {
-    letter-spacing: 1px;
-    font-size: 22px;
+    letter-spacing: -0.01em;
+    font-size: 21px;
   }
 `
 
@@ -94,26 +109,43 @@ export const OfferTopContainer = styled.div`
   text-align: center;
 
   h2 {
-    padding-bottom: 20px;
-    border-bottom: 3px solid black;
-    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
     margin-top: 20px;
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 400;
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-weight: 700;
     font-style: normal;
-    width: 50%;
-    font-size: 45px;
-    letter-spacing: 1px;
-    color: black;
+    width: 60%;
+    max-width: 760px;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: ${({ theme }) => theme.colors.navy};
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 4px;
+      border-radius: ${({ theme }) => theme.radius.pill};
+      background-color: ${({ theme }) => theme.colors.red};
+    }
   }
 
   p {
-    width: 50%;
+    width: 60%;
+    max-width: 680px;
     margin-top: 10px;
     margin-bottom: 20px;
-    font-family: 'Mulish', sans-serif;
-    font-size: 20px;
-    letter-spacing: 1px;
+    font-family: ${({ theme }) => theme.fonts.body};
+    font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: 0;
+    color: ${({ theme }) => theme.colors.textMuted};
   }
 `
 
@@ -147,15 +179,22 @@ export const Img = styled(SmartImage)`
 export const DetailsBtn = styled.button`
   width: 80%;
   min-width: 170px;
-  padding: 15px 20px;
-  margin: 20px auto;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 20px;
+  padding: 12px 20px;
+  margin: 8px auto 20px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.radius.pill};
   border: none;
-  background-color: #ee1c4a;
+  background-color: ${({ theme }) => theme.colors.red};
   color: white;
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.redDark};
+    transform: translateY(-1px);
+  }
 `
 
 export const CardInfo = styled.div`

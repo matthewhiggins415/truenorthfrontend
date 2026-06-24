@@ -4,22 +4,27 @@ import { Link } from 'react-router-dom';
 export const NavbarContainer = styled.nav`
   width: auto;
   min-height: 80px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.surface};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 12px 32px;
   margin: 0 auto;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  box-shadow: ${({ theme }) => theme.shadow.sm};
 
   h3 {
-    font-family: 'Mulish', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.body};
     font-size: 20px;
     font-weight: 600;
   }
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
-    padding-bottom: 20px;
+    padding: 12px 16px 20px;
 
     h3 {
       margin-bottom: 15px;
@@ -53,12 +58,12 @@ export const LogoContainer = styled(Link)`
 
 export const Img = styled.img`
   height: auto;
-  width: 450px;
+  width: 230px;
   object-fit: cover;
   margin-right: 20px;
 
   @media only screen and (max-width: 500px) {
-    width: 400px;
+    width: 200px;
     margin-right: 0px;
   }
 `
@@ -75,7 +80,7 @@ export const AdminBtn = styled.button`
   background-color: white;
   transition: 150ms ease-in-out;
   border: none;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
 
   &:hover {
@@ -99,7 +104,7 @@ export const AdminLink = styled(Link)`
   text-align: center;
   color: black;
   text-decoration: none;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
 
   &:hover {
@@ -152,7 +157,7 @@ export const CallUsContainer = styled.div`
   justify-content: space-between;
   font-size: 25px;
   margin-right: 25px;
-  font-family: "Libre Franklin", sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media only screen and (max-width: 600px) {
     margin-right: 0px;
@@ -163,9 +168,18 @@ export const CallContainer = styled.div`
   a {
     color: white;
     text-decoration: none;
-    background-color: #ee1c4a;
-    padding: 10px;
-    border-radius: 10px;
+    background-color: ${({ theme }) => theme.colors.red};
+    padding: 10px 18px;
+    border-radius: ${({ theme }) => theme.radius.pill};
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: ${({ theme }) => theme.shadow.sm};
+    transition: ${({ theme }) => theme.transition};
+    display: inline-block;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.redDark};
+      transform: translateY(-1px);
+    }
   }
 `

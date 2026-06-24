@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const ReviewSectionContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -9,33 +9,49 @@ export const ReviewSectionContainer = styled.div`
   flex-direction: column;
   margin-bottom: 100px;
   margin-top: 50px;
+  padding: 0 20px;
 
   h2 {
+    position: relative;
     text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 3px solid black;
-    margin-bottom: 0px;
+    padding-bottom: 18px;
+    margin-bottom: 10px;
     margin-top: 20px;
-    font-family: "Fjalla One", sans-serif;
-    font-weight: 400;
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-weight: 700;
     font-style: normal;
-    width: 50%;
-    font-size: 45px;
-    letter-spacing: 1px;
+    font-size: 40px;
+    letter-spacing: -0.02em;
+    color: ${({ theme }) => theme.colors.navy};
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 4px;
+      border-radius: ${({ theme }) => theme.radius.pill};
+      background-color: ${({ theme }) => theme.colors.red};
+    }
   }
 `
 
 export const ReviewContainer = styled.div`
-  width: 100vw;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 20px;
+  align-items: stretch;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
   flex-wrap: wrap;
 
   h3 {
-    font-size: 18px;
-    letter-spacing: 1.2px;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.navy};
+    letter-spacing: 0;
   }
 
   @media only screen and (max-width: 400px) {
@@ -44,15 +60,27 @@ export const ReviewContainer = styled.div`
 `
 
 export const Review  = styled.div`
-  width: 300px;
+  width: 320px;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.lg};
+  box-shadow: ${({ theme }) => theme.shadow.sm};
+  padding: 28px 24px;
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: ${({ theme }) => theme.shadow.lg};
+  }
 
   h3 {
-    font-family: 'Mulish', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-weight: 600;
   }
 
   @media only screen and (max-width: 600px) {
@@ -71,17 +99,19 @@ export const Img = styled.img`
 
 export const P = styled.p`
   text-align: center;
-  font-size: 18px;
-  letter-spacing: 1.2px;
-  font-style: bold;
-  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: ${({ theme }) => theme.colors.textMuted};
+  letter-spacing: 0;
+  margin-bottom: 18px;
 `
 
 export const StarContainer = styled.div`
   color: gold;  
-  width: 50%;
+  width: auto;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  margin: 15px 0px;
+  justify-content: center;
+  gap: 4px;
+  margin: 4px 0px 16px;
 `

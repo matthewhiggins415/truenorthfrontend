@@ -34,7 +34,7 @@ export const SectionContainer = styled.div`
   padding: 20px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   h3 {
     margin-bottom: 15px;
@@ -143,7 +143,7 @@ export const FormContainer = styled.div`
   justify-content: space-between;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 15px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media only screen and (max-width: 600px) {
     width: 300px;

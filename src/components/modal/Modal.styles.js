@@ -26,17 +26,20 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  border: 2px solid white;
-  padding: 10px;
+  border: none;
+  padding: 28px 24px;
   background-color: white;
-  border-radius: 15px;
+  border-radius: ${({ theme }) => theme.radius.lg};
+  box-shadow: ${({ theme }) => theme.shadow.lg};
   color: black;
 
   h2 {
     margin-bottom: 10px;
     margin-top: 10px;
     padding-bottom: 5px;
-    font-family: 'Mulish', sans-serif;
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.navy};
     text-align: center;
   }
 
@@ -57,19 +60,27 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   height: 40px;
   width: 100%;
-  background-color: #efefef;
-  border: none;
+  background-color: ${({ theme }) => theme.colors.surfaceMuted};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.radius.md};
   padding: 25px;
   color: black;
   outline: none;
-  font-family: 'Mulish', sans-serif;
-  font-size: 18px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: 16px;
+  transition: ${({ theme }) => theme.transition};
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.navy};
+    background-color: ${({ theme }) => theme.colors.surface};
+    box-shadow: 0 0 0 3px rgba(37, 51, 95, 0.12);
+  }
 `
 
 export const Select = styled.select`
   height: 40px;
-  border-radius: 15px;
-  border: 1px solid black;
+  border-radius: ${({ theme }) => theme.radius.md};
+  border: 1px solid ${({ theme }) => theme.colors.border};
   width: 200px;
   padding: 10px;
   color: black;
@@ -78,27 +89,42 @@ export const Select = styled.select`
 export const SubmitBtn = styled.button`
   width: 90%;
   border: none;
-  padding: 20px 50px;
+  padding: 16px 50px;
   text-align: center;
-  background-color: #ee1c4a;
+  background-color: ${({ theme }) => theme.colors.red};
   cursor: pointer;
   margin-top: 10px;
   color: white;
-  font-family: 'Mulish', sans-serif;
-  font-size: 18px;
+  border-radius: ${({ theme }) => theme.radius.pill};
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 600;
+  font-size: 16px;
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.redDark};
+    transform: translateY(-1px);
+  }
 `
 
 export const CloseBtn = styled.button`
   width: 90%;
-  border: none;
-  padding: 20px 50px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  padding: 16px 50px;
   text-align: center;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.surfaceMuted};
   cursor: pointer;
   margin-top: 10px;
-  color: white;
-  font-family: 'Mulish', sans-serif;
-  font-size: 18px;
+  color: ${({ theme }) => theme.colors.text};
+  border-radius: ${({ theme }) => theme.radius.pill};
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 600;
+  font-size: 16px;
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.border};
+  }
 `
 
 export const LoadingContainer = styled.div`
@@ -109,7 +135,7 @@ export const LoadingContainer = styled.div`
   display: ${(props) => (props.loading ? "flex" : "none")};
   flex-direction: column;
   text-align: center;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   justify-content: center;
   align-items: center;
 

@@ -46,7 +46,7 @@ export const FormContainer = styled.div`
   border-radius: 15px;
 
   h2 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 `
 
@@ -67,7 +67,7 @@ export const InputContainer = styled.div`
   flex-direction: column;
 
   label {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 `
 

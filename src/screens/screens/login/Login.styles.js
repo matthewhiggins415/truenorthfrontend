@@ -51,7 +51,7 @@ export const SubmitBtn = styled.button`
   margin: 0 auto;
   margin-bottom: none;
   color: white;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 25px;
   letter-spacing: 1px;
 `

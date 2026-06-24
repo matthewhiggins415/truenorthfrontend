@@ -24,7 +24,7 @@ export const BlogCard = styled(Link)`
   padding: 15px; 
   border-radius: 15px;
   margin: 20px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   img {
     width: 100%;

@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 
 export const HeroContainer = styled.div`
   width: 100%;
-  min-height: 500px;
+  min-height: 560px;
   display: flex;
   align-items: center;
   margin: 0px;
-  background-image: url(${props => props.imgSrc});
-  background-size: cover; 
-  background-position: center; 
-  /* background-size: 120%; Increase the background-size */
+  background-image: linear-gradient(rgba(27, 38, 71, 0.30), rgba(27, 38, 71, 0.60)), url(${props => props.imgSrc});
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 
   @media only screen and (max-width: 600px) {
@@ -20,10 +19,12 @@ export const HeroContainer = styled.div`
 `
 
 export const Overlay = styled.div`
-  font-size: 2.5em;
+  font-size: 2.6em;
+  font-weight: 700;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: .8px;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  letter-spacing: -0.01em;
+  line-height: 1.15;
   color: white;
   display: flex;
   position: absolute;
@@ -34,18 +35,18 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1; 
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  z-index: 1;
   padding-top: 15px;
   padding-bottom: 15px;
+  gap: 6px;
 
   @media only screen and (max-width: 600px) {
-    font-size: 1.5em;
+    font-size: 1.6em;
     width: 100%;
     height: 50%;
     top: 420px;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
 
     h2 {
@@ -55,19 +56,28 @@ export const Overlay = styled.div`
 `;
 
 export const QuoteBtn = styled.button`
-  padding: 20px 80px;
-  border: 2px solid #ee1c4a;
-  font-size: 20px;
+  padding: 16px 56px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: .8px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  letter-spacing: 0.3px;
   color: white;
-  border-radius: 15px;
+  border-radius: ${({ theme }) => theme.radius.pill};
   cursor: pointer;
-  background-color: #ee1c4a;
-  transition: 150ms ease-in-out;
-  margin-top: 20px;
+  background-color: ${({ theme }) => theme.colors.red};
+  box-shadow: 0 10px 24px rgba(238, 28, 74, 0.35);
+  transition: ${({ theme }) => theme.transition};
+  margin-top: 24px;
   margin-bottom: 20px;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.redDark};
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(238, 28, 74, 0.45);
+  }
 `
 
 export const HeroNavContainer = styled.div`
@@ -77,7 +87,7 @@ export const HeroNavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
-  font-family: "DM Sans", sans-serif;
+  font-family: ${({ theme }) => theme.fonts.body};
   background-color: #25335F;
 
   @media only screen and (max-width: 600px) {

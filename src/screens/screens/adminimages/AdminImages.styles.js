@@ -6,7 +6,7 @@ export const ImagesScreenContainer = styled.div`
   padding: 20px;
 
   h2 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 `
 
@@ -15,7 +15,7 @@ export const Warning = styled.p`
   width: 50%;
   margin-top: 20px;
   padding: 15px 30px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media only screen and (max-width: 600px) {
     width: 90%;
