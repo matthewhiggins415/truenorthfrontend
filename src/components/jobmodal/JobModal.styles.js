@@ -59,7 +59,7 @@ export const TopContainer = styled.div`
   justify-content: end;
   align-items: center;
   margin-bottom: 20px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 `
 
 export const CloseBtn = styled.button`
@@ -92,10 +92,10 @@ export const BottomBtnContainer = styled.div`
 
 export const EditBtn = styled.button`
   padding: 5px 10px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: black;
   color: white;
   border: none;
@@ -105,7 +105,7 @@ export const EditBtn = styled.button`
 export const DeleteBtn = styled.button`
   padding: 5px 10px;
   font-size: 18px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   margin-left: 20px;
   background-color: red;
   color: white;

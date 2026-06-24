@@ -5,7 +5,7 @@ export const ProfileScreen = styled.div`
   width: 100%;
   border-top: 2px solid lightblue;
   padding: 20px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 `
 
 export const ProfileContainer = styled.div`

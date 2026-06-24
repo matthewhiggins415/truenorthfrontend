@@ -23,16 +23,18 @@ export const Img = styled(SmartImage)`
 `
 
 export const Btn = styled.button`
-  padding: 5px 10px;
-  border-radius: 10px;
-  background-color: white;
-  transition: 150ms ease-in-out;
+  padding: 8px 20px;
+  border-radius: ${({ theme }) => theme.radius.pill};
+  background-color: ${({ theme }) => theme.colors.surface};
+  transition: ${({ theme }) => theme.transition};
   cursor: pointer;
-  border: 1px solid black;
+  color: ${({ theme }) => theme.colors.navy};
+  font-weight: 600;
+  border: 1px solid ${({ theme }) => theme.colors.navy};
   margin-bottom: 20px;
 
   &:hover {
-    background-color: black;
+    background-color: ${({ theme }) => theme.colors.navy};
     color: white;
-}
+  }
 `

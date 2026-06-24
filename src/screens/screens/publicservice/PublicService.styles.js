@@ -47,14 +47,14 @@ export const Container = styled.div`
   }
 
   h1 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
 `
 
 export const H2 = styled.h2`
   margin-bottom: 20px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 30px;
 `
 
@@ -66,7 +66,7 @@ export const Line = styled.div`
 
 export const P = styled.p`
   margin-bottom: 20px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18.5px;
 
   &:last-child {

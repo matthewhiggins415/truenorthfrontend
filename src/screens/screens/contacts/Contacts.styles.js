@@ -22,7 +22,7 @@ export const ContactsHeader = styled.div`
   margin-bottom: 10px;
 
   h2 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   @media only screen and (max-width: 600px) {
@@ -67,7 +67,7 @@ export const IndividualContact = styled.button`
   background-color: white;
   display: flex;
   align-items: center;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   justify-content: space-between;
   margin: 10px 0px;

@@ -23,7 +23,7 @@ export const ProfileEditContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
   h1 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: center;
     margin-bottom: 15px;
   }
@@ -61,7 +61,7 @@ export const InputContainer = styled.div`
   flex-direction: column;
 
   label {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 `
 
@@ -148,7 +148,7 @@ export const FormContainer = styled.div`
   justify-content: space-between;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 15px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
 
   @media only screen and (max-width: 600px) {
     width: 300px;

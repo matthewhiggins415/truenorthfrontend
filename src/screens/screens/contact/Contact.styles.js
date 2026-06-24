@@ -18,7 +18,7 @@ export const ContactSectionContainer = styled.div`
   width: 90%;
   max-width: 1200px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   height: auto;
 

@@ -57,7 +57,7 @@ export const Form = styled.form`
   h2 {
     margin-bottom: 30px;
     margin-top: 30px;
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: center;
   }
 
@@ -77,7 +77,7 @@ export const InputContainer = styled.div`
   border: none;
 
   label {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 24px;
     margin-bottom: 10px;
   }
@@ -91,7 +91,7 @@ export const Input = styled.input`
   padding: 25px;
   color: black;
   outline: none;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
 `
 
@@ -104,7 +104,7 @@ export const Select = styled.select`
   color: black;
   cursor: pointer;
   border: none;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
 `
 
@@ -130,7 +130,7 @@ export const CloseBtn = styled.button`
   cursor: pointer;
   margin-top: 10px;
   color: white;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
 `
 

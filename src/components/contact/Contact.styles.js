@@ -36,7 +36,7 @@ export const MapContainer = styled.div`
   justify-content: space-evenly; 
 
   h1 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   @media only screen and (max-width: 700px) {
@@ -69,7 +69,7 @@ export const Form = styled.form`
   justify-content: space-evenly;
 
   h1 {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   @media only screen and (max-width: 700px) {
@@ -116,13 +116,21 @@ export const FormBottom = styled.div`
 `
 
 export const InputTop = styled.input`
-  border: none;
-  background-color: #efefef;
-  padding: 15px 20px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background-color: ${({ theme }) => theme.colors.surfaceMuted};
+  padding: 14px 18px;
   width: 45%;
   outline: none;
-  font-family: 'Mulish', sans-serif;
-  font-size: 18px;
+  border-radius: ${({ theme }) => theme.radius.md};
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: 16px;
+  transition: ${({ theme }) => theme.transition};
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.navy};
+    background-color: ${({ theme }) => theme.colors.surface};
+    box-shadow: 0 0 0 3px rgba(37, 51, 95, 0.12);
+  }
 
   @media only screen and (max-width: 500px) {
     width: 100%;
@@ -134,13 +142,21 @@ export const InputTop = styled.input`
 `
 
 export const InputBottom = styled.input`
-  border: none;
-  background-color: #efefef;
-  padding: 15px 20px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  background-color: ${({ theme }) => theme.colors.surfaceMuted};
+  padding: 14px 18px;
   width: 100%;
   outline: none;
-  font-family: 'Mulish', sans-serif;
-  font-size: 18px;
+  border-radius: ${({ theme }) => theme.radius.md};
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: 16px;
+  transition: ${({ theme }) => theme.transition};
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.navy};
+    background-color: ${({ theme }) => theme.colors.surface};
+    box-shadow: 0 0 0 3px rgba(37, 51, 95, 0.12);
+  }
 
   &:last-child {
     margin-top: 30px;
@@ -154,16 +170,26 @@ export const InputBottom = styled.input`
 `
 
 export const SubmitBtn = styled.button`
-  background-color: #ee1c4a;
+  background-color: ${({ theme }) => theme.colors.red};
   color: white;
-  padding: 20px 30px;
+  padding: 16px 30px;
   width: 80%;
-  margin-top: 20px;
+  margin-top: 24px;
   border: none;
+  border-radius: ${({ theme }) => theme.radius.pill};
   cursor: pointer;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 25px;
-  letter-spacing: 1px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 24px rgba(238, 28, 74, 0.28);
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.redDark};
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(238, 28, 74, 0.38);
+  }
 
   @media only screen and (max-width: 700px) {
     margin-top: 30px;

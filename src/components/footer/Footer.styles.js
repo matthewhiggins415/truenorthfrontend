@@ -59,14 +59,16 @@ export const FooterInfo = styled.div`
   }
 
   p {
-    font-family: "Libre Franklin", sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   h4 {
-    border-bottom: 2px solid #ee1c4a;
-    padding: 5px;
-    font-family: 'Mulish', sans-serif;
-    font-size: 25px;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.red};
+    padding-bottom: 8px;
+    font-family: ${({ theme }) => theme.fonts.heading};
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0;
   }
 
   a {
@@ -82,7 +84,7 @@ export const FooterServicesContainer = styled.div`
   margin-top: 20px;
 
   a {
-    font-family: 'Mulish', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
     margin-top: 15px;
     transition: 250ms ease-in-out;
@@ -94,7 +96,7 @@ export const FooterServicesContainer = styled.div`
 `
 
 export const FooterServiceLink = styled(Link)`
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
   margin-top: 5px;
 `
